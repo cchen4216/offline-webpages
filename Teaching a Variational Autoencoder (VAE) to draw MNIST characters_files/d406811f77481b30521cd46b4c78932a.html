@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!-- saved from url=(0069)https://towardsdatascience.com/media/d406811f77481b30521cd46b4c78932a -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>vae.py – Medium</title><meta name="twitter:widgets:csp" content="on"><meta name="robots" content="noindex"><!--<base target="_blank">--><base href="." target="_blank"><style>body {text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: "ff-tisa-web-pro", Georgia, Cambria, "Times New Roman", Times, serif; font-weight: 400; color: #333332; font-size: 18px; line-height: 1.4; margin: 0; background-color: white; overflow: hidden;}iframe {max-width: 100%;}</style></head><body><style>.gist .gist-file { margin-bottom: 0 !important; }.gist { text-rendering: auto; }</style><script src="./a83e57393647dd2971d5ae12bb01f504.js" charset="utf-8"></script><link rel="stylesheet" href="./gist-embed-4e8330898d16b1b65e7f0856076a5a28.css"><div id="gist82173307" class="gist">
+    <div class="gist-file">
+      <div class="gist-data">
+        <div class="js-gist-file-update-container js-task-list-container file-box">
+  <div id="file-vae-py" class="file">
+    
+
+  <div itemprop="text" class="Box-body p-0 blob-wrapper data type-python ">
+      
+<table class="highlight tab-size js-file-line-container" data-tab-size="8">
+      <tbody><tr>
+        <td id="file-vae-py-L1" class="blob-num js-line-number" data-line-number="1"></td>
+        <td id="file-vae-py-LC1" class="blob-code blob-code-inner js-file-line">unreshaped <span class="pl-k">=</span> tf.reshape(dec, [<span class="pl-k">-</span><span class="pl-c1">1</span>, <span class="pl-c1">28</span><span class="pl-k">*</span><span class="pl-c1">28</span>])</td>
+      </tr>
+      <tr>
+        <td id="file-vae-py-L2" class="blob-num js-line-number" data-line-number="2"></td>
+        <td id="file-vae-py-LC2" class="blob-code blob-code-inner js-file-line">img_loss <span class="pl-k">=</span> tf.reduce_sum(tf.squared_difference(unreshaped, Y_flat), <span class="pl-c1">1</span>)</td>
+      </tr>
+      <tr>
+        <td id="file-vae-py-L3" class="blob-num js-line-number" data-line-number="3"></td>
+        <td id="file-vae-py-LC3" class="blob-code blob-code-inner js-file-line">latent_loss <span class="pl-k">=</span> <span class="pl-k">-</span><span class="pl-c1">0.5</span> <span class="pl-k">*</span> tf.reduce_sum(<span class="pl-c1">1.0</span> <span class="pl-k">+</span> <span class="pl-c1">2.0</span> <span class="pl-k">*</span> sd <span class="pl-k">-</span> tf.square(mn) <span class="pl-k">-</span> tf.exp(<span class="pl-c1">2.0</span> <span class="pl-k">*</span> sd), <span class="pl-c1">1</span>)</td>
+      </tr>
+      <tr>
+        <td id="file-vae-py-L4" class="blob-num js-line-number" data-line-number="4"></td>
+        <td id="file-vae-py-LC4" class="blob-code blob-code-inner js-file-line">loss <span class="pl-k">=</span> tf.reduce_mean(img_loss <span class="pl-k">+</span> latent_loss)</td>
+      </tr>
+      <tr>
+        <td id="file-vae-py-L5" class="blob-num js-line-number" data-line-number="5"></td>
+        <td id="file-vae-py-LC5" class="blob-code blob-code-inner js-file-line">optimizer <span class="pl-k">=</span> tf.train.AdamOptimizer(<span class="pl-c1">0.0005</span>).minimize(loss)</td>
+      </tr>
+      <tr>
+        <td id="file-vae-py-L6" class="blob-num js-line-number" data-line-number="6"></td>
+        <td id="file-vae-py-LC6" class="blob-code blob-code-inner js-file-line">sess <span class="pl-k">=</span> tf.Session()</td>
+      </tr>
+      <tr>
+        <td id="file-vae-py-L7" class="blob-num js-line-number" data-line-number="7"></td>
+        <td id="file-vae-py-LC7" class="blob-code blob-code-inner js-file-line">sess.run(tf.global_variables_initializer())</td>
+      </tr>
+</tbody></table>
+
+
+  </div>
+
+  </div>
+</div>
+
+      </div>
+      <div class="gist-meta">
+        <a href="https://gist.github.com/FelixMohr/a83e57393647dd2971d5ae12bb01f504/raw/70658d18af9cbc3383be7f427e1ab99ae454d025/vae.py" style="float:right">view raw</a>
+        <a href="https://gist.github.com/FelixMohr/a83e57393647dd2971d5ae12bb01f504#file-vae-py">vae.py</a>
+        hosted with ❤ by <a href="https://github.com/">GitHub</a>
+      </div>
+    </div>
+</div>
+<script>var height = -1; var delayMs = 200;function notifyResize(height) {height = height ? height : document.documentElement.offsetHeight; var resized = false; if (window.donkey && donkey.resize) {donkey.resize(height); resized = true;}if (parent && parent._resizeIframe) {var obj = {iframe: window.frameElement, height: height}; parent._resizeIframe(obj); resized = true;}if (window.location && window.location.hash === "#amp=1" && window.parent && window.parent.postMessage) {window.parent.postMessage({sentinel: "amp", type: "embed-size", height: height}, "*");}if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.resize) {window.webkit.messageHandlers.resize.postMessage(height); resized = true;}return resized;}function maybeResize() {if (document.documentElement.offsetHeight != height && notifyResize()) {height = document.documentElement.offsetHeight;}delayMs = Math.min(delayMs * 2, 1000000); setTimeout(maybeResize, delayMs);}maybeResize();</script></body></html>

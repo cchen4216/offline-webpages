@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<!-- saved from url=(0069)https://towardsdatascience.com/media/7e1dd53eb62ece84693a3c273f71d223 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>vae.py – Medium</title><meta name="twitter:widgets:csp" content="on"><meta name="robots" content="noindex"><!--<base target="_blank">--><base href="." target="_blank"><style>body {text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: "ff-tisa-web-pro", Georgia, Cambria, "Times New Roman", Times, serif; font-weight: 400; color: #333332; font-size: 18px; line-height: 1.4; margin: 0; background-color: white; overflow: hidden;}iframe {max-width: 100%;}</style></head><body><style>.gist .gist-file { margin-bottom: 0 !important; }.gist { text-rendering: auto; }</style><script src="./af9a054178a6231887b41ecf986b00c7.js" charset="utf-8"></script><link rel="stylesheet" href="./gist-embed-4e8330898d16b1b65e7f0856076a5a28.css"><div id="gist82173265" class="gist">
+    <div class="gist-file">
+      <div class="gist-data">
+        <div class="js-gist-file-update-container js-task-list-container file-box">
+  <div id="file-vae-py" class="file">
+    
+
+  <div itemprop="text" class="Box-body p-0 blob-wrapper data type-python ">
+      
+<table class="highlight tab-size js-file-line-container" data-tab-size="8">
+      <tbody><tr>
+        <td id="file-vae-py-L1" class="blob-num js-line-number" data-line-number="1"></td>
+        <td id="file-vae-py-LC1" class="blob-code blob-code-inner js-file-line"><span class="pl-k">def</span> <span class="pl-en">decoder</span>(<span class="pl-smi">sampled_z</span>, <span class="pl-smi">keep_prob</span>):</td>
+      </tr>
+      <tr>
+        <td id="file-vae-py-L2" class="blob-num js-line-number" data-line-number="2"></td>
+        <td id="file-vae-py-LC2" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">with</span> tf.variable_scope(<span class="pl-s"><span class="pl-pds">"</span>decoder<span class="pl-pds">"</span></span>, <span class="pl-v">reuse</span><span class="pl-k">=</span><span class="pl-c1">None</span>):</td>
+      </tr>
+      <tr>
+        <td id="file-vae-py-L3" class="blob-num js-line-number" data-line-number="3"></td>
+        <td id="file-vae-py-LC3" class="blob-code blob-code-inner js-file-line">        x <span class="pl-k">=</span> tf.layers.dense(sampled_z, <span class="pl-v">units</span><span class="pl-k">=</span>inputs_decoder, <span class="pl-v">activation</span><span class="pl-k">=</span>lrelu)</td>
+      </tr>
+      <tr>
+        <td id="file-vae-py-L4" class="blob-num js-line-number" data-line-number="4"></td>
+        <td id="file-vae-py-LC4" class="blob-code blob-code-inner js-file-line">        x <span class="pl-k">=</span> tf.layers.dense(x, <span class="pl-v">units</span><span class="pl-k">=</span>inputs_decoder <span class="pl-k">*</span> <span class="pl-c1">2</span> <span class="pl-k">+</span> <span class="pl-c1">1</span>, <span class="pl-v">activation</span><span class="pl-k">=</span>lrelu)</td>
+      </tr>
+      <tr>
+        <td id="file-vae-py-L5" class="blob-num js-line-number" data-line-number="5"></td>
+        <td id="file-vae-py-LC5" class="blob-code blob-code-inner js-file-line">        x <span class="pl-k">=</span> tf.reshape(x, reshaped_dim)</td>
+      </tr>
+      <tr>
+        <td id="file-vae-py-L6" class="blob-num js-line-number" data-line-number="6"></td>
+        <td id="file-vae-py-LC6" class="blob-code blob-code-inner js-file-line">        x <span class="pl-k">=</span> tf.layers.conv2d_transpose(x, <span class="pl-v">filters</span><span class="pl-k">=</span><span class="pl-c1">64</span>, <span class="pl-v">kernel_size</span><span class="pl-k">=</span><span class="pl-c1">4</span>, <span class="pl-v">strides</span><span class="pl-k">=</span><span class="pl-c1">2</span>, <span class="pl-v">padding</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">'</span>same<span class="pl-pds">'</span></span>, <span class="pl-v">activation</span><span class="pl-k">=</span>tf.nn.relu)</td>
+      </tr>
+      <tr>
+        <td id="file-vae-py-L7" class="blob-num js-line-number" data-line-number="7"></td>
+        <td id="file-vae-py-LC7" class="blob-code blob-code-inner js-file-line">        x <span class="pl-k">=</span> tf.nn.dropout(x, keep_prob)</td>
+      </tr>
+      <tr>
+        <td id="file-vae-py-L8" class="blob-num js-line-number" data-line-number="8"></td>
+        <td id="file-vae-py-LC8" class="blob-code blob-code-inner js-file-line">        x <span class="pl-k">=</span> tf.layers.conv2d_transpose(x, <span class="pl-v">filters</span><span class="pl-k">=</span><span class="pl-c1">64</span>, <span class="pl-v">kernel_size</span><span class="pl-k">=</span><span class="pl-c1">4</span>, <span class="pl-v">strides</span><span class="pl-k">=</span><span class="pl-c1">1</span>, <span class="pl-v">padding</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">'</span>same<span class="pl-pds">'</span></span>, <span class="pl-v">activation</span><span class="pl-k">=</span>tf.nn.relu)</td>
+      </tr>
+      <tr>
+        <td id="file-vae-py-L9" class="blob-num js-line-number" data-line-number="9"></td>
+        <td id="file-vae-py-LC9" class="blob-code blob-code-inner js-file-line">        x <span class="pl-k">=</span> tf.nn.dropout(x, keep_prob)</td>
+      </tr>
+      <tr>
+        <td id="file-vae-py-L10" class="blob-num js-line-number" data-line-number="10"></td>
+        <td id="file-vae-py-LC10" class="blob-code blob-code-inner js-file-line">        x <span class="pl-k">=</span> tf.layers.conv2d_transpose(x, <span class="pl-v">filters</span><span class="pl-k">=</span><span class="pl-c1">64</span>, <span class="pl-v">kernel_size</span><span class="pl-k">=</span><span class="pl-c1">4</span>, <span class="pl-v">strides</span><span class="pl-k">=</span><span class="pl-c1">1</span>, <span class="pl-v">padding</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">'</span>same<span class="pl-pds">'</span></span>, <span class="pl-v">activation</span><span class="pl-k">=</span>tf.nn.relu)</td>
+      </tr>
+      <tr>
+        <td id="file-vae-py-L11" class="blob-num js-line-number" data-line-number="11"></td>
+        <td id="file-vae-py-LC11" class="blob-code blob-code-inner js-file-line">        </td>
+      </tr>
+      <tr>
+        <td id="file-vae-py-L12" class="blob-num js-line-number" data-line-number="12"></td>
+        <td id="file-vae-py-LC12" class="blob-code blob-code-inner js-file-line">        x <span class="pl-k">=</span> tf.contrib.layers.flatten(x)</td>
+      </tr>
+      <tr>
+        <td id="file-vae-py-L13" class="blob-num js-line-number" data-line-number="13"></td>
+        <td id="file-vae-py-LC13" class="blob-code blob-code-inner js-file-line">        x <span class="pl-k">=</span> tf.layers.dense(x, <span class="pl-v">units</span><span class="pl-k">=</span><span class="pl-c1">28</span><span class="pl-k">*</span><span class="pl-c1">28</span>, <span class="pl-v">activation</span><span class="pl-k">=</span>tf.nn.sigmoid)</td>
+      </tr>
+      <tr>
+        <td id="file-vae-py-L14" class="blob-num js-line-number" data-line-number="14"></td>
+        <td id="file-vae-py-LC14" class="blob-code blob-code-inner js-file-line">        img <span class="pl-k">=</span> tf.reshape(x, <span class="pl-v">shape</span><span class="pl-k">=</span>[<span class="pl-k">-</span><span class="pl-c1">1</span>, <span class="pl-c1">28</span>, <span class="pl-c1">28</span>])</td>
+      </tr>
+      <tr>
+        <td id="file-vae-py-L15" class="blob-num js-line-number" data-line-number="15"></td>
+        <td id="file-vae-py-LC15" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">return</span> img</td>
+      </tr>
+</tbody></table>
+
+
+  </div>
+
+  </div>
+</div>
+
+      </div>
+      <div class="gist-meta">
+        <a href="https://gist.github.com/FelixMohr/af9a054178a6231887b41ecf986b00c7/raw/e69fa3348f8e9f5bfbed665e5aaf4993de2b050e/vae.py" style="float:right">view raw</a>
+        <a href="https://gist.github.com/FelixMohr/af9a054178a6231887b41ecf986b00c7#file-vae-py">vae.py</a>
+        hosted with ❤ by <a href="https://github.com/">GitHub</a>
+      </div>
+    </div>
+</div>
+<script>var height = -1; var delayMs = 200;function notifyResize(height) {height = height ? height : document.documentElement.offsetHeight; var resized = false; if (window.donkey && donkey.resize) {donkey.resize(height); resized = true;}if (parent && parent._resizeIframe) {var obj = {iframe: window.frameElement, height: height}; parent._resizeIframe(obj); resized = true;}if (window.location && window.location.hash === "#amp=1" && window.parent && window.parent.postMessage) {window.parent.postMessage({sentinel: "amp", type: "embed-size", height: height}, "*");}if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.resize) {window.webkit.messageHandlers.resize.postMessage(height); resized = true;}return resized;}function maybeResize() {if (document.documentElement.offsetHeight != height && notifyResize()) {height = document.documentElement.offsetHeight;}delayMs = Math.min(delayMs * 2, 1000000); setTimeout(maybeResize, delayMs);}maybeResize();</script></body></html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<!-- saved from url=(0077)https://medium.com/media/726e9698cde06492b62c448d6c5554f3?postId=db7879568417 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>topic7_1.py – Medium</title><meta name="description" content="GitHub is where people build software. More than 27 million people use GitHub to discover, fork, and contribute to over 80 million projects."><meta name="twitter:widgets:csp" content="on"><meta name="robots" content="noindex"><!--<base target="_blank">--><base href="." target="_blank"><style>body {text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: "ff-tisa-web-pro", Georgia, Cambria, "Times New Roman", Times, serif; font-weight: 400; color: #333332; font-size: 18px; line-height: 1.4; margin: 0; background-color: white; overflow: hidden;}iframe {max-width: 100%;}</style></head><body><style>.gist .gist-file { margin-bottom: 0 !important; }.gist { text-rendering: auto; }</style><script src="./7bf02e4a9856236e51213615c79ff71b.js" charset="utf-8"></script><link rel="stylesheet" href="./gist-embed-6364c832764ba9bc85e4566bd747f0d1.css"><div id="gist88612465" class="gist">
+    <div class="gist-file">
+      <div class="gist-data">
+        <div class="js-gist-file-update-container js-task-list-container file-box">
+  <div id="file-topic7_1-py" class="file">
+    
+
+  <div itemprop="text" class="blob-wrapper data type-python">
+      <table class="highlight tab-size js-file-line-container" data-tab-size="8">
+      <tbody><tr>
+        <td id="file-topic7_1-py-L1" class="blob-num js-line-number" data-line-number="1"></td>
+        <td id="file-topic7_1-py-LC1" class="blob-code blob-code-inner js-file-line"><span class="pl-k">import</span> numpy <span class="pl-k">as</span> np</td>
+      </tr>
+      <tr>
+        <td id="file-topic7_1-py-L2" class="blob-num js-line-number" data-line-number="2"></td>
+        <td id="file-topic7_1-py-LC2" class="blob-code blob-code-inner js-file-line"><span class="pl-k">import</span> matplotlib.pyplot <span class="pl-k">as</span> plt</td>
+      </tr>
+      <tr>
+        <td id="file-topic7_1-py-L3" class="blob-num js-line-number" data-line-number="3"></td>
+        <td id="file-topic7_1-py-LC3" class="blob-code blob-code-inner js-file-line"><span class="pl-k">import</span> seaborn <span class="pl-k">as</span> sns; sns.set(<span class="pl-v">style</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">'</span>white<span class="pl-pds">'</span></span>)</td>
+      </tr>
+      <tr>
+        <td id="file-topic7_1-py-L4" class="blob-num js-line-number" data-line-number="4"></td>
+        <td id="file-topic7_1-py-LC4" class="blob-code blob-code-inner js-file-line"><span class="pl-k">%</span>matplotlib inline</td>
+      </tr>
+      <tr>
+        <td id="file-topic7_1-py-L5" class="blob-num js-line-number" data-line-number="5"></td>
+        <td id="file-topic7_1-py-LC5" class="blob-code blob-code-inner js-file-line"><span class="pl-k">%</span>config InlineBackend.figure_format <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>retina<span class="pl-pds">'</span></span></td>
+      </tr>
+      <tr>
+        <td id="file-topic7_1-py-L6" class="blob-num js-line-number" data-line-number="6"></td>
+        <td id="file-topic7_1-py-LC6" class="blob-code blob-code-inner js-file-line"><span class="pl-k">from</span> sklearn <span class="pl-k">import</span> decomposition</td>
+      </tr>
+      <tr>
+        <td id="file-topic7_1-py-L7" class="blob-num js-line-number" data-line-number="7"></td>
+        <td id="file-topic7_1-py-LC7" class="blob-code blob-code-inner js-file-line"><span class="pl-k">from</span> sklearn <span class="pl-k">import</span> datasets</td>
+      </tr>
+      <tr>
+        <td id="file-topic7_1-py-L8" class="blob-num js-line-number" data-line-number="8"></td>
+        <td id="file-topic7_1-py-LC8" class="blob-code blob-code-inner js-file-line"><span class="pl-k">from</span> mpl_toolkits.mplot3d <span class="pl-k">import</span> Axes3D</td>
+      </tr>
+      <tr>
+        <td id="file-topic7_1-py-L9" class="blob-num js-line-number" data-line-number="9"></td>
+        <td id="file-topic7_1-py-LC9" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-topic7_1-py-L10" class="blob-num js-line-number" data-line-number="10"></td>
+        <td id="file-topic7_1-py-LC10" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">#</span> Loading the dataset</span></td>
+      </tr>
+      <tr>
+        <td id="file-topic7_1-py-L11" class="blob-num js-line-number" data-line-number="11"></td>
+        <td id="file-topic7_1-py-LC11" class="blob-code blob-code-inner js-file-line">iris <span class="pl-k">=</span> datasets.load_iris()</td>
+      </tr>
+      <tr>
+        <td id="file-topic7_1-py-L12" class="blob-num js-line-number" data-line-number="12"></td>
+        <td id="file-topic7_1-py-LC12" class="blob-code blob-code-inner js-file-line">X <span class="pl-k">=</span> iris.data</td>
+      </tr>
+      <tr>
+        <td id="file-topic7_1-py-L13" class="blob-num js-line-number" data-line-number="13"></td>
+        <td id="file-topic7_1-py-LC13" class="blob-code blob-code-inner js-file-line">y <span class="pl-k">=</span> iris.target</td>
+      </tr>
+      <tr>
+        <td id="file-topic7_1-py-L14" class="blob-num js-line-number" data-line-number="14"></td>
+        <td id="file-topic7_1-py-LC14" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-topic7_1-py-L15" class="blob-num js-line-number" data-line-number="15"></td>
+        <td id="file-topic7_1-py-LC15" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">#</span> Let's create a beautiful 3d-plot</span></td>
+      </tr>
+      <tr>
+        <td id="file-topic7_1-py-L16" class="blob-num js-line-number" data-line-number="16"></td>
+        <td id="file-topic7_1-py-LC16" class="blob-code blob-code-inner js-file-line">fig <span class="pl-k">=</span> plt.figure(<span class="pl-c1">1</span>, <span class="pl-v">figsize</span><span class="pl-k">=</span>(<span class="pl-c1">6</span>, <span class="pl-c1">5</span>))</td>
+      </tr>
+      <tr>
+        <td id="file-topic7_1-py-L17" class="blob-num js-line-number" data-line-number="17"></td>
+        <td id="file-topic7_1-py-LC17" class="blob-code blob-code-inner js-file-line">plt.clf()</td>
+      </tr>
+      <tr>
+        <td id="file-topic7_1-py-L18" class="blob-num js-line-number" data-line-number="18"></td>
+        <td id="file-topic7_1-py-LC18" class="blob-code blob-code-inner js-file-line">ax <span class="pl-k">=</span> Axes3D(fig, <span class="pl-v">rect</span><span class="pl-k">=</span>[<span class="pl-c1">0</span>, <span class="pl-c1">0</span>, <span class="pl-c1">.95</span>, <span class="pl-c1">1</span>], <span class="pl-v">elev</span><span class="pl-k">=</span><span class="pl-c1">48</span>, <span class="pl-v">azim</span><span class="pl-k">=</span><span class="pl-c1">134</span>)</td>
+      </tr>
+      <tr>
+        <td id="file-topic7_1-py-L19" class="blob-num js-line-number" data-line-number="19"></td>
+        <td id="file-topic7_1-py-LC19" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-topic7_1-py-L20" class="blob-num js-line-number" data-line-number="20"></td>
+        <td id="file-topic7_1-py-LC20" class="blob-code blob-code-inner js-file-line">plt.cla()</td>
+      </tr>
+      <tr>
+        <td id="file-topic7_1-py-L21" class="blob-num js-line-number" data-line-number="21"></td>
+        <td id="file-topic7_1-py-LC21" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-topic7_1-py-L22" class="blob-num js-line-number" data-line-number="22"></td>
+        <td id="file-topic7_1-py-LC22" class="blob-code blob-code-inner js-file-line"><span class="pl-k">for</span> name, label <span class="pl-k">in</span> [(<span class="pl-s"><span class="pl-pds">'</span>Setosa<span class="pl-pds">'</span></span>, <span class="pl-c1">0</span>), (<span class="pl-s"><span class="pl-pds">'</span>Versicolour<span class="pl-pds">'</span></span>, <span class="pl-c1">1</span>), (<span class="pl-s"><span class="pl-pds">'</span>Virginica<span class="pl-pds">'</span></span>, <span class="pl-c1">2</span>)]:</td>
+      </tr>
+      <tr>
+        <td id="file-topic7_1-py-L23" class="blob-num js-line-number" data-line-number="23"></td>
+        <td id="file-topic7_1-py-LC23" class="blob-code blob-code-inner js-file-line">    ax.text3D(X[y <span class="pl-k">==</span> label, <span class="pl-c1">0</span>].mean(),</td>
+      </tr>
+      <tr>
+        <td id="file-topic7_1-py-L24" class="blob-num js-line-number" data-line-number="24"></td>
+        <td id="file-topic7_1-py-LC24" class="blob-code blob-code-inner js-file-line">              X[y <span class="pl-k">==</span> label, <span class="pl-c1">1</span>].mean() <span class="pl-k">+</span> <span class="pl-c1">1.5</span>,</td>
+      </tr>
+      <tr>
+        <td id="file-topic7_1-py-L25" class="blob-num js-line-number" data-line-number="25"></td>
+        <td id="file-topic7_1-py-LC25" class="blob-code blob-code-inner js-file-line">              X[y <span class="pl-k">==</span> label, <span class="pl-c1">2</span>].mean(), name,</td>
+      </tr>
+      <tr>
+        <td id="file-topic7_1-py-L26" class="blob-num js-line-number" data-line-number="26"></td>
+        <td id="file-topic7_1-py-LC26" class="blob-code blob-code-inner js-file-line">              <span class="pl-v">horizontalalignment</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">'</span>center<span class="pl-pds">'</span></span>,</td>
+      </tr>
+      <tr>
+        <td id="file-topic7_1-py-L27" class="blob-num js-line-number" data-line-number="27"></td>
+        <td id="file-topic7_1-py-LC27" class="blob-code blob-code-inner js-file-line">              <span class="pl-v">bbox</span><span class="pl-k">=</span><span class="pl-c1">dict</span>(<span class="pl-v">alpha</span><span class="pl-k">=</span><span class="pl-c1">.5</span>, <span class="pl-v">edgecolor</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">'</span>w<span class="pl-pds">'</span></span>, <span class="pl-v">facecolor</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">'</span>w<span class="pl-pds">'</span></span>))</td>
+      </tr>
+      <tr>
+        <td id="file-topic7_1-py-L28" class="blob-num js-line-number" data-line-number="28"></td>
+        <td id="file-topic7_1-py-LC28" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">#</span> Change the order of labels, so that they match</span></td>
+      </tr>
+      <tr>
+        <td id="file-topic7_1-py-L29" class="blob-num js-line-number" data-line-number="29"></td>
+        <td id="file-topic7_1-py-LC29" class="blob-code blob-code-inner js-file-line">y_clr <span class="pl-k">=</span> np.choose(y, [<span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">0</span>]).astype(np.float)</td>
+      </tr>
+      <tr>
+        <td id="file-topic7_1-py-L30" class="blob-num js-line-number" data-line-number="30"></td>
+        <td id="file-topic7_1-py-LC30" class="blob-code blob-code-inner js-file-line">ax.scatter(X[:, <span class="pl-c1">0</span>], X[:, <span class="pl-c1">1</span>], X[:, <span class="pl-c1">2</span>], <span class="pl-v">c</span><span class="pl-k">=</span>y_clr, <span class="pl-v">cmap</span><span class="pl-k">=</span>plt.cm.spectral)</td>
+      </tr>
+      <tr>
+        <td id="file-topic7_1-py-L31" class="blob-num js-line-number" data-line-number="31"></td>
+        <td id="file-topic7_1-py-LC31" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-topic7_1-py-L32" class="blob-num js-line-number" data-line-number="32"></td>
+        <td id="file-topic7_1-py-LC32" class="blob-code blob-code-inner js-file-line">ax.w_xaxis.set_ticklabels([])</td>
+      </tr>
+      <tr>
+        <td id="file-topic7_1-py-L33" class="blob-num js-line-number" data-line-number="33"></td>
+        <td id="file-topic7_1-py-LC33" class="blob-code blob-code-inner js-file-line">ax.w_yaxis.set_ticklabels([])</td>
+      </tr>
+      <tr>
+        <td id="file-topic7_1-py-L34" class="blob-num js-line-number" data-line-number="34"></td>
+        <td id="file-topic7_1-py-LC34" class="blob-code blob-code-inner js-file-line">ax.w_zaxis.set_ticklabels([])<span class="pl-bu">;</span></td>
+      </tr>
+</tbody></table>
+
+
+  </div>
+
+  </div>
+</div>
+
+      </div>
+      <div class="gist-meta">
+        <a href="https://gist.github.com/libfun/7bf02e4a9856236e51213615c79ff71b/raw/e4df479fbfacea168af903f373c26539aadef376/topic7_1.py" style="float:right">view raw</a>
+        <a href="https://gist.github.com/libfun/7bf02e4a9856236e51213615c79ff71b#file-topic7_1-py">topic7_1.py</a>
+        hosted with ❤ by <a href="https://github.com/">GitHub</a>
+      </div>
+    </div>
+</div>
+<script>var height = -1; var delayMs = 200;function notifyResize(height) {height = height ? height : document.documentElement.offsetHeight; var resized = false; if (window.donkey && donkey.resize) {donkey.resize(height); resized = true;}if (parent && parent._resizeIframe) {var obj = {iframe: window.frameElement, height: height}; parent._resizeIframe(obj); resized = true;}if (window.location && window.location.hash === "#amp=1" && window.parent && window.parent.postMessage) {window.parent.postMessage({sentinel: "amp", type: "embed-size", height: height}, "*");}if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.resize) {window.webkit.messageHandlers.resize.postMessage(height); resized = true;}return resized;}function maybeResize() {if (document.documentElement.offsetHeight != height && notifyResize()) {height = document.documentElement.offsetHeight;}delayMs = Math.min(delayMs * 2, 1000000); setTimeout(maybeResize, delayMs);}maybeResize();</script></body></html>

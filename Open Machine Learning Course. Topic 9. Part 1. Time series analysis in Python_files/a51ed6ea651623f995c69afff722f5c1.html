@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<!-- saved from url=(0077)https://medium.com/media/a51ed6ea651623f995c69afff722f5c1?postId=a270cb05e0b3 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>topic9_first_ml_model.py – Medium</title><meta name="description" content="GitHub is where people build software. More than 27 million people use GitHub to discover, fork, and contribute to over 80 million projects."><meta name="twitter:widgets:csp" content="on"><meta name="robots" content="noindex"><!--<base target="_blank">--><base href="." target="_blank"><style>body {text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: "ff-tisa-web-pro", Georgia, Cambria, "Times New Roman", Times, serif; font-weight: 400; color: #333332; font-size: 18px; line-height: 1.4; margin: 0; background-color: white; overflow: hidden;}iframe {max-width: 100%;}</style></head><body><style>.gist .gist-file { margin-bottom: 0 !important; }.gist { text-rendering: auto; }</style><script src="./c2a4dd5229c86b22963dec7feb43b577.js" charset="utf-8"></script><link rel="stylesheet" href="./gist-embed-8c6ade0d3779da026346afb9bf324f67.css"><div id="gist88900367" class="gist">
+    <div class="gist-file">
+      <div class="gist-data">
+        <div class="js-gist-file-update-container js-task-list-container file-box">
+  <div id="file-topic9_first_ml_model-py" class="file">
+    
+
+  <div itemprop="text" class="blob-wrapper data type-python">
+      <table class="highlight tab-size js-file-line-container" data-tab-size="8">
+      <tbody><tr>
+        <td id="file-topic9_first_ml_model-py-L1" class="blob-num js-line-number" data-line-number="1"></td>
+        <td id="file-topic9_first_ml_model-py-LC1" class="blob-code blob-code-inner js-file-line"><span class="pl-k">from</span> sklearn.linear_model <span class="pl-k">import</span> LinearRegression</td>
+      </tr>
+      <tr>
+        <td id="file-topic9_first_ml_model-py-L2" class="blob-num js-line-number" data-line-number="2"></td>
+        <td id="file-topic9_first_ml_model-py-LC2" class="blob-code blob-code-inner js-file-line"><span class="pl-k">from</span> sklearn.model_selection <span class="pl-k">import</span> cross_val_score</td>
+      </tr>
+      <tr>
+        <td id="file-topic9_first_ml_model-py-L3" class="blob-num js-line-number" data-line-number="3"></td>
+        <td id="file-topic9_first_ml_model-py-LC3" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-topic9_first_ml_model-py-L4" class="blob-num js-line-number" data-line-number="4"></td>
+        <td id="file-topic9_first_ml_model-py-LC4" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">#</span> for time-series cross-validation set 5 folds </span></td>
+      </tr>
+      <tr>
+        <td id="file-topic9_first_ml_model-py-L5" class="blob-num js-line-number" data-line-number="5"></td>
+        <td id="file-topic9_first_ml_model-py-LC5" class="blob-code blob-code-inner js-file-line">tscv <span class="pl-k">=</span> TimeSeriesSplit(<span class="pl-v">n_splits</span><span class="pl-k">=</span><span class="pl-c1">5</span>)</td>
+      </tr>
+      <tr>
+        <td id="file-topic9_first_ml_model-py-L6" class="blob-num js-line-number" data-line-number="6"></td>
+        <td id="file-topic9_first_ml_model-py-LC6" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-topic9_first_ml_model-py-L7" class="blob-num js-line-number" data-line-number="7"></td>
+        <td id="file-topic9_first_ml_model-py-LC7" class="blob-code blob-code-inner js-file-line"><span class="pl-k">def</span> <span class="pl-en">timeseries_train_test_split</span>(<span class="pl-smi">X</span>, <span class="pl-smi">y</span>, <span class="pl-smi">test_size</span>):</td>
+      </tr>
+      <tr>
+        <td id="file-topic9_first_ml_model-py-L8" class="blob-num js-line-number" data-line-number="8"></td>
+        <td id="file-topic9_first_ml_model-py-LC8" class="blob-code blob-code-inner js-file-line">    <span class="pl-s"><span class="pl-pds">"""</span></span></td>
+      </tr>
+      <tr>
+        <td id="file-topic9_first_ml_model-py-L9" class="blob-num js-line-number" data-line-number="9"></td>
+        <td id="file-topic9_first_ml_model-py-LC9" class="blob-code blob-code-inner js-file-line"><span class="pl-s">        Perform train-test split with respect to time series structure</span></td>
+      </tr>
+      <tr>
+        <td id="file-topic9_first_ml_model-py-L10" class="blob-num js-line-number" data-line-number="10"></td>
+        <td id="file-topic9_first_ml_model-py-LC10" class="blob-code blob-code-inner js-file-line"><span class="pl-s">    <span class="pl-pds">"""</span></span></td>
+      </tr>
+      <tr>
+        <td id="file-topic9_first_ml_model-py-L11" class="blob-num js-line-number" data-line-number="11"></td>
+        <td id="file-topic9_first_ml_model-py-LC11" class="blob-code blob-code-inner js-file-line">    </td>
+      </tr>
+      <tr>
+        <td id="file-topic9_first_ml_model-py-L12" class="blob-num js-line-number" data-line-number="12"></td>
+        <td id="file-topic9_first_ml_model-py-LC12" class="blob-code blob-code-inner js-file-line">    <span class="pl-c"><span class="pl-c">#</span> get the index after which test set starts</span></td>
+      </tr>
+      <tr>
+        <td id="file-topic9_first_ml_model-py-L13" class="blob-num js-line-number" data-line-number="13"></td>
+        <td id="file-topic9_first_ml_model-py-LC13" class="blob-code blob-code-inner js-file-line">    test_index <span class="pl-k">=</span> <span class="pl-c1">int</span>(<span class="pl-c1">len</span>(X)<span class="pl-k">*</span>(<span class="pl-c1">1</span><span class="pl-k">-</span>test_size))</td>
+      </tr>
+      <tr>
+        <td id="file-topic9_first_ml_model-py-L14" class="blob-num js-line-number" data-line-number="14"></td>
+        <td id="file-topic9_first_ml_model-py-LC14" class="blob-code blob-code-inner js-file-line">    </td>
+      </tr>
+      <tr>
+        <td id="file-topic9_first_ml_model-py-L15" class="blob-num js-line-number" data-line-number="15"></td>
+        <td id="file-topic9_first_ml_model-py-LC15" class="blob-code blob-code-inner js-file-line">    X_train <span class="pl-k">=</span> X.iloc[:test_index]</td>
+      </tr>
+      <tr>
+        <td id="file-topic9_first_ml_model-py-L16" class="blob-num js-line-number" data-line-number="16"></td>
+        <td id="file-topic9_first_ml_model-py-LC16" class="blob-code blob-code-inner js-file-line">    y_train <span class="pl-k">=</span> y.iloc[:test_index]</td>
+      </tr>
+      <tr>
+        <td id="file-topic9_first_ml_model-py-L17" class="blob-num js-line-number" data-line-number="17"></td>
+        <td id="file-topic9_first_ml_model-py-LC17" class="blob-code blob-code-inner js-file-line">    X_test <span class="pl-k">=</span> X.iloc[test_index:]</td>
+      </tr>
+      <tr>
+        <td id="file-topic9_first_ml_model-py-L18" class="blob-num js-line-number" data-line-number="18"></td>
+        <td id="file-topic9_first_ml_model-py-LC18" class="blob-code blob-code-inner js-file-line">    y_test <span class="pl-k">=</span> y.iloc[test_index:]</td>
+      </tr>
+      <tr>
+        <td id="file-topic9_first_ml_model-py-L19" class="blob-num js-line-number" data-line-number="19"></td>
+        <td id="file-topic9_first_ml_model-py-LC19" class="blob-code blob-code-inner js-file-line">    </td>
+      </tr>
+      <tr>
+        <td id="file-topic9_first_ml_model-py-L20" class="blob-num js-line-number" data-line-number="20"></td>
+        <td id="file-topic9_first_ml_model-py-LC20" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">return</span> X_train, X_test, y_train, y_test</td>
+      </tr>
+      <tr>
+        <td id="file-topic9_first_ml_model-py-L21" class="blob-num js-line-number" data-line-number="21"></td>
+        <td id="file-topic9_first_ml_model-py-LC21" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-topic9_first_ml_model-py-L22" class="blob-num js-line-number" data-line-number="22"></td>
+        <td id="file-topic9_first_ml_model-py-LC22" class="blob-code blob-code-inner js-file-line"><span class="pl-k">def</span> <span class="pl-en">plotModelResults</span>(<span class="pl-smi">model</span>, <span class="pl-smi">X_train</span><span class="pl-k">=</span>X_train, <span class="pl-smi">X_test</span><span class="pl-k">=</span>X_test, <span class="pl-smi">plot_intervals</span><span class="pl-k">=</span><span class="pl-c1">False</span>, <span class="pl-smi">plot_anomalies</span><span class="pl-k">=</span><span class="pl-c1">False</span>):</td>
+      </tr>
+      <tr>
+        <td id="file-topic9_first_ml_model-py-L23" class="blob-num js-line-number" data-line-number="23"></td>
+        <td id="file-topic9_first_ml_model-py-LC23" class="blob-code blob-code-inner js-file-line">    <span class="pl-s"><span class="pl-pds">"""</span></span></td>
+      </tr>
+      <tr>
+        <td id="file-topic9_first_ml_model-py-L24" class="blob-num js-line-number" data-line-number="24"></td>
+        <td id="file-topic9_first_ml_model-py-LC24" class="blob-code blob-code-inner js-file-line"><span class="pl-s">        Plots modelled vs fact values, prediction intervals and anomalies</span></td>
+      </tr>
+      <tr>
+        <td id="file-topic9_first_ml_model-py-L25" class="blob-num js-line-number" data-line-number="25"></td>
+        <td id="file-topic9_first_ml_model-py-LC25" class="blob-code blob-code-inner js-file-line"><span class="pl-s">    </span></td>
+      </tr>
+      <tr>
+        <td id="file-topic9_first_ml_model-py-L26" class="blob-num js-line-number" data-line-number="26"></td>
+        <td id="file-topic9_first_ml_model-py-LC26" class="blob-code blob-code-inner js-file-line"><span class="pl-s">    <span class="pl-pds">"""</span></span></td>
+      </tr>
+      <tr>
+        <td id="file-topic9_first_ml_model-py-L27" class="blob-num js-line-number" data-line-number="27"></td>
+        <td id="file-topic9_first_ml_model-py-LC27" class="blob-code blob-code-inner js-file-line">    </td>
+      </tr>
+      <tr>
+        <td id="file-topic9_first_ml_model-py-L28" class="blob-num js-line-number" data-line-number="28"></td>
+        <td id="file-topic9_first_ml_model-py-LC28" class="blob-code blob-code-inner js-file-line">    prediction <span class="pl-k">=</span> model.predict(X_test)</td>
+      </tr>
+      <tr>
+        <td id="file-topic9_first_ml_model-py-L29" class="blob-num js-line-number" data-line-number="29"></td>
+        <td id="file-topic9_first_ml_model-py-LC29" class="blob-code blob-code-inner js-file-line">    </td>
+      </tr>
+      <tr>
+        <td id="file-topic9_first_ml_model-py-L30" class="blob-num js-line-number" data-line-number="30"></td>
+        <td id="file-topic9_first_ml_model-py-LC30" class="blob-code blob-code-inner js-file-line">    plt.figure(<span class="pl-v">figsize</span><span class="pl-k">=</span>(<span class="pl-c1">15</span>, <span class="pl-c1">7</span>))</td>
+      </tr>
+      <tr>
+        <td id="file-topic9_first_ml_model-py-L31" class="blob-num js-line-number" data-line-number="31"></td>
+        <td id="file-topic9_first_ml_model-py-LC31" class="blob-code blob-code-inner js-file-line">    plt.plot(prediction, <span class="pl-s"><span class="pl-pds">"</span>g<span class="pl-pds">"</span></span>, <span class="pl-v">label</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>prediction<span class="pl-pds">"</span></span>, <span class="pl-v">linewidth</span><span class="pl-k">=</span><span class="pl-c1">2.0</span>)</td>
+      </tr>
+      <tr>
+        <td id="file-topic9_first_ml_model-py-L32" class="blob-num js-line-number" data-line-number="32"></td>
+        <td id="file-topic9_first_ml_model-py-LC32" class="blob-code blob-code-inner js-file-line">    plt.plot(y_test.values, <span class="pl-v">label</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>actual<span class="pl-pds">"</span></span>, <span class="pl-v">linewidth</span><span class="pl-k">=</span><span class="pl-c1">2.0</span>)</td>
+      </tr>
+      <tr>
+        <td id="file-topic9_first_ml_model-py-L33" class="blob-num js-line-number" data-line-number="33"></td>
+        <td id="file-topic9_first_ml_model-py-LC33" class="blob-code blob-code-inner js-file-line">    </td>
+      </tr>
+      <tr>
+        <td id="file-topic9_first_ml_model-py-L34" class="blob-num js-line-number" data-line-number="34"></td>
+        <td id="file-topic9_first_ml_model-py-LC34" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">if</span> plot_intervals:</td>
+      </tr>
+      <tr>
+        <td id="file-topic9_first_ml_model-py-L35" class="blob-num js-line-number" data-line-number="35"></td>
+        <td id="file-topic9_first_ml_model-py-LC35" class="blob-code blob-code-inner js-file-line">        cv <span class="pl-k">=</span> cross_val_score(model, X_train, y_train, </td>
+      </tr>
+      <tr>
+        <td id="file-topic9_first_ml_model-py-L36" class="blob-num js-line-number" data-line-number="36"></td>
+        <td id="file-topic9_first_ml_model-py-LC36" class="blob-code blob-code-inner js-file-line">                                    <span class="pl-v">cv</span><span class="pl-k">=</span>tscv, </td>
+      </tr>
+      <tr>
+        <td id="file-topic9_first_ml_model-py-L37" class="blob-num js-line-number" data-line-number="37"></td>
+        <td id="file-topic9_first_ml_model-py-LC37" class="blob-code blob-code-inner js-file-line">                                    <span class="pl-v">scoring</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>neg_mean_absolute_error<span class="pl-pds">"</span></span>)</td>
+      </tr>
+      <tr>
+        <td id="file-topic9_first_ml_model-py-L38" class="blob-num js-line-number" data-line-number="38"></td>
+        <td id="file-topic9_first_ml_model-py-LC38" class="blob-code blob-code-inner js-file-line">        mae <span class="pl-k">=</span> cv.mean() <span class="pl-k">*</span> (<span class="pl-k">-</span><span class="pl-c1">1</span>)</td>
+      </tr>
+      <tr>
+        <td id="file-topic9_first_ml_model-py-L39" class="blob-num js-line-number" data-line-number="39"></td>
+        <td id="file-topic9_first_ml_model-py-LC39" class="blob-code blob-code-inner js-file-line">        deviation <span class="pl-k">=</span> cv.std()</td>
+      </tr>
+      <tr>
+        <td id="file-topic9_first_ml_model-py-L40" class="blob-num js-line-number" data-line-number="40"></td>
+        <td id="file-topic9_first_ml_model-py-LC40" class="blob-code blob-code-inner js-file-line">        </td>
+      </tr>
+      <tr>
+        <td id="file-topic9_first_ml_model-py-L41" class="blob-num js-line-number" data-line-number="41"></td>
+        <td id="file-topic9_first_ml_model-py-LC41" class="blob-code blob-code-inner js-file-line">        scale <span class="pl-k">=</span> <span class="pl-c1">1.96</span></td>
+      </tr>
+      <tr>
+        <td id="file-topic9_first_ml_model-py-L42" class="blob-num js-line-number" data-line-number="42"></td>
+        <td id="file-topic9_first_ml_model-py-LC42" class="blob-code blob-code-inner js-file-line">        lower <span class="pl-k">=</span> prediction <span class="pl-k">-</span> (mae <span class="pl-k">+</span> scale <span class="pl-k">*</span> deviation)</td>
+      </tr>
+      <tr>
+        <td id="file-topic9_first_ml_model-py-L43" class="blob-num js-line-number" data-line-number="43"></td>
+        <td id="file-topic9_first_ml_model-py-LC43" class="blob-code blob-code-inner js-file-line">        upper <span class="pl-k">=</span> prediction <span class="pl-k">+</span> (mae <span class="pl-k">+</span> scale <span class="pl-k">*</span> deviation)</td>
+      </tr>
+      <tr>
+        <td id="file-topic9_first_ml_model-py-L44" class="blob-num js-line-number" data-line-number="44"></td>
+        <td id="file-topic9_first_ml_model-py-LC44" class="blob-code blob-code-inner js-file-line">        </td>
+      </tr>
+      <tr>
+        <td id="file-topic9_first_ml_model-py-L45" class="blob-num js-line-number" data-line-number="45"></td>
+        <td id="file-topic9_first_ml_model-py-LC45" class="blob-code blob-code-inner js-file-line">        plt.plot(lower, <span class="pl-s"><span class="pl-pds">"</span>r--<span class="pl-pds">"</span></span>, <span class="pl-v">label</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>upper bond / lower bond<span class="pl-pds">"</span></span>, <span class="pl-v">alpha</span><span class="pl-k">=</span><span class="pl-c1">0.5</span>)</td>
+      </tr>
+      <tr>
+        <td id="file-topic9_first_ml_model-py-L46" class="blob-num js-line-number" data-line-number="46"></td>
+        <td id="file-topic9_first_ml_model-py-LC46" class="blob-code blob-code-inner js-file-line">        plt.plot(upper, <span class="pl-s"><span class="pl-pds">"</span>r--<span class="pl-pds">"</span></span>, <span class="pl-v">alpha</span><span class="pl-k">=</span><span class="pl-c1">0.5</span>)</td>
+      </tr>
+      <tr>
+        <td id="file-topic9_first_ml_model-py-L47" class="blob-num js-line-number" data-line-number="47"></td>
+        <td id="file-topic9_first_ml_model-py-LC47" class="blob-code blob-code-inner js-file-line">        </td>
+      </tr>
+      <tr>
+        <td id="file-topic9_first_ml_model-py-L48" class="blob-num js-line-number" data-line-number="48"></td>
+        <td id="file-topic9_first_ml_model-py-LC48" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">if</span> plot_anomalies:</td>
+      </tr>
+      <tr>
+        <td id="file-topic9_first_ml_model-py-L49" class="blob-num js-line-number" data-line-number="49"></td>
+        <td id="file-topic9_first_ml_model-py-LC49" class="blob-code blob-code-inner js-file-line">            anomalies <span class="pl-k">=</span> np.array([np.NaN]<span class="pl-k">*</span><span class="pl-c1">len</span>(y_test))</td>
+      </tr>
+      <tr>
+        <td id="file-topic9_first_ml_model-py-L50" class="blob-num js-line-number" data-line-number="50"></td>
+        <td id="file-topic9_first_ml_model-py-LC50" class="blob-code blob-code-inner js-file-line">            anomalies[y_test<span class="pl-k">&lt;</span>lower] <span class="pl-k">=</span> y_test[y_test<span class="pl-k">&lt;</span>lower]</td>
+      </tr>
+      <tr>
+        <td id="file-topic9_first_ml_model-py-L51" class="blob-num js-line-number" data-line-number="51"></td>
+        <td id="file-topic9_first_ml_model-py-LC51" class="blob-code blob-code-inner js-file-line">            anomalies[y_test<span class="pl-k">&gt;</span>upper] <span class="pl-k">=</span> y_test[y_test<span class="pl-k">&gt;</span>upper]</td>
+      </tr>
+      <tr>
+        <td id="file-topic9_first_ml_model-py-L52" class="blob-num js-line-number" data-line-number="52"></td>
+        <td id="file-topic9_first_ml_model-py-LC52" class="blob-code blob-code-inner js-file-line">            plt.plot(anomalies, <span class="pl-s"><span class="pl-pds">"</span>o<span class="pl-pds">"</span></span>, <span class="pl-v">markersize</span><span class="pl-k">=</span><span class="pl-c1">10</span>, <span class="pl-v">label</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>Anomalies<span class="pl-pds">"</span></span>)</td>
+      </tr>
+      <tr>
+        <td id="file-topic9_first_ml_model-py-L53" class="blob-num js-line-number" data-line-number="53"></td>
+        <td id="file-topic9_first_ml_model-py-LC53" class="blob-code blob-code-inner js-file-line">    </td>
+      </tr>
+      <tr>
+        <td id="file-topic9_first_ml_model-py-L54" class="blob-num js-line-number" data-line-number="54"></td>
+        <td id="file-topic9_first_ml_model-py-LC54" class="blob-code blob-code-inner js-file-line">    error <span class="pl-k">=</span> mean_absolute_percentage_error(prediction, y_test)</td>
+      </tr>
+      <tr>
+        <td id="file-topic9_first_ml_model-py-L55" class="blob-num js-line-number" data-line-number="55"></td>
+        <td id="file-topic9_first_ml_model-py-LC55" class="blob-code blob-code-inner js-file-line">    plt.title(<span class="pl-s"><span class="pl-pds">"</span>Mean absolute percentage error <span class="pl-c1">{0<span class="pl-k">:.2f</span>}</span>%<span class="pl-pds">"</span></span>.format(error))</td>
+      </tr>
+      <tr>
+        <td id="file-topic9_first_ml_model-py-L56" class="blob-num js-line-number" data-line-number="56"></td>
+        <td id="file-topic9_first_ml_model-py-LC56" class="blob-code blob-code-inner js-file-line">    plt.legend(<span class="pl-v">loc</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>best<span class="pl-pds">"</span></span>)</td>
+      </tr>
+      <tr>
+        <td id="file-topic9_first_ml_model-py-L57" class="blob-num js-line-number" data-line-number="57"></td>
+        <td id="file-topic9_first_ml_model-py-LC57" class="blob-code blob-code-inner js-file-line">    plt.tight_layout()</td>
+      </tr>
+      <tr>
+        <td id="file-topic9_first_ml_model-py-L58" class="blob-num js-line-number" data-line-number="58"></td>
+        <td id="file-topic9_first_ml_model-py-LC58" class="blob-code blob-code-inner js-file-line">    plt.grid(<span class="pl-c1">True</span>)<span class="pl-bu">;</span></td>
+      </tr>
+      <tr>
+        <td id="file-topic9_first_ml_model-py-L59" class="blob-num js-line-number" data-line-number="59"></td>
+        <td id="file-topic9_first_ml_model-py-LC59" class="blob-code blob-code-inner js-file-line">    </td>
+      </tr>
+      <tr>
+        <td id="file-topic9_first_ml_model-py-L60" class="blob-num js-line-number" data-line-number="60"></td>
+        <td id="file-topic9_first_ml_model-py-LC60" class="blob-code blob-code-inner js-file-line"><span class="pl-k">def</span> <span class="pl-en">plotCoefficients</span>(<span class="pl-smi">model</span>):</td>
+      </tr>
+      <tr>
+        <td id="file-topic9_first_ml_model-py-L61" class="blob-num js-line-number" data-line-number="61"></td>
+        <td id="file-topic9_first_ml_model-py-LC61" class="blob-code blob-code-inner js-file-line">    <span class="pl-s"><span class="pl-pds">"""</span></span></td>
+      </tr>
+      <tr>
+        <td id="file-topic9_first_ml_model-py-L62" class="blob-num js-line-number" data-line-number="62"></td>
+        <td id="file-topic9_first_ml_model-py-LC62" class="blob-code blob-code-inner js-file-line"><span class="pl-s">        Plots sorted coefficient values of the model</span></td>
+      </tr>
+      <tr>
+        <td id="file-topic9_first_ml_model-py-L63" class="blob-num js-line-number" data-line-number="63"></td>
+        <td id="file-topic9_first_ml_model-py-LC63" class="blob-code blob-code-inner js-file-line"><span class="pl-s">    <span class="pl-pds">"""</span></span></td>
+      </tr>
+      <tr>
+        <td id="file-topic9_first_ml_model-py-L64" class="blob-num js-line-number" data-line-number="64"></td>
+        <td id="file-topic9_first_ml_model-py-LC64" class="blob-code blob-code-inner js-file-line">    </td>
+      </tr>
+      <tr>
+        <td id="file-topic9_first_ml_model-py-L65" class="blob-num js-line-number" data-line-number="65"></td>
+        <td id="file-topic9_first_ml_model-py-LC65" class="blob-code blob-code-inner js-file-line">    coefs <span class="pl-k">=</span> pd.DataFrame(model.coef_, X_train.columns)</td>
+      </tr>
+      <tr>
+        <td id="file-topic9_first_ml_model-py-L66" class="blob-num js-line-number" data-line-number="66"></td>
+        <td id="file-topic9_first_ml_model-py-LC66" class="blob-code blob-code-inner js-file-line">    coefs.columns <span class="pl-k">=</span> [<span class="pl-s"><span class="pl-pds">"</span>coef<span class="pl-pds">"</span></span>]</td>
+      </tr>
+      <tr>
+        <td id="file-topic9_first_ml_model-py-L67" class="blob-num js-line-number" data-line-number="67"></td>
+        <td id="file-topic9_first_ml_model-py-LC67" class="blob-code blob-code-inner js-file-line">    coefs[<span class="pl-s"><span class="pl-pds">"</span>abs<span class="pl-pds">"</span></span>] <span class="pl-k">=</span> coefs.coef.apply(np.abs)</td>
+      </tr>
+      <tr>
+        <td id="file-topic9_first_ml_model-py-L68" class="blob-num js-line-number" data-line-number="68"></td>
+        <td id="file-topic9_first_ml_model-py-LC68" class="blob-code blob-code-inner js-file-line">    coefs <span class="pl-k">=</span> coefs.sort_values(<span class="pl-v">by</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>abs<span class="pl-pds">"</span></span>, <span class="pl-v">ascending</span><span class="pl-k">=</span><span class="pl-c1">False</span>).drop([<span class="pl-s"><span class="pl-pds">"</span>abs<span class="pl-pds">"</span></span>], <span class="pl-v">axis</span><span class="pl-k">=</span><span class="pl-c1">1</span>)</td>
+      </tr>
+      <tr>
+        <td id="file-topic9_first_ml_model-py-L69" class="blob-num js-line-number" data-line-number="69"></td>
+        <td id="file-topic9_first_ml_model-py-LC69" class="blob-code blob-code-inner js-file-line">    </td>
+      </tr>
+      <tr>
+        <td id="file-topic9_first_ml_model-py-L70" class="blob-num js-line-number" data-line-number="70"></td>
+        <td id="file-topic9_first_ml_model-py-LC70" class="blob-code blob-code-inner js-file-line">    plt.figure(<span class="pl-v">figsize</span><span class="pl-k">=</span>(<span class="pl-c1">15</span>, <span class="pl-c1">7</span>))</td>
+      </tr>
+      <tr>
+        <td id="file-topic9_first_ml_model-py-L71" class="blob-num js-line-number" data-line-number="71"></td>
+        <td id="file-topic9_first_ml_model-py-LC71" class="blob-code blob-code-inner js-file-line">    coefs.coef.plot(<span class="pl-v">kind</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">'</span>bar<span class="pl-pds">'</span></span>)</td>
+      </tr>
+      <tr>
+        <td id="file-topic9_first_ml_model-py-L72" class="blob-num js-line-number" data-line-number="72"></td>
+        <td id="file-topic9_first_ml_model-py-LC72" class="blob-code blob-code-inner js-file-line">    plt.grid(<span class="pl-c1">True</span>, <span class="pl-v">axis</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">'</span>y<span class="pl-pds">'</span></span>)</td>
+      </tr>
+      <tr>
+        <td id="file-topic9_first_ml_model-py-L73" class="blob-num js-line-number" data-line-number="73"></td>
+        <td id="file-topic9_first_ml_model-py-LC73" class="blob-code blob-code-inner js-file-line">    plt.hlines(<span class="pl-v">y</span><span class="pl-k">=</span><span class="pl-c1">0</span>, <span class="pl-v">xmin</span><span class="pl-k">=</span><span class="pl-c1">0</span>, <span class="pl-v">xmax</span><span class="pl-k">=</span><span class="pl-c1">len</span>(coefs), <span class="pl-v">linestyles</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">'</span>dashed<span class="pl-pds">'</span></span>)<span class="pl-bu">;</span></td>
+      </tr>
+      <tr>
+        <td id="file-topic9_first_ml_model-py-L74" class="blob-num js-line-number" data-line-number="74"></td>
+        <td id="file-topic9_first_ml_model-py-LC74" class="blob-code blob-code-inner js-file-line">    </td>
+      </tr>
+      <tr>
+        <td id="file-topic9_first_ml_model-py-L75" class="blob-num js-line-number" data-line-number="75"></td>
+        <td id="file-topic9_first_ml_model-py-LC75" class="blob-code blob-code-inner js-file-line">    </td>
+      </tr>
+      <tr>
+        <td id="file-topic9_first_ml_model-py-L76" class="blob-num js-line-number" data-line-number="76"></td>
+        <td id="file-topic9_first_ml_model-py-LC76" class="blob-code blob-code-inner js-file-line">y <span class="pl-k">=</span> data.dropna().y</td>
+      </tr>
+      <tr>
+        <td id="file-topic9_first_ml_model-py-L77" class="blob-num js-line-number" data-line-number="77"></td>
+        <td id="file-topic9_first_ml_model-py-LC77" class="blob-code blob-code-inner js-file-line">X <span class="pl-k">=</span> data.dropna().drop([<span class="pl-s"><span class="pl-pds">'</span>y<span class="pl-pds">'</span></span>], <span class="pl-v">axis</span><span class="pl-k">=</span><span class="pl-c1">1</span>)</td>
+      </tr>
+      <tr>
+        <td id="file-topic9_first_ml_model-py-L78" class="blob-num js-line-number" data-line-number="78"></td>
+        <td id="file-topic9_first_ml_model-py-LC78" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-topic9_first_ml_model-py-L79" class="blob-num js-line-number" data-line-number="79"></td>
+        <td id="file-topic9_first_ml_model-py-LC79" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">#</span> reserve 30% of data for testing</span></td>
+      </tr>
+      <tr>
+        <td id="file-topic9_first_ml_model-py-L80" class="blob-num js-line-number" data-line-number="80"></td>
+        <td id="file-topic9_first_ml_model-py-LC80" class="blob-code blob-code-inner js-file-line">X_train, X_test, y_train, y_test <span class="pl-k">=</span> timeseries_train_test_split(X, y, <span class="pl-v">test_size</span><span class="pl-k">=</span><span class="pl-c1">0.3</span>)</td>
+      </tr>
+      <tr>
+        <td id="file-topic9_first_ml_model-py-L81" class="blob-num js-line-number" data-line-number="81"></td>
+        <td id="file-topic9_first_ml_model-py-LC81" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-topic9_first_ml_model-py-L82" class="blob-num js-line-number" data-line-number="82"></td>
+        <td id="file-topic9_first_ml_model-py-LC82" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">#</span> machine learning in two lines</span></td>
+      </tr>
+      <tr>
+        <td id="file-topic9_first_ml_model-py-L83" class="blob-num js-line-number" data-line-number="83"></td>
+        <td id="file-topic9_first_ml_model-py-LC83" class="blob-code blob-code-inner js-file-line">lr <span class="pl-k">=</span> LinearRegression()</td>
+      </tr>
+      <tr>
+        <td id="file-topic9_first_ml_model-py-L84" class="blob-num js-line-number" data-line-number="84"></td>
+        <td id="file-topic9_first_ml_model-py-LC84" class="blob-code blob-code-inner js-file-line">lr.fit(X_train, y_train)</td>
+      </tr>
+      <tr>
+        <td id="file-topic9_first_ml_model-py-L85" class="blob-num js-line-number" data-line-number="85"></td>
+        <td id="file-topic9_first_ml_model-py-LC85" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-topic9_first_ml_model-py-L86" class="blob-num js-line-number" data-line-number="86"></td>
+        <td id="file-topic9_first_ml_model-py-LC86" class="blob-code blob-code-inner js-file-line">plotModelResults(lr, <span class="pl-v">plot_intervals</span><span class="pl-k">=</span><span class="pl-c1">True</span>)</td>
+      </tr>
+      <tr>
+        <td id="file-topic9_first_ml_model-py-L87" class="blob-num js-line-number" data-line-number="87"></td>
+        <td id="file-topic9_first_ml_model-py-LC87" class="blob-code blob-code-inner js-file-line">plotCoefficients(lr)</td>
+      </tr>
+</tbody></table>
+
+
+  </div>
+
+  </div>
+</div>
+
+      </div>
+      <div class="gist-meta">
+        <a href="https://gist.github.com/DmitrySerg/c2a4dd5229c86b22963dec7feb43b577/raw/674a10d70a523bb7e73875017bc1953a91e70b49/topic9_first_ml_model.py" style="float:right">view raw</a>
+        <a href="https://gist.github.com/DmitrySerg/c2a4dd5229c86b22963dec7feb43b577#file-topic9_first_ml_model-py">topic9_first_ml_model.py</a>
+        hosted with ❤ by <a href="https://github.com/">GitHub</a>
+      </div>
+    </div>
+</div>
+<script>var height = -1; var delayMs = 200;function notifyResize(height) {height = height ? height : document.documentElement.offsetHeight; var resized = false; if (window.donkey && donkey.resize) {donkey.resize(height); resized = true;}if (parent && parent._resizeIframe) {var obj = {iframe: window.frameElement, height: height}; parent._resizeIframe(obj); resized = true;}if (window.location && window.location.hash === "#amp=1" && window.parent && window.parent.postMessage) {window.parent.postMessage({sentinel: "amp", type: "embed-size", height: height}, "*");}if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.resize) {window.webkit.messageHandlers.resize.postMessage(height); resized = true;}return resized;}function maybeResize() {if (document.documentElement.offsetHeight != height && notifyResize()) {height = document.documentElement.offsetHeight;}delayMs = Math.min(delayMs * 2, 1000000); setTimeout(maybeResize, delayMs);}maybeResize();</script></body></html>

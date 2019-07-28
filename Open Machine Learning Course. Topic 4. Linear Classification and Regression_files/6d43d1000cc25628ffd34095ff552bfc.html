@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<!-- saved from url=(0077)https://medium.com/media/6d43d1000cc25628ffd34095ff552bfc?postId=44a41b9b5220 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>topic4_snippet7.py – Medium</title><meta name="description" content="GitHub is where people build software. More than 28 million people use GitHub to discover, fork, and contribute to over 80 million projects."><meta name="twitter:widgets:csp" content="on"><meta name="robots" content="noindex"><!--<base target="_blank">--><base href="." target="_blank"><style>body {text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: "ff-tisa-web-pro", Georgia, Cambria, "Times New Roman", Times, serif; font-weight: 400; color: #333332; font-size: 18px; line-height: 1.4; margin: 0; background-color: white; overflow: hidden;}iframe {max-width: 100%;}</style></head><body><style>.gist .gist-file { margin-bottom: 0 !important; }.gist { text-rendering: auto; }</style><script src="./0c2a7073c4661a789fb3a57126f6fe07.js" charset="utf-8"></script><link rel="stylesheet" href="./gist-embed-6364c832764ba9bc85e4566bd747f0d1.css"><div id="gist87917382" class="gist">
+    <div class="gist-file">
+      <div class="gist-data">
+        <div class="js-gist-file-update-container js-task-list-container file-box">
+  <div id="file-topic4_snippet7-py" class="file">
+    
+
+  <div itemprop="text" class="blob-wrapper data type-python">
+      <table class="highlight tab-size js-file-line-container" data-tab-size="8">
+      <tbody><tr>
+        <td id="file-topic4_snippet7-py-L1" class="blob-num js-line-number" data-line-number="1"></td>
+        <td id="file-topic4_snippet7-py-LC1" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">#</span> data, create the list of ones, length of which equal to the number of elements </span></td>
+      </tr>
+      <tr>
+        <td id="file-topic4_snippet7-py-L2" class="blob-num js-line-number" data-line-number="2"></td>
+        <td id="file-topic4_snippet7-py-LC2" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">#</span> in the initial dataframe (9)</span></td>
+      </tr>
+      <tr>
+        <td id="file-topic4_snippet7-py-L3" class="blob-num js-line-number" data-line-number="3"></td>
+        <td id="file-topic4_snippet7-py-LC3" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">#</span> By summing the number of ones in the cell, we get the frequency,</span></td>
+      </tr>
+      <tr>
+        <td id="file-topic4_snippet7-py-L4" class="blob-num js-line-number" data-line-number="4"></td>
+        <td id="file-topic4_snippet7-py-LC4" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">#</span> number of visits to a particular site per session</span></td>
+      </tr>
+      <tr>
+        <td id="file-topic4_snippet7-py-L5" class="blob-num js-line-number" data-line-number="5"></td>
+        <td id="file-topic4_snippet7-py-LC5" class="blob-code blob-code-inner js-file-line">data <span class="pl-k">=</span> [<span class="pl-c1">1</span>] <span class="pl-k">*</span> <span class="pl-c1">9</span></td>
+      </tr>
+      <tr>
+        <td id="file-topic4_snippet7-py-L6" class="blob-num js-line-number" data-line-number="6"></td>
+        <td id="file-topic4_snippet7-py-LC6" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">#</span> To do this, you need to correctly distribute the ones in cells</span></td>
+      </tr>
+      <tr>
+        <td id="file-topic4_snippet7-py-L7" class="blob-num js-line-number" data-line-number="7"></td>
+        <td id="file-topic4_snippet7-py-LC7" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">#</span> Indices - website ids, i.e. columns of a new matrix. </span></td>
+      </tr>
+      <tr>
+        <td id="file-topic4_snippet7-py-L8" class="blob-num js-line-number" data-line-number="8"></td>
+        <td id="file-topic4_snippet7-py-LC8" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">#</span> We will sum ones up grouping them by sessions (ids)</span></td>
+      </tr>
+      <tr>
+        <td id="file-topic4_snippet7-py-L9" class="blob-num js-line-number" data-line-number="9"></td>
+        <td id="file-topic4_snippet7-py-LC9" class="blob-code blob-code-inner js-file-line">indices <span class="pl-k">=</span> [<span class="pl-c1">1</span>, <span class="pl-c1">0</span>, <span class="pl-c1">0</span>, <span class="pl-c1">1</span>, <span class="pl-c1">3</span>, <span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">3</span>, <span class="pl-c1">4</span>]</td>
+      </tr>
+      <tr>
+        <td id="file-topic4_snippet7-py-L10" class="blob-num js-line-number" data-line-number="10"></td>
+        <td id="file-topic4_snippet7-py-LC10" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">#</span> Indices for the division into rows (sessions)</span></td>
+      </tr>
+      <tr>
+        <td id="file-topic4_snippet7-py-L11" class="blob-num js-line-number" data-line-number="11"></td>
+        <td id="file-topic4_snippet7-py-LC11" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">#</span> For example, line 0 is the elements between the indices [0; 3) - </span></td>
+      </tr>
+      <tr>
+        <td id="file-topic4_snippet7-py-L12" class="blob-num js-line-number" data-line-number="12"></td>
+        <td id="file-topic4_snippet7-py-LC12" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">#</span> the rightmost value is not included</span></td>
+      </tr>
+      <tr>
+        <td id="file-topic4_snippet7-py-L13" class="blob-num js-line-number" data-line-number="13"></td>
+        <td id="file-topic4_snippet7-py-LC13" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">#</span> Line 1 is the elements between the indices [3; 6)</span></td>
+      </tr>
+      <tr>
+        <td id="file-topic4_snippet7-py-L14" class="blob-num js-line-number" data-line-number="14"></td>
+        <td id="file-topic4_snippet7-py-LC14" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">#</span> Line 2 is the elements between the indices [6; 9) </span></td>
+      </tr>
+      <tr>
+        <td id="file-topic4_snippet7-py-L15" class="blob-num js-line-number" data-line-number="15"></td>
+        <td id="file-topic4_snippet7-py-LC15" class="blob-code blob-code-inner js-file-line">indptr <span class="pl-k">=</span> [<span class="pl-c1">0</span>, <span class="pl-c1">3</span>, <span class="pl-c1">6</span>, <span class="pl-c1">9</span>]</td>
+      </tr>
+      <tr>
+        <td id="file-topic4_snippet7-py-L16" class="blob-num js-line-number" data-line-number="16"></td>
+        <td id="file-topic4_snippet7-py-LC16" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">#</span> Aggregate these three variables into a tuple and compose a matrix</span></td>
+      </tr>
+      <tr>
+        <td id="file-topic4_snippet7-py-L17" class="blob-num js-line-number" data-line-number="17"></td>
+        <td id="file-topic4_snippet7-py-LC17" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">#</span> To display this matrix on the screen transform it into the usual "dense" matrix</span></td>
+      </tr>
+      <tr>
+        <td id="file-topic4_snippet7-py-L18" class="blob-num js-line-number" data-line-number="18"></td>
+        <td id="file-topic4_snippet7-py-LC18" class="blob-code blob-code-inner js-file-line">csr_matrix((data, indices, indptr)).todense()</td>
+      </tr>
+</tbody></table>
+
+
+  </div>
+
+  </div>
+</div>
+
+      </div>
+      <div class="gist-meta">
+        <a href="https://gist.github.com/Yorko/0c2a7073c4661a789fb3a57126f6fe07/raw/f1efbb4849ebf25a9ce597243d8d3e52f4f4335a/topic4_snippet7.py" style="float:right">view raw</a>
+        <a href="https://gist.github.com/Yorko/0c2a7073c4661a789fb3a57126f6fe07#file-topic4_snippet7-py">topic4_snippet7.py</a>
+        hosted with ❤ by <a href="https://github.com/">GitHub</a>
+      </div>
+    </div>
+</div>
+<script>var height = -1; var delayMs = 200;function notifyResize(height) {height = height ? height : document.documentElement.offsetHeight; var resized = false; if (window.donkey && donkey.resize) {donkey.resize(height); resized = true;}if (parent && parent._resizeIframe) {var obj = {iframe: window.frameElement, height: height}; parent._resizeIframe(obj); resized = true;}if (window.location && window.location.hash === "#amp=1" && window.parent && window.parent.postMessage) {window.parent.postMessage({sentinel: "amp", type: "embed-size", height: height}, "*");}if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.resize) {window.webkit.messageHandlers.resize.postMessage(height); resized = true;}return resized;}function maybeResize() {if (document.documentElement.offsetHeight != height && notifyResize()) {height = document.documentElement.offsetHeight;}delayMs = Math.min(delayMs * 2, 1000000); setTimeout(maybeResize, delayMs);}maybeResize();</script></body></html>

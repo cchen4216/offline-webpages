@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<!-- saved from url=(0077)https://medium.com/media/5db46dc282c3e9c157705007c5dca810?postId=44a41b9b5220 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>topic4_snippet9.py – Medium</title><meta name="description" content="GitHub is where people build software. More than 28 million people use GitHub to discover, fork, and contribute to over 80 million projects."><meta name="twitter:widgets:csp" content="on"><meta name="robots" content="noindex"><!--<base target="_blank">--><base href="." target="_blank"><style>body {text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: "ff-tisa-web-pro", Georgia, Cambria, "Times New Roman", Times, serif; font-weight: 400; color: #333332; font-size: 18px; line-height: 1.4; margin: 0; background-color: white; overflow: hidden;}iframe {max-width: 100%;}</style></head><body><style>.gist .gist-file { margin-bottom: 0 !important; }.gist { text-rendering: auto; }</style><script src="./2a1a3284f8052eea4b77882ed68d84ac.js" charset="utf-8"></script><link rel="stylesheet" href="./gist-embed-6364c832764ba9bc85e4566bd747f0d1.css"><div id="gist87917439" class="gist">
+    <div class="gist-file">
+      <div class="gist-data">
+        <div class="js-gist-file-update-container js-task-list-container file-box">
+  <div id="file-topic4_snippet9-py" class="file">
+    
+
+  <div itemprop="text" class="blob-wrapper data type-python">
+      <table class="highlight tab-size js-file-line-container" data-tab-size="8">
+      <tbody><tr>
+        <td id="file-topic4_snippet9-py-L1" class="blob-num js-line-number" data-line-number="1"></td>
+        <td id="file-topic4_snippet9-py-LC1" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">#</span> Function for writing predictions to a file</span></td>
+      </tr>
+      <tr>
+        <td id="file-topic4_snippet9-py-L2" class="blob-num js-line-number" data-line-number="2"></td>
+        <td id="file-topic4_snippet9-py-LC2" class="blob-code blob-code-inner js-file-line"><span class="pl-k">def</span> <span class="pl-en">write_to_submission_file</span>(<span class="pl-smi">predicted_labels</span>, <span class="pl-smi">out_file</span>,</td>
+      </tr>
+      <tr>
+        <td id="file-topic4_snippet9-py-L3" class="blob-num js-line-number" data-line-number="3"></td>
+        <td id="file-topic4_snippet9-py-LC3" class="blob-code blob-code-inner js-file-line">                             <span class="pl-smi">target</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">'</span>target<span class="pl-pds">'</span></span>, <span class="pl-smi">index_label</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>session_id<span class="pl-pds">"</span></span>):</td>
+      </tr>
+      <tr>
+        <td id="file-topic4_snippet9-py-L4" class="blob-num js-line-number" data-line-number="4"></td>
+        <td id="file-topic4_snippet9-py-LC4" class="blob-code blob-code-inner js-file-line">    predicted_df <span class="pl-k">=</span> pd.DataFrame(predicted_labels,</td>
+      </tr>
+      <tr>
+        <td id="file-topic4_snippet9-py-L5" class="blob-num js-line-number" data-line-number="5"></td>
+        <td id="file-topic4_snippet9-py-LC5" class="blob-code blob-code-inner js-file-line">                                <span class="pl-v">index</span> <span class="pl-k">=</span> np.arange(<span class="pl-c1">1</span>, </td>
+      </tr>
+      <tr>
+        <td id="file-topic4_snippet9-py-L6" class="blob-num js-line-number" data-line-number="6"></td>
+        <td id="file-topic4_snippet9-py-LC6" class="blob-code blob-code-inner js-file-line">                                                  predicted_labels.shape[<span class="pl-c1">0</span>] <span class="pl-k">+</span> <span class="pl-c1">1</span>),</td>
+      </tr>
+      <tr>
+        <td id="file-topic4_snippet9-py-L7" class="blob-num js-line-number" data-line-number="7"></td>
+        <td id="file-topic4_snippet9-py-LC7" class="blob-code blob-code-inner js-file-line">                                <span class="pl-v">columns</span><span class="pl-k">=</span>[target])</td>
+      </tr>
+      <tr>
+        <td id="file-topic4_snippet9-py-L8" class="blob-num js-line-number" data-line-number="8"></td>
+        <td id="file-topic4_snippet9-py-LC8" class="blob-code blob-code-inner js-file-line">    predicted_df.to_csv(out_file, <span class="pl-v">index_label</span><span class="pl-k">=</span>index_label)</td>
+      </tr>
+      <tr>
+        <td id="file-topic4_snippet9-py-L9" class="blob-num js-line-number" data-line-number="9"></td>
+        <td id="file-topic4_snippet9-py-LC9" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">#</span> Train the model on the whole training data set</span></td>
+      </tr>
+      <tr>
+        <td id="file-topic4_snippet9-py-L10" class="blob-num js-line-number" data-line-number="10"></td>
+        <td id="file-topic4_snippet9-py-LC10" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">#</span> Use random_state=17 for repeatability</span></td>
+      </tr>
+      <tr>
+        <td id="file-topic4_snippet9-py-L11" class="blob-num js-line-number" data-line-number="11"></td>
+        <td id="file-topic4_snippet9-py-LC11" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">#</span> Parameter C=1 by default, but here we set it explicitly</span></td>
+      </tr>
+      <tr>
+        <td id="file-topic4_snippet9-py-L12" class="blob-num js-line-number" data-line-number="12"></td>
+        <td id="file-topic4_snippet9-py-LC12" class="blob-code blob-code-inner js-file-line">lr <span class="pl-k">=</span> LogisticRegression(<span class="pl-v">C</span><span class="pl-k">=</span><span class="pl-c1">1.0</span>, <span class="pl-v">solver</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">'</span>lbfgs<span class="pl-pds">'</span></span>, </td>
+      </tr>
+      <tr>
+        <td id="file-topic4_snippet9-py-L13" class="blob-num js-line-number" data-line-number="13"></td>
+        <td id="file-topic4_snippet9-py-LC13" class="blob-code blob-code-inner js-file-line">                        <span class="pl-v">random_state</span><span class="pl-k">=</span><span class="pl-c1">17</span>).fit(X_train, y_train)</td>
+      </tr>
+      <tr>
+        <td id="file-topic4_snippet9-py-L14" class="blob-num js-line-number" data-line-number="14"></td>
+        <td id="file-topic4_snippet9-py-LC14" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">#</span> Make a prediction for test data set</span></td>
+      </tr>
+      <tr>
+        <td id="file-topic4_snippet9-py-L15" class="blob-num js-line-number" data-line-number="15"></td>
+        <td id="file-topic4_snippet9-py-LC15" class="blob-code blob-code-inner js-file-line">X_test <span class="pl-k">=</span> full_sites_sparse[idx_split:,:]</td>
+      </tr>
+      <tr>
+        <td id="file-topic4_snippet9-py-L16" class="blob-num js-line-number" data-line-number="16"></td>
+        <td id="file-topic4_snippet9-py-LC16" class="blob-code blob-code-inner js-file-line">y_test <span class="pl-k">=</span> lr.predict_proba(X_test)[:, <span class="pl-c1">1</span>]</td>
+      </tr>
+      <tr>
+        <td id="file-topic4_snippet9-py-L17" class="blob-num js-line-number" data-line-number="17"></td>
+        <td id="file-topic4_snippet9-py-LC17" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">#</span> Write it to the file which could be submitted</span></td>
+      </tr>
+      <tr>
+        <td id="file-topic4_snippet9-py-L18" class="blob-num js-line-number" data-line-number="18"></td>
+        <td id="file-topic4_snippet9-py-LC18" class="blob-code blob-code-inner js-file-line">write_to_submission_file(y_test, <span class="pl-s"><span class="pl-pds">'</span>baseline_1.csv<span class="pl-pds">'</span></span>)</td>
+      </tr>
+</tbody></table>
+
+
+  </div>
+
+  </div>
+</div>
+
+      </div>
+      <div class="gist-meta">
+        <a href="https://gist.github.com/Yorko/2a1a3284f8052eea4b77882ed68d84ac/raw/2a7b4aa6f863bb53a69a23e26bd999d24fa729e7/topic4_snippet9.py" style="float:right">view raw</a>
+        <a href="https://gist.github.com/Yorko/2a1a3284f8052eea4b77882ed68d84ac#file-topic4_snippet9-py">topic4_snippet9.py</a>
+        hosted with ❤ by <a href="https://github.com/">GitHub</a>
+      </div>
+    </div>
+</div>
+<script>var height = -1; var delayMs = 200;function notifyResize(height) {height = height ? height : document.documentElement.offsetHeight; var resized = false; if (window.donkey && donkey.resize) {donkey.resize(height); resized = true;}if (parent && parent._resizeIframe) {var obj = {iframe: window.frameElement, height: height}; parent._resizeIframe(obj); resized = true;}if (window.location && window.location.hash === "#amp=1" && window.parent && window.parent.postMessage) {window.parent.postMessage({sentinel: "amp", type: "embed-size", height: height}, "*");}if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.resize) {window.webkit.messageHandlers.resize.postMessage(height); resized = true;}return resized;}function maybeResize() {if (document.documentElement.offsetHeight != height && notifyResize()) {height = document.documentElement.offsetHeight;}delayMs = Math.min(delayMs * 2, 1000000); setTimeout(maybeResize, delayMs);}maybeResize();</script></body></html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<!-- saved from url=(0069)https://towardsdatascience.com/media/518e469693a231ece0c650842ae7d952 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>vae.py – Medium</title><meta name="twitter:widgets:csp" content="on"><meta name="robots" content="noindex"><!--<base target="_blank">--><base href="." target="_blank"><style>body {text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: "ff-tisa-web-pro", Georgia, Cambria, "Times New Roman", Times, serif; font-weight: 400; color: #333332; font-size: 18px; line-height: 1.4; margin: 0; background-color: white; overflow: hidden;}iframe {max-width: 100%;}</style></head><body><style>.gist .gist-file { margin-bottom: 0 !important; }.gist { text-rendering: auto; }</style><script src="./29f6831c458c07613d01a3efc2ff3e15.js" charset="utf-8"></script><link rel="stylesheet" href="./gist-embed-4e8330898d16b1b65e7f0856076a5a28.css"><div id="gist82173344" class="gist">
+    <div class="gist-file">
+      <div class="gist-data">
+        <div class="js-gist-file-update-container js-task-list-container file-box">
+  <div id="file-vae-py" class="file">
+    
+
+  <div itemprop="text" class="Box-body p-0 blob-wrapper data type-python ">
+      
+<table class="highlight tab-size js-file-line-container" data-tab-size="8">
+      <tbody><tr>
+        <td id="file-vae-py-L1" class="blob-num js-line-number" data-line-number="1"></td>
+        <td id="file-vae-py-LC1" class="blob-code blob-code-inner js-file-line">randoms <span class="pl-k">=</span> [np.random.normal(<span class="pl-c1">0</span>, <span class="pl-c1">1</span>, n_latent) <span class="pl-k">for</span> _ <span class="pl-k">in</span> <span class="pl-c1">range</span>(<span class="pl-c1">10</span>)]</td>
+      </tr>
+      <tr>
+        <td id="file-vae-py-L2" class="blob-num js-line-number" data-line-number="2"></td>
+        <td id="file-vae-py-LC2" class="blob-code blob-code-inner js-file-line">imgs <span class="pl-k">=</span> sess.run(dec, <span class="pl-v">feed_dict</span> <span class="pl-k">=</span> {sampled: randoms, keep_prob: <span class="pl-c1">1.0</span>})</td>
+      </tr>
+      <tr>
+        <td id="file-vae-py-L3" class="blob-num js-line-number" data-line-number="3"></td>
+        <td id="file-vae-py-LC3" class="blob-code blob-code-inner js-file-line">imgs <span class="pl-k">=</span> [np.reshape(imgs[i], [<span class="pl-c1">28</span>, <span class="pl-c1">28</span>]) <span class="pl-k">for</span> i <span class="pl-k">in</span> <span class="pl-c1">range</span>(<span class="pl-c1">len</span>(imgs))]</td>
+      </tr>
+      <tr>
+        <td id="file-vae-py-L4" class="blob-num js-line-number" data-line-number="4"></td>
+        <td id="file-vae-py-LC4" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-vae-py-L5" class="blob-num js-line-number" data-line-number="5"></td>
+        <td id="file-vae-py-LC5" class="blob-code blob-code-inner js-file-line"><span class="pl-k">for</span> img <span class="pl-k">in</span> imgs:</td>
+      </tr>
+      <tr>
+        <td id="file-vae-py-L6" class="blob-num js-line-number" data-line-number="6"></td>
+        <td id="file-vae-py-LC6" class="blob-code blob-code-inner js-file-line">    plt.figure(<span class="pl-v">figsize</span><span class="pl-k">=</span>(<span class="pl-c1">1</span>,<span class="pl-c1">1</span>))</td>
+      </tr>
+      <tr>
+        <td id="file-vae-py-L7" class="blob-num js-line-number" data-line-number="7"></td>
+        <td id="file-vae-py-LC7" class="blob-code blob-code-inner js-file-line">    plt.axis(<span class="pl-s"><span class="pl-pds">'</span>off<span class="pl-pds">'</span></span>)</td>
+      </tr>
+      <tr>
+        <td id="file-vae-py-L8" class="blob-num js-line-number" data-line-number="8"></td>
+        <td id="file-vae-py-LC8" class="blob-code blob-code-inner js-file-line">    plt.imshow(img, <span class="pl-v">cmap</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">'</span>gray<span class="pl-pds">'</span></span>)</td>
+      </tr>
+</tbody></table>
+
+
+  </div>
+
+  </div>
+</div>
+
+      </div>
+      <div class="gist-meta">
+        <a href="https://gist.github.com/FelixMohr/29f6831c458c07613d01a3efc2ff3e15/raw/b8f4c7f71656269b226e688a246a2d4b0bae1b2d/vae.py" style="float:right">view raw</a>
+        <a href="https://gist.github.com/FelixMohr/29f6831c458c07613d01a3efc2ff3e15#file-vae-py">vae.py</a>
+        hosted with ❤ by <a href="https://github.com/">GitHub</a>
+      </div>
+    </div>
+</div>
+<script>var height = -1; var delayMs = 200;function notifyResize(height) {height = height ? height : document.documentElement.offsetHeight; var resized = false; if (window.donkey && donkey.resize) {donkey.resize(height); resized = true;}if (parent && parent._resizeIframe) {var obj = {iframe: window.frameElement, height: height}; parent._resizeIframe(obj); resized = true;}if (window.location && window.location.hash === "#amp=1" && window.parent && window.parent.postMessage) {window.parent.postMessage({sentinel: "amp", type: "embed-size", height: height}, "*");}if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.resize) {window.webkit.messageHandlers.resize.postMessage(height); resized = true;}return resized;}function maybeResize() {if (document.documentElement.offsetHeight != height && notifyResize()) {height = document.documentElement.offsetHeight;}delayMs = Math.min(delayMs * 2, 1000000); setTimeout(maybeResize, delayMs);}maybeResize();</script></body></html>

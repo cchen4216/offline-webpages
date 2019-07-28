@@ -1,0 +1,798 @@
+/* If we add the border using a regular CSS border, it won't look good on non-retina devices,
+ * since its edges can look jagged due to lack of antialiasing. In this case, we are several
+ * layers of box-shadow to add the border visually, which will render the border smoother. */
+/* Fallback for non-latin fonts */
+/* Calculates maximum width for post content */
+/* Nested sub-menu padding: 10 levels deep */
+/* Typography */
+.author-description .author-link,
+.comment-metadata,
+.comment-reply-link,
+.comments-title,
+.comment-author .fn,
+.discussion-meta-info,
+.entry-meta,
+.entry-footer,
+.main-navigation,
+.no-comments,
+.not-found .page-title,
+.error-404 .page-title,
+.post-navigation .post-title,
+.page-links,
+.page-description,
+.pagination .nav-links,
+.sticky-post,
+.site-title,
+.site-info,
+#cancel-comment-reply-link,
+img:after,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+}
+
+.main-navigation,
+.page-description,
+.author-description .author-link,
+.not-found .page-title,
+.error-404 .page-title,
+.post-navigation .post-title,
+.pagination .nav-links,
+.comments-title,
+.comment-author .fn,
+.no-comments,
+.site-title,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.page-title {
+  font-family: "NonBreakingSpaceOverride", "Hoefler Text", "Baskerville Old Face", Garamond, "Times New Roman", serif;
+}
+
+.site-branding,
+.main-navigation ul.main-menu > li,
+.social-navigation,
+.author-description .author-bio,
+.nav-links {
+  line-height: 1.25;
+}
+
+h1 {
+  font-size: 2.25em;
+}
+
+@media only screen and (min-width: 1024px) {
+  h1 {
+    font-size: 2.8125em;
+  }
+}
+
+.entry-title,
+.not-found .page-title,
+.error-404 .page-title,
+.has-larger-font-size,
+h2 {
+  font-size: 1.6875em;
+}
+
+@media only screen and (min-width: 1024px) {
+  .entry-title,
+  .not-found .page-title,
+  .error-404 .page-title,
+  .has-larger-font-size,
+  h2 {
+    font-size: 2.25em;
+  }
+}
+
+.has-regular-font-size,
+.has-large-font-size,
+.comments-title,
+h3 {
+  font-size: 1.6875em;
+}
+
+.site-title,
+.site-description,
+.main-navigation,
+.nav-links,
+.page-title,
+.page-description,
+.comment-author .fn,
+.no-comments,
+h2.author-title,
+p.author-bio,
+h4 {
+  font-size: 1.125em;
+}
+
+.pagination .nav-links,
+.comment-content,
+h5 {
+  font-size: 0.88889em;
+}
+
+.entry-meta,
+.entry-footer,
+.discussion-meta-info,
+.site-info,
+.has-small-font-size,
+.comment-reply-link,
+.comment-metadata,
+.comment-notes,
+.sticky-post,
+#cancel-comment-reply-link,
+img:after,
+h6 {
+  font-size: 0.71111em;
+}
+
+.site-title,
+.page-title {
+  font-weight: normal;
+}
+
+.page-description,
+.page-links a {
+  font-weight: bold;
+}
+
+.site-description {
+  letter-spacing: -0.01em;
+}
+
+.post-navigation .post-title,
+.entry-title,
+.not-found .page-title,
+.error-404 .page-title,
+.comments-title,
+blockquote {
+  hyphens: auto;
+  word-break: break-word;
+}
+
+/* Do not hyphenate entry title on tablet view and bigger. */
+@media only screen and (min-width: 1024px) {
+  .entry-title {
+    hyphens: none;
+  }
+}
+
+p {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+dfn,
+cite,
+em,
+i {
+  font-style: italic;
+}
+
+blockquote cite {
+  font-size: 0.71111em;
+  font-style: normal;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+}
+
+pre {
+  font-size: 0.88889em;
+  font-family: "Courier 10 Pitch", Courier, monospace;
+  line-height: 1.8;
+  overflow: auto;
+}
+
+code,
+kbd,
+tt,
+var {
+  font-size: 0.88889em;
+  font-family: Menlo, monaco, Consolas, Lucida Console, monospace;
+}
+
+abbr, acronym {
+  border-bottom: 1px dotted #666;
+  cursor: help;
+}
+
+mark,
+ins {
+  background: #fff9c0;
+  text-decoration: none;
+}
+
+big {
+  font-size: 125%;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+a:focus {
+  text-decoration: underline;
+}
+
+/* Arabic */
+html[lang="ar"] .site *,
+html[lang="ary"] .site *,
+html[lang="azb"] .site *,
+html[lang="ckb"] .site *,
+html[lang="fa-IR"] .site *,
+html[lang="haz"] .site *,
+html[lang="ps"] .site * {
+  font-family: Tahoma, Arial, sans-serif !important;
+}
+
+/* Cyrillic */
+html[lang="be"] .site *,
+html[lang="bg-BG"] .site *,
+html[lang="kk"] .site *,
+html[lang="mk-MK"] .site *,
+html[lang="mn"] .site *,
+html[lang="ru-RU"] .site *,
+html[lang="sah"] .site *,
+html[lang="sr-RS"] .site *,
+html[lang="tt-RU"] .site *,
+html[lang="uk"] .site * {
+  font-family: 'Helvetica Neue', Helvetica, 'Segoe UI', Arial, sans-serif !important;
+}
+
+/* Chinese (Hong Kong) */
+html[lang="zh-HK"] .site * {
+  font-family: -apple-system, BlinkMacSystemFont, 'PingFang HK', 'Helvetica Neue', "Microsoft YaHei New", STHeiti Light, sans-serif !important;
+}
+
+/* Chinese (Taiwan) */
+html[lang="zh-TW"] .site * {
+  font-family: -apple-system, BlinkMacSystemFont, 'PingFang TC', 'Helvetica Neue', "Microsoft YaHei New", STHeiti Light, sans-serif !important;
+}
+
+/* Chinese (China) */
+html[lang="zh-CN"] .site * {
+  font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Helvetica Neue', "Microsoft YaHei New", STHeiti Light, sans-serif !important;
+}
+
+/* Devanagari */
+html[lang="bn-BD"] .site *,
+html[lang="hi-IN"] .site *,
+html[lang="mr"] .site *,
+html[lang="ne-NP"] .site * {
+  font-family: Arial, sans-serif !important;
+}
+
+/* Greek */
+html[lang="el"] .site * {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
+}
+
+/* Gujarati */
+html[lang="gu"] .site * {
+  font-family: Arial, sans-serif !important;
+}
+
+/* Hebrew */
+html[lang="he-IL"] .site * {
+  font-family: 'Arial Hebrew', Arial, sans-serif !important;
+}
+
+/* Japanese */
+html[lang="ja"] .site * {
+  font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", Meiryo, "Helvetica Neue", sans-serif !important;
+}
+
+/* Korean */
+html[lang="ko-KR"] .site * {
+  font-family: 'Apple SD Gothic Neo', 'Malgun Gothic', 'Nanum Gothic', Dotum, sans-serif !important;
+}
+
+/* Thai */
+html[lang="th"] .site * {
+  font-family: 'Sukhumvit Set', 'Helvetica Neue', helvetica, arial, sans-serif !important;
+}
+
+/* Vietnamese */
+html[lang="vi"] .site * {
+  font-family: 'Libre Franklin', sans-serif !important;
+}
+
+/* Forms */
+.button,
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  transition: background 150ms ease-in-out;
+  background: #0073aa;
+  border: none;
+  border-radius: 5px;
+  box-sizing: border-box;
+  color: #fff;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-size: 0.88889em;
+  font-weight: 700;
+  line-height: 1.2;
+  outline: none;
+  padding: 0.76rem 1rem;
+  text-decoration: none;
+  vertical-align: bottom;
+}
+
+.button:hover,
+button:hover,
+input[type="button"]:hover,
+input[type="reset"]:hover,
+input[type="submit"]:hover {
+  background: #111;
+  cursor: pointer;
+}
+
+.button:visited,
+button:visited,
+input[type="button"]:visited,
+input[type="reset"]:visited,
+input[type="submit"]:visited {
+  color: #fff;
+  text-decoration: none;
+}
+
+.button:focus,
+button:focus,
+input[type="button"]:focus,
+input[type="reset"]:focus,
+input[type="submit"]:focus {
+  background: #111;
+  outline: thin dotted;
+  outline-offset: -4px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+input[type="number"],
+input[type="tel"],
+input[type="range"],
+input[type="date"],
+input[type="month"],
+input[type="week"],
+input[type="time"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="color"],
+textarea {
+  -webkit-backface-visibility: hidden;
+  background: #fff;
+  border: solid 1px #cccccc;
+  box-sizing: border-box;
+  outline: none;
+  padding: 0.36rem 0.66rem;
+  -webkit-appearance: none;
+  outline-offset: 0;
+  border-radius: 0;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="password"]:focus,
+input[type="search"]:focus,
+input[type="number"]:focus,
+input[type="tel"]:focus,
+input[type="range"]:focus,
+input[type="date"]:focus,
+input[type="month"]:focus,
+input[type="week"]:focus,
+input[type="time"]:focus,
+input[type="datetime"]:focus,
+input[type="datetime-local"]:focus,
+input[type="color"]:focus,
+textarea:focus {
+  border-color: #0073aa;
+  outline: thin solid rgba(0, 115, 170, 0.15);
+  outline-offset: -4px;
+}
+
+input[type="search"]::-webkit-search-decoration {
+  display: none;
+}
+
+textarea {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  resize: vertical;
+}
+
+form p {
+  margin: 1rem 0;
+}
+
+/* Accessibility */
+/* Text meant only for screen readers. */
+.screen-reader-text {
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute !important;
+  width: 1px;
+  word-wrap: normal !important;
+  /* Many screen reader and browser combinations announce broken words as they would appear visually. */
+}
+
+.screen-reader-text:focus {
+  background-color: #f1f1f1;
+  border-radius: 3px;
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+  clip: auto !important;
+  clip-path: none;
+  color: #21759b;
+  display: block;
+  font-size: 14px;
+  font-size: 0.875rem;
+  font-weight: bold;
+  height: auto;
+  left: 5px;
+  line-height: normal;
+  padding: 15px 23px 14px;
+  text-decoration: none;
+  top: 5px;
+  width: auto;
+  z-index: 100000;
+  /* Above WP toolbar. */
+}
+
+/* Do not show the outline on the skip link target. */
+#content[tabindex="-1"]:focus {
+  outline: 0;
+}
+
+/* Content */
+/*--------------------------------------------------------------
+## Comments
+--------------------------------------------------------------*/
+.post-comments-conatainer {
+  margin: 0 auto;
+  max-width: 900px;
+}
+
+.commentlist .comment {
+  box-shadow: 0 1px 4px rgba(78, 83, 111, 0.04);
+  border: 1px solid #edf0f7;
+  margin: 0 0 1rem;
+  padding: 1rem;
+  position: relative;
+  display: block;
+}
+
+.no-comment-found {
+  border: 1px solid #edf0f7;
+  padding: 2rem;
+  text-align: center;
+  margin: 0 0 1rem;
+}
+
+.no-comment-found .comments-count {
+  font-size: 1rem;
+  margin: 0;
+  font-weight: lighter;
+  color: #757575;
+}
+
+.comment-metadata {
+  padding-left: 50px;
+}
+
+.comment-metadata time {
+  font-size: 0.8rem;
+  font-weight: lighter;
+}
+
+.comment-author.vcard {
+  position: relative;
+  padding-left: 50px;
+}
+
+.comment .comment-author .avatar {
+  float: inherit;
+  margin-right: inherit;
+  position: absolute;
+  top: auto;
+  right: auto;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  border: 1px solid #e1e7f4;
+}
+
+.comment .comment-author .fn {
+  position: relative;
+  display: block;
+  font-size: 1rem;
+}
+
+.comment .comment-content {
+  margin: 0.5rem 0;
+  padding-right: 1rem;
+}
+
+.commentlist .children .comment {
+  border-top: 1px solid #edf0f7;
+  box-shadow: none;
+  border-right: none;
+  border-bottom: none;
+  border-left: none;
+  margin: 0;
+  display: block;
+}
+
+.comment-content p {
+  font-weight: lighter;
+  font-size: 1rem;
+  margin: 0;
+}
+
+.commentlist {
+  padding: 0;
+  margin: 0;
+}
+
+.comment .cancel-comment-reply a#cancel-comment-reply-link {
+  font-size: 0.9rem;
+  font-weight: lighter;
+}
+
+.comment .cancel-comment-reply a#cancel-comment-reply-link:hover {
+  text-decoration: underline;
+}
+
+.comment-reply-link {
+  font-size: 0.9rem;
+  font-weight: lighter;
+  margin: 0.4rem 0;
+  display: block;
+}
+
+.comment-reply-link:hover {
+  text-decoration: underline;
+}
+
+.comment .comment-author .post-author-badge {
+  display: none;
+}
+
+.children {
+  padding: 0;
+}
+
+.comment-form-outer {
+  border: 1px solid #edf0f7;
+  padding: 1rem;
+}
+
+.comments-form-heading {
+  font-size: 1.2rem;
+}
+
+.form-group.btn-group {
+  margin: 0;
+}
+
+.comments-count {
+  margin: 0 0 1rem;
+  font-size: 1.3rem;
+}
+
+.post-comments-section {
+  padding: 1rem 0 2rem;
+}
+
+.form-group.has-error .form-ctrl:valid ~ .help-block, .form-group.has-error .form-ctrl:valid ~ .help-block.with-errors {
+  display: block;
+}
+
+.form-group.has-error .form-ctrl:focus {
+  border-color: #f2545b;
+}
+
+/* Media */
+.page-content .wp-smiley,
+.entry-content .wp-smiley,
+.comment-content .wp-smiley {
+  border: none;
+  margin-bottom: 0;
+  margin-top: 0;
+  padding: 0;
+}
+
+embed,
+iframe,
+object {
+  max-width: 100%;
+}
+
+.custom-logo-link {
+  display: inline-block;
+}
+
+.avatar {
+  border-radius: 100%;
+  display: block;
+  height: calc(2.25 * 1rem);
+  min-height: inherit;
+  width: calc(2.25 * 1rem);
+}
+
+svg {
+  transition: fill 120ms ease-in-out;
+  fill: currentColor;
+}
+
+/*--------------------------------------------------------------
+## Captions
+--------------------------------------------------------------*/
+.wp-caption {
+  margin-bottom: calc(1.5 * 1rem);
+}
+
+@media only screen and (min-width: 1024px) {
+  .wp-caption.aligncenter {
+    position: relative;
+    left: calc( calc(8 * (100vw / 12) - 28px) / 2);
+    transform: translateX(-50%);
+  }
+}
+
+@media only screen and (min-width: 1368px) {
+  .wp-caption.aligncenter {
+    left: calc( calc(6 * (100vw / 12) - 28px) / 2);
+  }
+}
+
+.wp-caption img[class*="wp-image-"] {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.wp-caption-text {
+  color: #757575;
+  font-size: 0.71111em;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0.5rem;
+  text-align: center;
+}
+
+/*--------------------------------------------------------------
+## Galleries
+--------------------------------------------------------------*/
+.gallery {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  margin-bottom: calc(1.5 * 1rem);
+}
+
+.gallery-item {
+  display: inline-block;
+  margin-right: 16px;
+  margin-bottom: 16px;
+  text-align: center;
+  vertical-align: top;
+  width: 100%;
+}
+
+.gallery-columns-2 .gallery-item {
+  max-width: calc((100% - 16px * 1) / 2);
+}
+
+.gallery-columns-2 .gallery-item:nth-of-type(2n+2) {
+  margin-right: 0;
+}
+
+.gallery-columns-3 .gallery-item {
+  max-width: calc((100% - 16px * 2) / 3);
+}
+
+.gallery-columns-3 .gallery-item:nth-of-type(3n+3) {
+  margin-right: 0;
+}
+
+.gallery-columns-4 .gallery-item {
+  max-width: calc((100% - 16px * 3) / 4);
+}
+
+.gallery-columns-4 .gallery-item:nth-of-type(4n+4) {
+  margin-right: 0;
+}
+
+.gallery-columns-5 .gallery-item {
+  max-width: calc((100% - 16px * 4) / 5);
+}
+
+.gallery-columns-5 .gallery-item:nth-of-type(5n+5) {
+  margin-right: 0;
+}
+
+.gallery-columns-6 .gallery-item {
+  max-width: calc((100% - 16px * 5) / 6);
+}
+
+.gallery-columns-6 .gallery-item:nth-of-type(6n+6) {
+  margin-right: 0;
+}
+
+.gallery-columns-7 .gallery-item {
+  max-width: calc((100% - 16px * 6) / 7);
+}
+
+.gallery-columns-7 .gallery-item:nth-of-type(7n+7) {
+  margin-right: 0;
+}
+
+.gallery-columns-8 .gallery-item {
+  max-width: calc((100% - 16px * 7) / 8);
+}
+
+.gallery-columns-8 .gallery-item:nth-of-type(8n+8) {
+  margin-right: 0;
+}
+
+.gallery-columns-9 .gallery-item {
+  max-width: calc((100% - 16px * 8) / 9);
+}
+
+.gallery-columns-9 .gallery-item:nth-of-type(9n+9) {
+  margin-right: 0;
+}
+
+.gallery-item:last-of-type {
+  padding-right: 0;
+}
+
+.gallery-caption {
+  display: block;
+  font-size: 0.71111em;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0.5rem;
+}
+
+.gallery-item > div > a {
+  display: block;
+  line-height: 0;
+  box-shadow: 0 0 0 0 transparent;
+}
+
+.gallery-item > div > a:focus {
+  box-shadow: 0 0 0 2px #0073aa;
+}

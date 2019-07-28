@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<!-- saved from url=(0077)https://medium.com/media/cd63ae72e4f4300fdfd4b96048d53ceb?postId=a270cb05e0b3 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>topic9_plot_moving_average.py – Medium</title><meta name="description" content="GitHub is where people build software. More than 27 million people use GitHub to discover, fork, and contribute to over 80 million projects."><meta name="twitter:widgets:csp" content="on"><meta name="robots" content="noindex"><!--<base target="_blank">--><base href="." target="_blank"><style>body {text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: "ff-tisa-web-pro", Georgia, Cambria, "Times New Roman", Times, serif; font-weight: 400; color: #333332; font-size: 18px; line-height: 1.4; margin: 0; background-color: white; overflow: hidden;}iframe {max-width: 100%;}</style></head><body><style>.gist .gist-file { margin-bottom: 0 !important; }.gist { text-rendering: auto; }</style><script src="./b5952d12b2671ab9cce4d121ba80c7a5.js" charset="utf-8"></script><link rel="stylesheet" href="./gist-embed-8c6ade0d3779da026346afb9bf324f67.css"><div id="gist88899585" class="gist">
+    <div class="gist-file">
+      <div class="gist-data">
+        <div class="js-gist-file-update-container js-task-list-container file-box">
+  <div id="file-topic9_plot_moving_average-py" class="file">
+    
+
+  <div itemprop="text" class="blob-wrapper data type-python">
+      <table class="highlight tab-size js-file-line-container" data-tab-size="8">
+      <tbody><tr>
+        <td id="file-topic9_plot_moving_average-py-L1" class="blob-num js-line-number" data-line-number="1"></td>
+        <td id="file-topic9_plot_moving_average-py-LC1" class="blob-code blob-code-inner js-file-line"><span class="pl-k">def</span> <span class="pl-en">plotMovingAverage</span>(<span class="pl-smi">series</span>, <span class="pl-smi">window</span>, <span class="pl-smi">plot_intervals</span><span class="pl-k">=</span><span class="pl-c1">False</span>, <span class="pl-smi">scale</span><span class="pl-k">=</span><span class="pl-c1">1.96</span>, <span class="pl-smi">plot_anomalies</span><span class="pl-k">=</span><span class="pl-c1">False</span>):</td>
+      </tr>
+      <tr>
+        <td id="file-topic9_plot_moving_average-py-L2" class="blob-num js-line-number" data-line-number="2"></td>
+        <td id="file-topic9_plot_moving_average-py-LC2" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-topic9_plot_moving_average-py-L3" class="blob-num js-line-number" data-line-number="3"></td>
+        <td id="file-topic9_plot_moving_average-py-LC3" class="blob-code blob-code-inner js-file-line">    <span class="pl-s"><span class="pl-pds">"""</span></span></td>
+      </tr>
+      <tr>
+        <td id="file-topic9_plot_moving_average-py-L4" class="blob-num js-line-number" data-line-number="4"></td>
+        <td id="file-topic9_plot_moving_average-py-LC4" class="blob-code blob-code-inner js-file-line"><span class="pl-s">        series - dataframe with timeseries</span></td>
+      </tr>
+      <tr>
+        <td id="file-topic9_plot_moving_average-py-L5" class="blob-num js-line-number" data-line-number="5"></td>
+        <td id="file-topic9_plot_moving_average-py-LC5" class="blob-code blob-code-inner js-file-line"><span class="pl-s">        window - rolling window size </span></td>
+      </tr>
+      <tr>
+        <td id="file-topic9_plot_moving_average-py-L6" class="blob-num js-line-number" data-line-number="6"></td>
+        <td id="file-topic9_plot_moving_average-py-LC6" class="blob-code blob-code-inner js-file-line"><span class="pl-s">        plot_intervals - show confidence intervals</span></td>
+      </tr>
+      <tr>
+        <td id="file-topic9_plot_moving_average-py-L7" class="blob-num js-line-number" data-line-number="7"></td>
+        <td id="file-topic9_plot_moving_average-py-LC7" class="blob-code blob-code-inner js-file-line"><span class="pl-s">        plot_anomalies - show anomalies </span></td>
+      </tr>
+      <tr>
+        <td id="file-topic9_plot_moving_average-py-L8" class="blob-num js-line-number" data-line-number="8"></td>
+        <td id="file-topic9_plot_moving_average-py-LC8" class="blob-code blob-code-inner js-file-line"><span class="pl-s"></span></td>
+      </tr>
+      <tr>
+        <td id="file-topic9_plot_moving_average-py-L9" class="blob-num js-line-number" data-line-number="9"></td>
+        <td id="file-topic9_plot_moving_average-py-LC9" class="blob-code blob-code-inner js-file-line"><span class="pl-s">    <span class="pl-pds">"""</span></span></td>
+      </tr>
+      <tr>
+        <td id="file-topic9_plot_moving_average-py-L10" class="blob-num js-line-number" data-line-number="10"></td>
+        <td id="file-topic9_plot_moving_average-py-LC10" class="blob-code blob-code-inner js-file-line">    rolling_mean <span class="pl-k">=</span> series.rolling(<span class="pl-v">window</span><span class="pl-k">=</span>window).mean()</td>
+      </tr>
+      <tr>
+        <td id="file-topic9_plot_moving_average-py-L11" class="blob-num js-line-number" data-line-number="11"></td>
+        <td id="file-topic9_plot_moving_average-py-LC11" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-topic9_plot_moving_average-py-L12" class="blob-num js-line-number" data-line-number="12"></td>
+        <td id="file-topic9_plot_moving_average-py-LC12" class="blob-code blob-code-inner js-file-line">    plt.figure(<span class="pl-v">figsize</span><span class="pl-k">=</span>(<span class="pl-c1">15</span>,<span class="pl-c1">5</span>))</td>
+      </tr>
+      <tr>
+        <td id="file-topic9_plot_moving_average-py-L13" class="blob-num js-line-number" data-line-number="13"></td>
+        <td id="file-topic9_plot_moving_average-py-LC13" class="blob-code blob-code-inner js-file-line">    plt.title(<span class="pl-s"><span class="pl-pds">"</span>Moving average<span class="pl-cce">\n</span> window size = <span class="pl-c1">{}</span><span class="pl-pds">"</span></span>.format(window))</td>
+      </tr>
+      <tr>
+        <td id="file-topic9_plot_moving_average-py-L14" class="blob-num js-line-number" data-line-number="14"></td>
+        <td id="file-topic9_plot_moving_average-py-LC14" class="blob-code blob-code-inner js-file-line">    plt.plot(rolling_mean, <span class="pl-s"><span class="pl-pds">"</span>g<span class="pl-pds">"</span></span>, <span class="pl-v">label</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>Rolling mean trend<span class="pl-pds">"</span></span>)</td>
+      </tr>
+      <tr>
+        <td id="file-topic9_plot_moving_average-py-L15" class="blob-num js-line-number" data-line-number="15"></td>
+        <td id="file-topic9_plot_moving_average-py-LC15" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-topic9_plot_moving_average-py-L16" class="blob-num js-line-number" data-line-number="16"></td>
+        <td id="file-topic9_plot_moving_average-py-LC16" class="blob-code blob-code-inner js-file-line">    <span class="pl-c"><span class="pl-c">#</span> Plot confidence intervals for smoothed values</span></td>
+      </tr>
+      <tr>
+        <td id="file-topic9_plot_moving_average-py-L17" class="blob-num js-line-number" data-line-number="17"></td>
+        <td id="file-topic9_plot_moving_average-py-LC17" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">if</span> plot_intervals:</td>
+      </tr>
+      <tr>
+        <td id="file-topic9_plot_moving_average-py-L18" class="blob-num js-line-number" data-line-number="18"></td>
+        <td id="file-topic9_plot_moving_average-py-LC18" class="blob-code blob-code-inner js-file-line">        mae <span class="pl-k">=</span> mean_absolute_error(series[window:], rolling_mean[window:])</td>
+      </tr>
+      <tr>
+        <td id="file-topic9_plot_moving_average-py-L19" class="blob-num js-line-number" data-line-number="19"></td>
+        <td id="file-topic9_plot_moving_average-py-LC19" class="blob-code blob-code-inner js-file-line">        deviation <span class="pl-k">=</span> np.std(series[window:] <span class="pl-k">-</span> rolling_mean[window:])</td>
+      </tr>
+      <tr>
+        <td id="file-topic9_plot_moving_average-py-L20" class="blob-num js-line-number" data-line-number="20"></td>
+        <td id="file-topic9_plot_moving_average-py-LC20" class="blob-code blob-code-inner js-file-line">        lower_bond <span class="pl-k">=</span> rolling_mean <span class="pl-k">-</span> (mae <span class="pl-k">+</span> scale <span class="pl-k">*</span> deviation)</td>
+      </tr>
+      <tr>
+        <td id="file-topic9_plot_moving_average-py-L21" class="blob-num js-line-number" data-line-number="21"></td>
+        <td id="file-topic9_plot_moving_average-py-LC21" class="blob-code blob-code-inner js-file-line">        upper_bond <span class="pl-k">=</span> rolling_mean <span class="pl-k">+</span> (mae <span class="pl-k">+</span> scale <span class="pl-k">*</span> deviation)</td>
+      </tr>
+      <tr>
+        <td id="file-topic9_plot_moving_average-py-L22" class="blob-num js-line-number" data-line-number="22"></td>
+        <td id="file-topic9_plot_moving_average-py-LC22" class="blob-code blob-code-inner js-file-line">        plt.plot(upper_bond, <span class="pl-s"><span class="pl-pds">"</span>r--<span class="pl-pds">"</span></span>, <span class="pl-v">label</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>Upper Bond / Lower Bond<span class="pl-pds">"</span></span>)</td>
+      </tr>
+      <tr>
+        <td id="file-topic9_plot_moving_average-py-L23" class="blob-num js-line-number" data-line-number="23"></td>
+        <td id="file-topic9_plot_moving_average-py-LC23" class="blob-code blob-code-inner js-file-line">        plt.plot(lower_bond, <span class="pl-s"><span class="pl-pds">"</span>r--<span class="pl-pds">"</span></span>)</td>
+      </tr>
+      <tr>
+        <td id="file-topic9_plot_moving_average-py-L24" class="blob-num js-line-number" data-line-number="24"></td>
+        <td id="file-topic9_plot_moving_average-py-LC24" class="blob-code blob-code-inner js-file-line">        </td>
+      </tr>
+      <tr>
+        <td id="file-topic9_plot_moving_average-py-L25" class="blob-num js-line-number" data-line-number="25"></td>
+        <td id="file-topic9_plot_moving_average-py-LC25" class="blob-code blob-code-inner js-file-line">        <span class="pl-c"><span class="pl-c">#</span> Having the intervals, find abnormal values</span></td>
+      </tr>
+      <tr>
+        <td id="file-topic9_plot_moving_average-py-L26" class="blob-num js-line-number" data-line-number="26"></td>
+        <td id="file-topic9_plot_moving_average-py-LC26" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">if</span> plot_anomalies:</td>
+      </tr>
+      <tr>
+        <td id="file-topic9_plot_moving_average-py-L27" class="blob-num js-line-number" data-line-number="27"></td>
+        <td id="file-topic9_plot_moving_average-py-LC27" class="blob-code blob-code-inner js-file-line">            anomalies <span class="pl-k">=</span> pd.DataFrame(<span class="pl-v">index</span><span class="pl-k">=</span>series.index, <span class="pl-v">columns</span><span class="pl-k">=</span>series.columns)</td>
+      </tr>
+      <tr>
+        <td id="file-topic9_plot_moving_average-py-L28" class="blob-num js-line-number" data-line-number="28"></td>
+        <td id="file-topic9_plot_moving_average-py-LC28" class="blob-code blob-code-inner js-file-line">            anomalies[series<span class="pl-k">&lt;</span>lower_bond] <span class="pl-k">=</span> series[series<span class="pl-k">&lt;</span>lower_bond]</td>
+      </tr>
+      <tr>
+        <td id="file-topic9_plot_moving_average-py-L29" class="blob-num js-line-number" data-line-number="29"></td>
+        <td id="file-topic9_plot_moving_average-py-LC29" class="blob-code blob-code-inner js-file-line">            anomalies[series<span class="pl-k">&gt;</span>upper_bond] <span class="pl-k">=</span> series[series<span class="pl-k">&gt;</span>upper_bond]</td>
+      </tr>
+      <tr>
+        <td id="file-topic9_plot_moving_average-py-L30" class="blob-num js-line-number" data-line-number="30"></td>
+        <td id="file-topic9_plot_moving_average-py-LC30" class="blob-code blob-code-inner js-file-line">            plt.plot(anomalies, <span class="pl-s"><span class="pl-pds">"</span>ro<span class="pl-pds">"</span></span>, <span class="pl-v">markersize</span><span class="pl-k">=</span><span class="pl-c1">10</span>)</td>
+      </tr>
+      <tr>
+        <td id="file-topic9_plot_moving_average-py-L31" class="blob-num js-line-number" data-line-number="31"></td>
+        <td id="file-topic9_plot_moving_average-py-LC31" class="blob-code blob-code-inner js-file-line">        </td>
+      </tr>
+      <tr>
+        <td id="file-topic9_plot_moving_average-py-L32" class="blob-num js-line-number" data-line-number="32"></td>
+        <td id="file-topic9_plot_moving_average-py-LC32" class="blob-code blob-code-inner js-file-line">    plt.plot(series[window:], <span class="pl-v">label</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>Actual values<span class="pl-pds">"</span></span>)</td>
+      </tr>
+      <tr>
+        <td id="file-topic9_plot_moving_average-py-L33" class="blob-num js-line-number" data-line-number="33"></td>
+        <td id="file-topic9_plot_moving_average-py-LC33" class="blob-code blob-code-inner js-file-line">    plt.legend(<span class="pl-v">loc</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>upper left<span class="pl-pds">"</span></span>)</td>
+      </tr>
+      <tr>
+        <td id="file-topic9_plot_moving_average-py-L34" class="blob-num js-line-number" data-line-number="34"></td>
+        <td id="file-topic9_plot_moving_average-py-LC34" class="blob-code blob-code-inner js-file-line">    plt.grid(<span class="pl-c1">True</span>)</td>
+      </tr>
+</tbody></table>
+
+
+  </div>
+
+  </div>
+</div>
+
+      </div>
+      <div class="gist-meta">
+        <a href="https://gist.github.com/DmitrySerg/b5952d12b2671ab9cce4d121ba80c7a5/raw/3e2fa9031595d87fda333740b28fa5b54f1fb593/topic9_plot_moving_average.py" style="float:right">view raw</a>
+        <a href="https://gist.github.com/DmitrySerg/b5952d12b2671ab9cce4d121ba80c7a5#file-topic9_plot_moving_average-py">topic9_plot_moving_average.py</a>
+        hosted with ❤ by <a href="https://github.com/">GitHub</a>
+      </div>
+    </div>
+</div>
+<script>var height = -1; var delayMs = 200;function notifyResize(height) {height = height ? height : document.documentElement.offsetHeight; var resized = false; if (window.donkey && donkey.resize) {donkey.resize(height); resized = true;}if (parent && parent._resizeIframe) {var obj = {iframe: window.frameElement, height: height}; parent._resizeIframe(obj); resized = true;}if (window.location && window.location.hash === "#amp=1" && window.parent && window.parent.postMessage) {window.parent.postMessage({sentinel: "amp", type: "embed-size", height: height}, "*");}if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.resize) {window.webkit.messageHandlers.resize.postMessage(height); resized = true;}return resized;}function maybeResize() {if (document.documentElement.offsetHeight != height && notifyResize()) {height = document.documentElement.offsetHeight;}delayMs = Math.min(delayMs * 2, 1000000); setTimeout(maybeResize, delayMs);}maybeResize();</script></body></html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<!-- saved from url=(0076)https://medium.com/media/97f4905b60335305192f180c1be3cacb?postId=3f3af145cdc -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>topic9_p3_cell28.py – Medium</title><meta name="description" content="GitHub is where people build software. More than 27 million people use GitHub to discover, fork, and contribute to over 80 million projects."><meta name="twitter:widgets:csp" content="on"><meta name="robots" content="noindex"><!--<base target="_blank">--><base href="." target="_blank"><style>body {text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: "ff-tisa-web-pro", Georgia, Cambria, "Times New Roman", Times, serif; font-weight: 400; color: #333332; font-size: 18px; line-height: 1.4; margin: 0; background-color: white; overflow: hidden;}iframe {max-width: 100%;}</style></head><body><style>.gist .gist-file { margin-bottom: 0 !important; }.gist { text-rendering: auto; }</style><script src="./ca6872770d8a6a414ef3aa1abd5524c7.js" charset="utf-8"></script><link rel="stylesheet" href="./gist-embed-6364c832764ba9bc85e4566bd747f0d1.css"><div id="gist88993131" class="gist">
+    <div class="gist-file">
+      <div class="gist-data">
+        <div class="js-gist-file-update-container js-task-list-container file-box">
+  <div id="file-topic9_p3_cell28-py" class="file">
+    
+
+  <div itemprop="text" class="blob-wrapper data type-python">
+      <table class="highlight tab-size js-file-line-container" data-tab-size="8">
+      <tbody><tr>
+        <td id="file-topic9_p3_cell28-py-L1" class="blob-num js-line-number" data-line-number="1"></td>
+        <td id="file-topic9_p3_cell28-py-LC1" class="blob-code blob-code-inner js-file-line"><span class="pl-k">def</span> <span class="pl-en">calculate_forecast_errors</span>(<span class="pl-smi">df</span>, <span class="pl-smi">prediction_size</span>):</td>
+      </tr>
+      <tr>
+        <td id="file-topic9_p3_cell28-py-L2" class="blob-num js-line-number" data-line-number="2"></td>
+        <td id="file-topic9_p3_cell28-py-LC2" class="blob-code blob-code-inner js-file-line">    <span class="pl-s"><span class="pl-pds">"""</span>Calculate MAPE and MAE of the forecast.</span></td>
+      </tr>
+      <tr>
+        <td id="file-topic9_p3_cell28-py-L3" class="blob-num js-line-number" data-line-number="3"></td>
+        <td id="file-topic9_p3_cell28-py-LC3" class="blob-code blob-code-inner js-file-line"><span class="pl-s">    </span></td>
+      </tr>
+      <tr>
+        <td id="file-topic9_p3_cell28-py-L4" class="blob-num js-line-number" data-line-number="4"></td>
+        <td id="file-topic9_p3_cell28-py-LC4" class="blob-code blob-code-inner js-file-line"><span class="pl-s">       Args:</span></td>
+      </tr>
+      <tr>
+        <td id="file-topic9_p3_cell28-py-L5" class="blob-num js-line-number" data-line-number="5"></td>
+        <td id="file-topic9_p3_cell28-py-LC5" class="blob-code blob-code-inner js-file-line"><span class="pl-s">           df: joined dataset with 'y' and 'yhat' columns.</span></td>
+      </tr>
+      <tr>
+        <td id="file-topic9_p3_cell28-py-L6" class="blob-num js-line-number" data-line-number="6"></td>
+        <td id="file-topic9_p3_cell28-py-LC6" class="blob-code blob-code-inner js-file-line"><span class="pl-s">           prediction_size: number of days at the end to predict.</span></td>
+      </tr>
+      <tr>
+        <td id="file-topic9_p3_cell28-py-L7" class="blob-num js-line-number" data-line-number="7"></td>
+        <td id="file-topic9_p3_cell28-py-LC7" class="blob-code blob-code-inner js-file-line"><span class="pl-s">    <span class="pl-pds">"""</span></span></td>
+      </tr>
+      <tr>
+        <td id="file-topic9_p3_cell28-py-L8" class="blob-num js-line-number" data-line-number="8"></td>
+        <td id="file-topic9_p3_cell28-py-LC8" class="blob-code blob-code-inner js-file-line">    </td>
+      </tr>
+      <tr>
+        <td id="file-topic9_p3_cell28-py-L9" class="blob-num js-line-number" data-line-number="9"></td>
+        <td id="file-topic9_p3_cell28-py-LC9" class="blob-code blob-code-inner js-file-line">    <span class="pl-c"><span class="pl-c">#</span> Make a copy</span></td>
+      </tr>
+      <tr>
+        <td id="file-topic9_p3_cell28-py-L10" class="blob-num js-line-number" data-line-number="10"></td>
+        <td id="file-topic9_p3_cell28-py-LC10" class="blob-code blob-code-inner js-file-line">    df <span class="pl-k">=</span> df.copy()</td>
+      </tr>
+      <tr>
+        <td id="file-topic9_p3_cell28-py-L11" class="blob-num js-line-number" data-line-number="11"></td>
+        <td id="file-topic9_p3_cell28-py-LC11" class="blob-code blob-code-inner js-file-line">    </td>
+      </tr>
+      <tr>
+        <td id="file-topic9_p3_cell28-py-L12" class="blob-num js-line-number" data-line-number="12"></td>
+        <td id="file-topic9_p3_cell28-py-LC12" class="blob-code blob-code-inner js-file-line">    <span class="pl-c"><span class="pl-c">#</span> Now we calculate the values of e_i and p_i according to the formulas given in the article above.</span></td>
+      </tr>
+      <tr>
+        <td id="file-topic9_p3_cell28-py-L13" class="blob-num js-line-number" data-line-number="13"></td>
+        <td id="file-topic9_p3_cell28-py-LC13" class="blob-code blob-code-inner js-file-line">    df[<span class="pl-s"><span class="pl-pds">'</span>e<span class="pl-pds">'</span></span>] <span class="pl-k">=</span> df[<span class="pl-s"><span class="pl-pds">'</span>y<span class="pl-pds">'</span></span>] <span class="pl-k">-</span> df[<span class="pl-s"><span class="pl-pds">'</span>yhat<span class="pl-pds">'</span></span>]</td>
+      </tr>
+      <tr>
+        <td id="file-topic9_p3_cell28-py-L14" class="blob-num js-line-number" data-line-number="14"></td>
+        <td id="file-topic9_p3_cell28-py-LC14" class="blob-code blob-code-inner js-file-line">    df[<span class="pl-s"><span class="pl-pds">'</span>p<span class="pl-pds">'</span></span>] <span class="pl-k">=</span> <span class="pl-c1">100</span> <span class="pl-k">*</span> df[<span class="pl-s"><span class="pl-pds">'</span>e<span class="pl-pds">'</span></span>] <span class="pl-k">/</span> df[<span class="pl-s"><span class="pl-pds">'</span>y<span class="pl-pds">'</span></span>]</td>
+      </tr>
+      <tr>
+        <td id="file-topic9_p3_cell28-py-L15" class="blob-num js-line-number" data-line-number="15"></td>
+        <td id="file-topic9_p3_cell28-py-LC15" class="blob-code blob-code-inner js-file-line">    </td>
+      </tr>
+      <tr>
+        <td id="file-topic9_p3_cell28-py-L16" class="blob-num js-line-number" data-line-number="16"></td>
+        <td id="file-topic9_p3_cell28-py-LC16" class="blob-code blob-code-inner js-file-line">    <span class="pl-c"><span class="pl-c">#</span> Recall that we held out the values of the last `prediction_size` days</span></td>
+      </tr>
+      <tr>
+        <td id="file-topic9_p3_cell28-py-L17" class="blob-num js-line-number" data-line-number="17"></td>
+        <td id="file-topic9_p3_cell28-py-LC17" class="blob-code blob-code-inner js-file-line">    <span class="pl-c"><span class="pl-c">#</span> in order to predict them and measure the quality of the model. </span></td>
+      </tr>
+      <tr>
+        <td id="file-topic9_p3_cell28-py-L18" class="blob-num js-line-number" data-line-number="18"></td>
+        <td id="file-topic9_p3_cell28-py-LC18" class="blob-code blob-code-inner js-file-line">    </td>
+      </tr>
+      <tr>
+        <td id="file-topic9_p3_cell28-py-L19" class="blob-num js-line-number" data-line-number="19"></td>
+        <td id="file-topic9_p3_cell28-py-LC19" class="blob-code blob-code-inner js-file-line">    <span class="pl-c"><span class="pl-c">#</span> Now cut out the part of the data which we made our prediction for.</span></td>
+      </tr>
+      <tr>
+        <td id="file-topic9_p3_cell28-py-L20" class="blob-num js-line-number" data-line-number="20"></td>
+        <td id="file-topic9_p3_cell28-py-LC20" class="blob-code blob-code-inner js-file-line">    predicted_part <span class="pl-k">=</span> df[<span class="pl-k">-</span>prediction_size:]</td>
+      </tr>
+      <tr>
+        <td id="file-topic9_p3_cell28-py-L21" class="blob-num js-line-number" data-line-number="21"></td>
+        <td id="file-topic9_p3_cell28-py-LC21" class="blob-code blob-code-inner js-file-line">    </td>
+      </tr>
+      <tr>
+        <td id="file-topic9_p3_cell28-py-L22" class="blob-num js-line-number" data-line-number="22"></td>
+        <td id="file-topic9_p3_cell28-py-LC22" class="blob-code blob-code-inner js-file-line">    <span class="pl-c"><span class="pl-c">#</span> Define the function that averages absolute error values over the predicted part.</span></td>
+      </tr>
+      <tr>
+        <td id="file-topic9_p3_cell28-py-L23" class="blob-num js-line-number" data-line-number="23"></td>
+        <td id="file-topic9_p3_cell28-py-LC23" class="blob-code blob-code-inner js-file-line">    error_mean <span class="pl-k">=</span> <span class="pl-k">lambda</span> <span class="pl-smi">error_name</span>: np.mean(np.abs(predicted_part[error_name]))</td>
+      </tr>
+      <tr>
+        <td id="file-topic9_p3_cell28-py-L24" class="blob-num js-line-number" data-line-number="24"></td>
+        <td id="file-topic9_p3_cell28-py-LC24" class="blob-code blob-code-inner js-file-line">    </td>
+      </tr>
+      <tr>
+        <td id="file-topic9_p3_cell28-py-L25" class="blob-num js-line-number" data-line-number="25"></td>
+        <td id="file-topic9_p3_cell28-py-LC25" class="blob-code blob-code-inner js-file-line">    <span class="pl-c"><span class="pl-c">#</span> Now we can calculate MAPE and MAE and return the resulting dictionary of errors.</span></td>
+      </tr>
+      <tr>
+        <td id="file-topic9_p3_cell28-py-L26" class="blob-num js-line-number" data-line-number="26"></td>
+        <td id="file-topic9_p3_cell28-py-LC26" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">return</span> {<span class="pl-s"><span class="pl-pds">'</span>MAPE<span class="pl-pds">'</span></span>: error_mean(<span class="pl-s"><span class="pl-pds">'</span>p<span class="pl-pds">'</span></span>), <span class="pl-s"><span class="pl-pds">'</span>MAE<span class="pl-pds">'</span></span>: error_mean(<span class="pl-s"><span class="pl-pds">'</span>e<span class="pl-pds">'</span></span>)}</td>
+      </tr>
+</tbody></table>
+
+
+  </div>
+
+  </div>
+</div>
+
+      </div>
+      <div class="gist-meta">
+        <a href="https://gist.github.com/egorpolusmak/ca6872770d8a6a414ef3aa1abd5524c7/raw/602dbf5116334787f5120e94beaeac0ce6bf8921/topic9_p3_cell28.py" style="float:right">view raw</a>
+        <a href="https://gist.github.com/egorpolusmak/ca6872770d8a6a414ef3aa1abd5524c7#file-topic9_p3_cell28-py">topic9_p3_cell28.py</a>
+        hosted with ❤ by <a href="https://github.com/">GitHub</a>
+      </div>
+    </div>
+</div>
+<script>var height = -1; var delayMs = 200;function notifyResize(height) {height = height ? height : document.documentElement.offsetHeight; var resized = false; if (window.donkey && donkey.resize) {donkey.resize(height); resized = true;}if (parent && parent._resizeIframe) {var obj = {iframe: window.frameElement, height: height}; parent._resizeIframe(obj); resized = true;}if (window.location && window.location.hash === "#amp=1" && window.parent && window.parent.postMessage) {window.parent.postMessage({sentinel: "amp", type: "embed-size", height: height}, "*");}if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.resize) {window.webkit.messageHandlers.resize.postMessage(height); resized = true;}return resized;}function maybeResize() {if (document.documentElement.offsetHeight != height && notifyResize()) {height = document.documentElement.offsetHeight;}delayMs = Math.min(delayMs * 2, 1000000); setTimeout(maybeResize, delayMs);}maybeResize();</script></body></html>

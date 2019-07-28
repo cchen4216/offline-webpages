@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<!-- saved from url=(0069)https://towardsdatascience.com/media/99ed2102a2a98bc7e58a8b245fb3037f -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>vae5.py – Medium</title><meta name="description" content="GitHub Gist: instantly share code, notes, and snippets."><meta name="twitter:widgets:csp" content="on"><meta name="robots" content="noindex"><!--<base target="_blank">--><base href="." target="_blank"><style>body {text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: "ff-tisa-web-pro", Georgia, Cambria, "Times New Roman", Times, serif; font-weight: 400; color: #333332; font-size: 18px; line-height: 1.4; margin: 0; background-color: white; overflow: hidden;}iframe {max-width: 100%;}</style></head><body><style>.gist .gist-file { margin-bottom: 0 !important; }.gist { text-rendering: auto; }</style><script src="./434857a1a93cb58c5f764820be8f808f.js" charset="utf-8"></script><link rel="stylesheet" href="./gist-embed-4e8330898d16b1b65e7f0856076a5a28.css"><div id="gist92430089" class="gist">
+    <div class="gist-file">
+      <div class="gist-data">
+        <div class="js-gist-file-update-container js-task-list-container file-box">
+  <div id="file-vae-model-py" class="file">
+    
+
+  <div itemprop="text" class="Box-body p-0 blob-wrapper data type-python ">
+      
+<table class="highlight tab-size js-file-line-container" data-tab-size="8">
+      <tbody><tr>
+        <td id="file-vae-model-py-L1" class="blob-num js-line-number" data-line-number="1"></td>
+        <td id="file-vae-model-py-LC1" class="blob-code blob-code-inner js-file-line">images <span class="pl-k">=</span> tf.placeholder(tf.float32, [<span class="pl-c1">None</span>, input_size])</td>
+      </tr>
+      <tr>
+        <td id="file-vae-model-py-L2" class="blob-num js-line-number" data-line-number="2"></td>
+        <td id="file-vae-model-py-LC2" class="blob-code blob-code-inner js-file-line">digits <span class="pl-k">=</span> tf.placeholder(tf.int32, [<span class="pl-c1">None</span>])</td>
+      </tr>
+      <tr>
+        <td id="file-vae-model-py-L3" class="blob-num js-line-number" data-line-number="3"></td>
+        <td id="file-vae-model-py-LC3" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-vae-model-py-L4" class="blob-num js-line-number" data-line-number="4"></td>
+        <td id="file-vae-model-py-LC4" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">#</span> encode an image into a distribution over the latent space</span></td>
+      </tr>
+      <tr>
+        <td id="file-vae-model-py-L5" class="blob-num js-line-number" data-line-number="5"></td>
+        <td id="file-vae-model-py-LC5" class="blob-code blob-code-inner js-file-line">encoder_mu, encoder_var <span class="pl-k">=</span> encoder(images,</td>
+      </tr>
+      <tr>
+        <td id="file-vae-model-py-L6" class="blob-num js-line-number" data-line-number="6"></td>
+        <td id="file-vae-model-py-LC6" class="blob-code blob-code-inner js-file-line">                                  params[<span class="pl-s"><span class="pl-pds">'</span>encoder_layers<span class="pl-pds">'</span></span>])</td>
+      </tr>
+      <tr>
+        <td id="file-vae-model-py-L7" class="blob-num js-line-number" data-line-number="7"></td>
+        <td id="file-vae-model-py-LC7" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-vae-model-py-L8" class="blob-num js-line-number" data-line-number="8"></td>
+        <td id="file-vae-model-py-LC8" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">#</span> sample a latent vector from the latent space - using the reparameterization trick</span></td>
+      </tr>
+      <tr>
+        <td id="file-vae-model-py-L9" class="blob-num js-line-number" data-line-number="9"></td>
+        <td id="file-vae-model-py-LC9" class="blob-code blob-code-inner js-file-line">eps <span class="pl-k">=</span> tf.random_normal(<span class="pl-v">shape</span><span class="pl-k">=</span>[tf.shape(images)[<span class="pl-c1">0</span>],</td>
+      </tr>
+      <tr>
+        <td id="file-vae-model-py-L10" class="blob-num js-line-number" data-line-number="10"></td>
+        <td id="file-vae-model-py-LC10" class="blob-code blob-code-inner js-file-line">                              params[<span class="pl-s"><span class="pl-pds">'</span>z_dim<span class="pl-pds">'</span></span>]],</td>
+      </tr>
+      <tr>
+        <td id="file-vae-model-py-L11" class="blob-num js-line-number" data-line-number="11"></td>
+        <td id="file-vae-model-py-LC11" class="blob-code blob-code-inner js-file-line">                       <span class="pl-v">mean</span><span class="pl-k">=</span><span class="pl-c1">0.0</span>,</td>
+      </tr>
+      <tr>
+        <td id="file-vae-model-py-L12" class="blob-num js-line-number" data-line-number="12"></td>
+        <td id="file-vae-model-py-LC12" class="blob-code blob-code-inner js-file-line">                       <span class="pl-v">stddev</span><span class="pl-k">=</span><span class="pl-c1">1.0</span>)</td>
+      </tr>
+      <tr>
+        <td id="file-vae-model-py-L13" class="blob-num js-line-number" data-line-number="13"></td>
+        <td id="file-vae-model-py-LC13" class="blob-code blob-code-inner js-file-line">z <span class="pl-k">=</span> encoder_mu <span class="pl-k">+</span> tf.sqrt(encoder_var) <span class="pl-k">*</span> eps</td>
+      </tr>
+      <tr>
+        <td id="file-vae-model-py-L14" class="blob-num js-line-number" data-line-number="14"></td>
+        <td id="file-vae-model-py-LC14" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-vae-model-py-L15" class="blob-num js-line-number" data-line-number="15"></td>
+        <td id="file-vae-model-py-LC15" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">#</span> classify the digit</span></td>
+      </tr>
+      <tr>
+        <td id="file-vae-model-py-L16" class="blob-num js-line-number" data-line-number="16"></td>
+        <td id="file-vae-model-py-LC16" class="blob-code blob-code-inner js-file-line">digit_logits <span class="pl-k">=</span> digit_classifier(images,</td>
+      </tr>
+      <tr>
+        <td id="file-vae-model-py-L17" class="blob-num js-line-number" data-line-number="17"></td>
+        <td id="file-vae-model-py-LC17" class="blob-code blob-code-inner js-file-line">                                params[<span class="pl-s"><span class="pl-pds">'</span>digit_classification_layers<span class="pl-pds">'</span></span>])</td>
+      </tr>
+      <tr>
+        <td id="file-vae-model-py-L18" class="blob-num js-line-number" data-line-number="18"></td>
+        <td id="file-vae-model-py-LC18" class="blob-code blob-code-inner js-file-line">digit_prob <span class="pl-k">=</span> tf.nn.softmax(digit_logits)</td>
+      </tr>
+      <tr>
+        <td id="file-vae-model-py-L19" class="blob-num js-line-number" data-line-number="19"></td>
+        <td id="file-vae-model-py-LC19" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-vae-model-py-L20" class="blob-num js-line-number" data-line-number="20"></td>
+        <td id="file-vae-model-py-LC20" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">#</span> decode the latent vector - concatenated to the digits classification - into an image</span></td>
+      </tr>
+      <tr>
+        <td id="file-vae-model-py-L21" class="blob-num js-line-number" data-line-number="21"></td>
+        <td id="file-vae-model-py-LC21" class="blob-code blob-code-inner js-file-line">decoded_images <span class="pl-k">=</span> decoder(tf.concat([z, digit_prob], <span class="pl-v">axis</span><span class="pl-k">=</span><span class="pl-c1">1</span>),</td>
+      </tr>
+      <tr>
+        <td id="file-vae-model-py-L22" class="blob-num js-line-number" data-line-number="22"></td>
+        <td id="file-vae-model-py-LC22" class="blob-code blob-code-inner js-file-line">                         params[<span class="pl-s"><span class="pl-pds">'</span>decoder_layers<span class="pl-pds">'</span></span>])</td>
+      </tr>
+</tbody></table>
+
+
+  </div>
+
+  </div>
+</div>
+
+      </div>
+      <div class="gist-meta">
+        <a href="https://gist.github.com/yoel-zeldes/434857a1a93cb58c5f764820be8f808f/raw/60cf80bb2d4b33bc33b6d1973842d0388b9a14b9/vae%20model.py" style="float:right">view raw</a>
+        <a href="https://gist.github.com/yoel-zeldes/434857a1a93cb58c5f764820be8f808f#file-vae-model-py">vae model.py</a>
+        hosted with ❤ by <a href="https://github.com/">GitHub</a>
+      </div>
+    </div>
+</div>
+<script>var height = -1; var delayMs = 200;function notifyResize(height) {height = height ? height : document.documentElement.offsetHeight; var resized = false; if (window.donkey && donkey.resize) {donkey.resize(height); resized = true;}if (parent && parent._resizeIframe) {var obj = {iframe: window.frameElement, height: height}; parent._resizeIframe(obj); resized = true;}if (window.location && window.location.hash === "#amp=1" && window.parent && window.parent.postMessage) {window.parent.postMessage({sentinel: "amp", type: "embed-size", height: height}, "*");}if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.resize) {window.webkit.messageHandlers.resize.postMessage(height); resized = true;}return resized;}function maybeResize() {if (document.documentElement.offsetHeight != height && notifyResize()) {height = document.documentElement.offsetHeight;}delayMs = Math.min(delayMs * 2, 1000000); setTimeout(maybeResize, delayMs);}maybeResize();</script></body></html>

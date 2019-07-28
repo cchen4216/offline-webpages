@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<!-- saved from url=(0077)https://medium.com/media/763f0547191d09ca0364f433e7feb0d0?postId=44a41b9b5220 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>topic4_snippet2.py – Medium</title><meta name="description" content="GitHub is where people build software. More than 28 million people use GitHub to discover, fork, and contribute to over 80 million projects."><meta name="twitter:widgets:csp" content="on"><meta name="robots" content="noindex"><!--<base target="_blank">--><base href="." target="_blank"><style>body {text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: "ff-tisa-web-pro", Georgia, Cambria, "Times New Roman", Times, serif; font-weight: 400; color: #333332; font-size: 18px; line-height: 1.4; margin: 0; background-color: white; overflow: hidden;}iframe {max-width: 100%;}</style></head><body><style>.gist .gist-file { margin-bottom: 0 !important; }.gist { text-rendering: auto; }</style><script src="./c23315540f540eb67b8553ccf4c086cb.js" charset="utf-8"></script><link rel="stylesheet" href="./gist-embed-6364c832764ba9bc85e4566bd747f0d1.css"><div id="gist87917244" class="gist">
+    <div class="gist-file">
+      <div class="gist-data">
+        <div class="js-gist-file-update-container js-task-list-container file-box">
+  <div id="file-topic4_snippet2-py" class="file">
+    
+
+  <div itemprop="text" class="blob-wrapper data type-python">
+      <table class="highlight tab-size js-file-line-container" data-tab-size="8">
+      <tbody><tr>
+        <td id="file-topic4_snippet2-py-L1" class="blob-num js-line-number" data-line-number="1"></td>
+        <td id="file-topic4_snippet2-py-LC1" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">#</span> Change site1, ..., site10 columns type to integer and fill NA-values with zeros</span></td>
+      </tr>
+      <tr>
+        <td id="file-topic4_snippet2-py-L2" class="blob-num js-line-number" data-line-number="2"></td>
+        <td id="file-topic4_snippet2-py-LC2" class="blob-code blob-code-inner js-file-line">sites <span class="pl-k">=</span> [<span class="pl-s"><span class="pl-pds">'</span>site<span class="pl-c1">%s</span><span class="pl-pds">'</span></span> <span class="pl-k">%</span> i <span class="pl-k">for</span> i <span class="pl-k">in</span> <span class="pl-c1">range</span>(<span class="pl-c1">1</span>, <span class="pl-c1">11</span>)]</td>
+      </tr>
+      <tr>
+        <td id="file-topic4_snippet2-py-L3" class="blob-num js-line-number" data-line-number="3"></td>
+        <td id="file-topic4_snippet2-py-LC3" class="blob-code blob-code-inner js-file-line">train_df[sites] <span class="pl-k">=</span> train_df[sites].fillna(<span class="pl-c1">0</span>).astype(<span class="pl-s"><span class="pl-pds">'</span>int<span class="pl-pds">'</span></span>)</td>
+      </tr>
+      <tr>
+        <td id="file-topic4_snippet2-py-L4" class="blob-num js-line-number" data-line-number="4"></td>
+        <td id="file-topic4_snippet2-py-LC4" class="blob-code blob-code-inner js-file-line">test_df[sites] <span class="pl-k">=</span> test_df[sites].fillna(<span class="pl-c1">0</span>).astype(<span class="pl-s"><span class="pl-pds">'</span>int<span class="pl-pds">'</span></span>)</td>
+      </tr>
+      <tr>
+        <td id="file-topic4_snippet2-py-L5" class="blob-num js-line-number" data-line-number="5"></td>
+        <td id="file-topic4_snippet2-py-LC5" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">#</span> Load website dictionary</span></td>
+      </tr>
+      <tr>
+        <td id="file-topic4_snippet2-py-L6" class="blob-num js-line-number" data-line-number="6"></td>
+        <td id="file-topic4_snippet2-py-LC6" class="blob-code blob-code-inner js-file-line"><span class="pl-k">with</span> <span class="pl-c1">open</span>(<span class="pl-sr"><span class="pl-k">r</span><span class="pl-pds">"</span><span class="pl-c1">..</span>/<span class="pl-c1">..</span>/data/site_dic<span class="pl-c1">.</span>pkl<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>rb<span class="pl-pds">"</span></span>) <span class="pl-k">as</span> input_file:</td>
+      </tr>
+      <tr>
+        <td id="file-topic4_snippet2-py-L7" class="blob-num js-line-number" data-line-number="7"></td>
+        <td id="file-topic4_snippet2-py-LC7" class="blob-code blob-code-inner js-file-line">    site_dict <span class="pl-k">=</span> pickle.load(input_file)</td>
+      </tr>
+      <tr>
+        <td id="file-topic4_snippet2-py-L8" class="blob-num js-line-number" data-line-number="8"></td>
+        <td id="file-topic4_snippet2-py-LC8" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">#</span> Create dataframe for the dictionary</span></td>
+      </tr>
+      <tr>
+        <td id="file-topic4_snippet2-py-L9" class="blob-num js-line-number" data-line-number="9"></td>
+        <td id="file-topic4_snippet2-py-LC9" class="blob-code blob-code-inner js-file-line">sites_dict <span class="pl-k">=</span> pd.DataFrame(<span class="pl-c1">list</span>(site_dict.keys()), </td>
+      </tr>
+      <tr>
+        <td id="file-topic4_snippet2-py-L10" class="blob-num js-line-number" data-line-number="10"></td>
+        <td id="file-topic4_snippet2-py-LC10" class="blob-code blob-code-inner js-file-line">                          <span class="pl-v">index</span><span class="pl-k">=</span><span class="pl-c1">list</span>(site_dict.values()), <span class="pl-v">columns</span><span class="pl-k">=</span>[<span class="pl-s"><span class="pl-pds">'</span>site<span class="pl-pds">'</span></span>])</td>
+      </tr>
+      <tr>
+        <td id="file-topic4_snippet2-py-L11" class="blob-num js-line-number" data-line-number="11"></td>
+        <td id="file-topic4_snippet2-py-LC11" class="blob-code blob-code-inner js-file-line"><span class="pl-c1">print</span>(<span class="pl-s"><span class="pl-k">u</span><span class="pl-pds">'</span>Websites total:<span class="pl-pds">'</span></span>, sites_dict.shape[<span class="pl-c1">0</span>])</td>
+      </tr>
+      <tr>
+        <td id="file-topic4_snippet2-py-L12" class="blob-num js-line-number" data-line-number="12"></td>
+        <td id="file-topic4_snippet2-py-LC12" class="blob-code blob-code-inner js-file-line">sites_dict.head()</td>
+      </tr>
+</tbody></table>
+
+
+  </div>
+
+  </div>
+</div>
+
+      </div>
+      <div class="gist-meta">
+        <a href="https://gist.github.com/Yorko/c23315540f540eb67b8553ccf4c086cb/raw/bb11a09b1a64e8605f7b418c66a9574a2d5fa340/topic4_snippet2.py" style="float:right">view raw</a>
+        <a href="https://gist.github.com/Yorko/c23315540f540eb67b8553ccf4c086cb#file-topic4_snippet2-py">topic4_snippet2.py</a>
+        hosted with ❤ by <a href="https://github.com/">GitHub</a>
+      </div>
+    </div>
+</div>
+<script>var height = -1; var delayMs = 200;function notifyResize(height) {height = height ? height : document.documentElement.offsetHeight; var resized = false; if (window.donkey && donkey.resize) {donkey.resize(height); resized = true;}if (parent && parent._resizeIframe) {var obj = {iframe: window.frameElement, height: height}; parent._resizeIframe(obj); resized = true;}if (window.location && window.location.hash === "#amp=1" && window.parent && window.parent.postMessage) {window.parent.postMessage({sentinel: "amp", type: "embed-size", height: height}, "*");}if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.resize) {window.webkit.messageHandlers.resize.postMessage(height); resized = true;}return resized;}function maybeResize() {if (document.documentElement.offsetHeight != height && notifyResize()) {height = document.documentElement.offsetHeight;}delayMs = Math.min(delayMs * 2, 1000000); setTimeout(maybeResize, delayMs);}maybeResize();</script></body></html>

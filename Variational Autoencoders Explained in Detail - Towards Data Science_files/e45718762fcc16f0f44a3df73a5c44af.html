@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<!-- saved from url=(0069)https://towardsdatascience.com/media/e45718762fcc16f0f44a3df73a5c44af -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>vae9.py – Medium</title><meta name="description" content="GitHub Gist: instantly share code, notes, and snippets."><meta name="twitter:widgets:csp" content="on"><meta name="robots" content="noindex"><!--<base target="_blank">--><base href="." target="_blank"><style>body {text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: "ff-tisa-web-pro", Georgia, Cambria, "Times New Roman", Times, serif; font-weight: 400; color: #333332; font-size: 18px; line-height: 1.4; margin: 0; background-color: white; overflow: hidden;}iframe {max-width: 100%;}</style></head><body><style>.gist .gist-file { margin-bottom: 0 !important; }.gist { text-rendering: auto; }</style><script src="./bbce71abdc6e9aff772c15b3c1182783.js" charset="utf-8"></script><link rel="stylesheet" href="./gist-embed-4e8330898d16b1b65e7f0856076a5a28.css"><div id="gist92430109" class="gist">
+    <div class="gist-file">
+      <div class="gist-data">
+        <div class="js-gist-file-update-container js-task-list-container file-box">
+  <div id="file-vae-generated-images-plot-py" class="file">
+    
+
+  <div itemprop="text" class="Box-body p-0 blob-wrapper data type-python ">
+      
+<table class="highlight tab-size js-file-line-container" data-tab-size="8">
+      <tbody><tr>
+        <td id="file-vae-generated-images-plot-py-L1" class="blob-num js-line-number" data-line-number="1"></td>
+        <td id="file-vae-generated-images-plot-py-LC1" class="blob-code blob-code-inner js-file-line"><span class="pl-k">def</span> <span class="pl-en">plot_samples</span>(<span class="pl-smi">samples</span>):</td>
+      </tr>
+      <tr>
+        <td id="file-vae-generated-images-plot-py-L2" class="blob-num js-line-number" data-line-number="2"></td>
+        <td id="file-vae-generated-images-plot-py-LC2" class="blob-code blob-code-inner js-file-line">    <span class="pl-c1">IMAGE_WIDTH</span> <span class="pl-k">=</span> <span class="pl-c1">0.7</span></td>
+      </tr>
+      <tr>
+        <td id="file-vae-generated-images-plot-py-L3" class="blob-num js-line-number" data-line-number="3"></td>
+        <td id="file-vae-generated-images-plot-py-LC3" class="blob-code blob-code-inner js-file-line">    plt.figure(<span class="pl-v">figsize</span><span class="pl-k">=</span>(<span class="pl-c1">IMAGE_WIDTH</span> <span class="pl-k">*</span> num_digits,</td>
+      </tr>
+      <tr>
+        <td id="file-vae-generated-images-plot-py-L4" class="blob-num js-line-number" data-line-number="4"></td>
+        <td id="file-vae-generated-images-plot-py-LC4" class="blob-code blob-code-inner js-file-line">                        <span class="pl-c1">len</span>(samples) <span class="pl-k">*</span> <span class="pl-c1">IMAGE_WIDTH</span>))</td>
+      </tr>
+      <tr>
+        <td id="file-vae-generated-images-plot-py-L5" class="blob-num js-line-number" data-line-number="5"></td>
+        <td id="file-vae-generated-images-plot-py-LC5" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">for</span> epoch, images <span class="pl-k">in</span> <span class="pl-c1">enumerate</span>(samples):</td>
+      </tr>
+      <tr>
+        <td id="file-vae-generated-images-plot-py-L6" class="blob-num js-line-number" data-line-number="6"></td>
+        <td id="file-vae-generated-images-plot-py-LC6" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">for</span> digit, image <span class="pl-k">in</span> <span class="pl-c1">enumerate</span>(images):</td>
+      </tr>
+      <tr>
+        <td id="file-vae-generated-images-plot-py-L7" class="blob-num js-line-number" data-line-number="7"></td>
+        <td id="file-vae-generated-images-plot-py-LC7" class="blob-code blob-code-inner js-file-line">            plt.subplot(<span class="pl-c1">len</span>(samples),</td>
+      </tr>
+      <tr>
+        <td id="file-vae-generated-images-plot-py-L8" class="blob-num js-line-number" data-line-number="8"></td>
+        <td id="file-vae-generated-images-plot-py-LC8" class="blob-code blob-code-inner js-file-line">                        num_digits,</td>
+      </tr>
+      <tr>
+        <td id="file-vae-generated-images-plot-py-L9" class="blob-num js-line-number" data-line-number="9"></td>
+        <td id="file-vae-generated-images-plot-py-LC9" class="blob-code blob-code-inner js-file-line">                        epoch <span class="pl-k">*</span> num_digits <span class="pl-k">+</span> digit <span class="pl-k">+</span> <span class="pl-c1">1</span>)</td>
+      </tr>
+      <tr>
+        <td id="file-vae-generated-images-plot-py-L10" class="blob-num js-line-number" data-line-number="10"></td>
+        <td id="file-vae-generated-images-plot-py-LC10" class="blob-code blob-code-inner js-file-line">            plt.imshow(image.reshape((<span class="pl-c1">28</span>, <span class="pl-c1">28</span>)),</td>
+      </tr>
+      <tr>
+        <td id="file-vae-generated-images-plot-py-L11" class="blob-num js-line-number" data-line-number="11"></td>
+        <td id="file-vae-generated-images-plot-py-LC11" class="blob-code blob-code-inner js-file-line">                       <span class="pl-v">cmap</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">'</span>Greys_r<span class="pl-pds">'</span></span>)</td>
+      </tr>
+      <tr>
+        <td id="file-vae-generated-images-plot-py-L12" class="blob-num js-line-number" data-line-number="12"></td>
+        <td id="file-vae-generated-images-plot-py-LC12" class="blob-code blob-code-inner js-file-line">            plt.gca().xaxis.set_visible(<span class="pl-c1">False</span>)</td>
+      </tr>
+      <tr>
+        <td id="file-vae-generated-images-plot-py-L13" class="blob-num js-line-number" data-line-number="13"></td>
+        <td id="file-vae-generated-images-plot-py-LC13" class="blob-code blob-code-inner js-file-line">            <span class="pl-k">if</span> digit <span class="pl-k">==</span> <span class="pl-c1">0</span>:</td>
+      </tr>
+      <tr>
+        <td id="file-vae-generated-images-plot-py-L14" class="blob-num js-line-number" data-line-number="14"></td>
+        <td id="file-vae-generated-images-plot-py-LC14" class="blob-code blob-code-inner js-file-line">                plt.gca().yaxis.set_ticks([])</td>
+      </tr>
+      <tr>
+        <td id="file-vae-generated-images-plot-py-L15" class="blob-num js-line-number" data-line-number="15"></td>
+        <td id="file-vae-generated-images-plot-py-LC15" class="blob-code blob-code-inner js-file-line">                plt.ylabel(<span class="pl-s"><span class="pl-pds">'</span>epoch <span class="pl-c1">{}</span><span class="pl-pds">'</span></span>.format(epoch <span class="pl-k">+</span> <span class="pl-c1">1</span>),</td>
+      </tr>
+      <tr>
+        <td id="file-vae-generated-images-plot-py-L16" class="blob-num js-line-number" data-line-number="16"></td>
+        <td id="file-vae-generated-images-plot-py-LC16" class="blob-code blob-code-inner js-file-line">                           <span class="pl-v">verticalalignment</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">'</span>center<span class="pl-pds">'</span></span>,</td>
+      </tr>
+      <tr>
+        <td id="file-vae-generated-images-plot-py-L17" class="blob-num js-line-number" data-line-number="17"></td>
+        <td id="file-vae-generated-images-plot-py-LC17" class="blob-code blob-code-inner js-file-line">                           <span class="pl-v">horizontalalignment</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">'</span>right<span class="pl-pds">'</span></span>,</td>
+      </tr>
+      <tr>
+        <td id="file-vae-generated-images-plot-py-L18" class="blob-num js-line-number" data-line-number="18"></td>
+        <td id="file-vae-generated-images-plot-py-LC18" class="blob-code blob-code-inner js-file-line">                           <span class="pl-v">rotation</span><span class="pl-k">=</span><span class="pl-c1">0</span>,</td>
+      </tr>
+      <tr>
+        <td id="file-vae-generated-images-plot-py-L19" class="blob-num js-line-number" data-line-number="19"></td>
+        <td id="file-vae-generated-images-plot-py-LC19" class="blob-code blob-code-inner js-file-line">                           <span class="pl-v">fontsize</span><span class="pl-k">=</span><span class="pl-c1">14</span>)</td>
+      </tr>
+      <tr>
+        <td id="file-vae-generated-images-plot-py-L20" class="blob-num js-line-number" data-line-number="20"></td>
+        <td id="file-vae-generated-images-plot-py-LC20" class="blob-code blob-code-inner js-file-line">            <span class="pl-k">else</span>:</td>
+      </tr>
+      <tr>
+        <td id="file-vae-generated-images-plot-py-L21" class="blob-num js-line-number" data-line-number="21"></td>
+        <td id="file-vae-generated-images-plot-py-LC21" class="blob-code blob-code-inner js-file-line">                plt.gca().yaxis.set_visible(<span class="pl-c1">False</span>)</td>
+      </tr>
+      <tr>
+        <td id="file-vae-generated-images-plot-py-L22" class="blob-num js-line-number" data-line-number="22"></td>
+        <td id="file-vae-generated-images-plot-py-LC22" class="blob-code blob-code-inner js-file-line">                </td>
+      </tr>
+      <tr>
+        <td id="file-vae-generated-images-plot-py-L23" class="blob-num js-line-number" data-line-number="23"></td>
+        <td id="file-vae-generated-images-plot-py-LC23" class="blob-code blob-code-inner js-file-line">                </td>
+      </tr>
+      <tr>
+        <td id="file-vae-generated-images-plot-py-L24" class="blob-num js-line-number" data-line-number="24"></td>
+        <td id="file-vae-generated-images-plot-py-LC24" class="blob-code blob-code-inner js-file-line">plot_samples(samples)</td>
+      </tr>
+</tbody></table>
+
+
+  </div>
+
+  </div>
+</div>
+
+      </div>
+      <div class="gist-meta">
+        <a href="https://gist.github.com/yoel-zeldes/bbce71abdc6e9aff772c15b3c1182783/raw/6e5674fdaae016b84d80aee5277d6f1e58f57f83/vae%20generated%20images%20plot.py" style="float:right">view raw</a>
+        <a href="https://gist.github.com/yoel-zeldes/bbce71abdc6e9aff772c15b3c1182783#file-vae-generated-images-plot-py">vae generated images plot.py</a>
+        hosted with ❤ by <a href="https://github.com/">GitHub</a>
+      </div>
+    </div>
+</div>
+<script>var height = -1; var delayMs = 200;function notifyResize(height) {height = height ? height : document.documentElement.offsetHeight; var resized = false; if (window.donkey && donkey.resize) {donkey.resize(height); resized = true;}if (parent && parent._resizeIframe) {var obj = {iframe: window.frameElement, height: height}; parent._resizeIframe(obj); resized = true;}if (window.location && window.location.hash === "#amp=1" && window.parent && window.parent.postMessage) {window.parent.postMessage({sentinel: "amp", type: "embed-size", height: height}, "*");}if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.resize) {window.webkit.messageHandlers.resize.postMessage(height); resized = true;}return resized;}function maybeResize() {if (document.documentElement.offsetHeight != height && notifyResize()) {height = document.documentElement.offsetHeight;}delayMs = Math.min(delayMs * 2, 1000000); setTimeout(maybeResize, delayMs);}maybeResize();</script></body></html>

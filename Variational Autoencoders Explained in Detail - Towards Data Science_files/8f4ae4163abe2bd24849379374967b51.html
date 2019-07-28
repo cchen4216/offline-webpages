@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<!-- saved from url=(0069)https://towardsdatascience.com/media/8f4ae4163abe2bd24849379374967b51 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>vae1.py – Medium</title><meta name="description" content="GitHub Gist: instantly share code, notes, and snippets."><meta name="twitter:widgets:csp" content="on"><meta name="robots" content="noindex"><!--<base target="_blank">--><base href="." target="_blank"><style>body {text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: "ff-tisa-web-pro", Georgia, Cambria, "Times New Roman", Times, serif; font-weight: 400; color: #333332; font-size: 18px; line-height: 1.4; margin: 0; background-color: white; overflow: hidden;}iframe {max-width: 100%;}</style></head><body><style>.gist .gist-file { margin-bottom: 0 !important; }.gist { text-rendering: auto; }</style><script src="./296b92420d795e196ce993e8f6b1b575.js" charset="utf-8"></script><link rel="stylesheet" href="./gist-embed-4e8330898d16b1b65e7f0856076a5a28.css"><div id="gist92430064" class="gist">
+    <div class="gist-file">
+      <div class="gist-data">
+        <div class="js-gist-file-update-container js-task-list-container file-box">
+  <div id="file-vae-imports-py" class="file">
+    
+
+  <div itemprop="text" class="Box-body p-0 blob-wrapper data type-python ">
+      
+<table class="highlight tab-size js-file-line-container" data-tab-size="8">
+      <tbody><tr>
+        <td id="file-vae-imports-py-L1" class="blob-num js-line-number" data-line-number="1"></td>
+        <td id="file-vae-imports-py-LC1" class="blob-code blob-code-inner js-file-line"><span class="pl-k">import</span> numpy <span class="pl-k">as</span> np</td>
+      </tr>
+      <tr>
+        <td id="file-vae-imports-py-L2" class="blob-num js-line-number" data-line-number="2"></td>
+        <td id="file-vae-imports-py-LC2" class="blob-code blob-code-inner js-file-line"><span class="pl-k">import</span> tensorflow <span class="pl-k">as</span> tf</td>
+      </tr>
+      <tr>
+        <td id="file-vae-imports-py-L3" class="blob-num js-line-number" data-line-number="3"></td>
+        <td id="file-vae-imports-py-LC3" class="blob-code blob-code-inner js-file-line"><span class="pl-k">from</span> tensorflow.examples.tutorials.mnist <span class="pl-k">import</span> input_data</td>
+      </tr>
+      <tr>
+        <td id="file-vae-imports-py-L4" class="blob-num js-line-number" data-line-number="4"></td>
+        <td id="file-vae-imports-py-LC4" class="blob-code blob-code-inner js-file-line"><span class="pl-k">import</span> matplotlib.pyplot <span class="pl-k">as</span> plt</td>
+      </tr>
+      <tr>
+        <td id="file-vae-imports-py-L5" class="blob-num js-line-number" data-line-number="5"></td>
+        <td id="file-vae-imports-py-LC5" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-vae-imports-py-L6" class="blob-num js-line-number" data-line-number="6"></td>
+        <td id="file-vae-imports-py-LC6" class="blob-code blob-code-inner js-file-line">np.random.seed(<span class="pl-c1">42</span>)</td>
+      </tr>
+      <tr>
+        <td id="file-vae-imports-py-L7" class="blob-num js-line-number" data-line-number="7"></td>
+        <td id="file-vae-imports-py-LC7" class="blob-code blob-code-inner js-file-line">tf.set_random_seed(<span class="pl-c1">42</span>)</td>
+      </tr>
+      <tr>
+        <td id="file-vae-imports-py-L8" class="blob-num js-line-number" data-line-number="8"></td>
+        <td id="file-vae-imports-py-LC8" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-vae-imports-py-L9" class="blob-num js-line-number" data-line-number="9"></td>
+        <td id="file-vae-imports-py-LC9" class="blob-code blob-code-inner js-file-line"><span class="pl-k">%</span>matplotlib inline</td>
+      </tr>
+</tbody></table>
+
+
+  </div>
+
+  </div>
+</div>
+
+      </div>
+      <div class="gist-meta">
+        <a href="https://gist.github.com/yoel-zeldes/296b92420d795e196ce993e8f6b1b575/raw/d0740de07067267537f95a315410c8246f60728a/vae%20imports.py" style="float:right">view raw</a>
+        <a href="https://gist.github.com/yoel-zeldes/296b92420d795e196ce993e8f6b1b575#file-vae-imports-py">vae imports.py</a>
+        hosted with ❤ by <a href="https://github.com/">GitHub</a>
+      </div>
+    </div>
+</div>
+<script>var height = -1; var delayMs = 200;function notifyResize(height) {height = height ? height : document.documentElement.offsetHeight; var resized = false; if (window.donkey && donkey.resize) {donkey.resize(height); resized = true;}if (parent && parent._resizeIframe) {var obj = {iframe: window.frameElement, height: height}; parent._resizeIframe(obj); resized = true;}if (window.location && window.location.hash === "#amp=1" && window.parent && window.parent.postMessage) {window.parent.postMessage({sentinel: "amp", type: "embed-size", height: height}, "*");}if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.resize) {window.webkit.messageHandlers.resize.postMessage(height); resized = true;}return resized;}function maybeResize() {if (document.documentElement.offsetHeight != height && notifyResize()) {height = document.documentElement.offsetHeight;}delayMs = Math.min(delayMs * 2, 1000000); setTimeout(maybeResize, delayMs);}maybeResize();</script></body></html>

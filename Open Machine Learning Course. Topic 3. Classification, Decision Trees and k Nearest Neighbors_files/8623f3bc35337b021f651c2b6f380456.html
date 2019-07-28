@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<!-- saved from url=(0077)https://medium.com/media/8623f3bc35337b021f651c2b6f380456?postId=8613c6b6d2cd -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>topic3_snippet17.py – Medium</title><meta name="description" content="GitHub is where people build software. More than 28 million people use GitHub to discover, fork, and contribute to over 80 million projects."><meta name="twitter:widgets:csp" content="on"><meta name="robots" content="noindex"><!--<base target="_blank">--><base href="." target="_blank"><style>body {text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: "ff-tisa-web-pro", Georgia, Cambria, "Times New Roman", Times, serif; font-weight: 400; color: #333332; font-size: 18px; line-height: 1.4; margin: 0; background-color: white; overflow: hidden;}iframe {max-width: 100%;}</style></head><body><style>.gist .gist-file { margin-bottom: 0 !important; }.gist { text-rendering: auto; }</style><script src="./ed1dabc007eebc79b464db5028bb2684.js" charset="utf-8"></script><link rel="stylesheet" href="./gist-embed-6364c832764ba9bc85e4566bd747f0d1.css"><div id="gist87923364" class="gist">
+    <div class="gist-file">
+      <div class="gist-data">
+        <div class="js-gist-file-update-container js-task-list-container file-box">
+  <div id="file-topic3_snippet17-py" class="file">
+    
+
+  <div itemprop="text" class="blob-wrapper data type-python">
+      <table class="highlight tab-size js-file-line-container" data-tab-size="8">
+      <tbody><tr>
+        <td id="file-topic3_snippet17-py-L1" class="blob-num js-line-number" data-line-number="1"></td>
+        <td id="file-topic3_snippet17-py-LC1" class="blob-code blob-code-inner js-file-line"><span class="pl-k">from</span> sklearn.ensemble <span class="pl-k">import</span> RandomForestClassifier</td>
+      </tr>
+      <tr>
+        <td id="file-topic3_snippet17-py-L2" class="blob-num js-line-number" data-line-number="2"></td>
+        <td id="file-topic3_snippet17-py-LC2" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-topic3_snippet17-py-L3" class="blob-num js-line-number" data-line-number="3"></td>
+        <td id="file-topic3_snippet17-py-LC3" class="blob-code blob-code-inner js-file-line">forest <span class="pl-k">=</span> RandomForestClassifier(<span class="pl-v">n_estimators</span><span class="pl-k">=</span><span class="pl-c1">100</span>, <span class="pl-v">n_jobs</span><span class="pl-k">=</span><span class="pl-k">-</span><span class="pl-c1">1</span>, </td>
+      </tr>
+      <tr>
+        <td id="file-topic3_snippet17-py-L4" class="blob-num js-line-number" data-line-number="4"></td>
+        <td id="file-topic3_snippet17-py-LC4" class="blob-code blob-code-inner js-file-line">                                <span class="pl-v">random_state</span><span class="pl-k">=</span><span class="pl-c1">17</span>)</td>
+      </tr>
+      <tr>
+        <td id="file-topic3_snippet17-py-L5" class="blob-num js-line-number" data-line-number="5"></td>
+        <td id="file-topic3_snippet17-py-LC5" class="blob-code blob-code-inner js-file-line"><span class="pl-c1">print</span>(np.mean(cross_val_score(forest, X_train, y_train, <span class="pl-v">cv</span><span class="pl-k">=</span><span class="pl-c1">5</span>))) <span class="pl-c"><span class="pl-c">#</span> 0.949</span></td>
+      </tr>
+      <tr>
+        <td id="file-topic3_snippet17-py-L6" class="blob-num js-line-number" data-line-number="6"></td>
+        <td id="file-topic3_snippet17-py-LC6" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-topic3_snippet17-py-L7" class="blob-num js-line-number" data-line-number="7"></td>
+        <td id="file-topic3_snippet17-py-LC7" class="blob-code blob-code-inner js-file-line">forest_params <span class="pl-k">=</span> {<span class="pl-s"><span class="pl-pds">'</span>max_depth<span class="pl-pds">'</span></span>: <span class="pl-c1">range</span>(<span class="pl-c1">1</span>, <span class="pl-c1">11</span>), <span class="pl-s"><span class="pl-pds">'</span>max_features<span class="pl-pds">'</span></span>: <span class="pl-c1">range</span>(<span class="pl-c1">4</span>, <span class="pl-c1">19</span>)}</td>
+      </tr>
+      <tr>
+        <td id="file-topic3_snippet17-py-L8" class="blob-num js-line-number" data-line-number="8"></td>
+        <td id="file-topic3_snippet17-py-LC8" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-topic3_snippet17-py-L9" class="blob-num js-line-number" data-line-number="9"></td>
+        <td id="file-topic3_snippet17-py-LC9" class="blob-code blob-code-inner js-file-line">forest_grid <span class="pl-k">=</span> GridSearchCV(forest, forest_params,</td>
+      </tr>
+      <tr>
+        <td id="file-topic3_snippet17-py-L10" class="blob-num js-line-number" data-line-number="10"></td>
+        <td id="file-topic3_snippet17-py-LC10" class="blob-code blob-code-inner js-file-line">                           <span class="pl-v">cv</span><span class="pl-k">=</span><span class="pl-c1">5</span>, <span class="pl-v">n_jobs</span><span class="pl-k">=</span><span class="pl-k">-</span><span class="pl-c1">1</span>, <span class="pl-v">verbose</span><span class="pl-k">=</span><span class="pl-c1">True</span>)</td>
+      </tr>
+      <tr>
+        <td id="file-topic3_snippet17-py-L11" class="blob-num js-line-number" data-line-number="11"></td>
+        <td id="file-topic3_snippet17-py-LC11" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-topic3_snippet17-py-L12" class="blob-num js-line-number" data-line-number="12"></td>
+        <td id="file-topic3_snippet17-py-LC12" class="blob-code blob-code-inner js-file-line">forest_grid.fit(X_train, y_train)</td>
+      </tr>
+      <tr>
+        <td id="file-topic3_snippet17-py-L13" class="blob-num js-line-number" data-line-number="13"></td>
+        <td id="file-topic3_snippet17-py-LC13" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-topic3_snippet17-py-L14" class="blob-num js-line-number" data-line-number="14"></td>
+        <td id="file-topic3_snippet17-py-LC14" class="blob-code blob-code-inner js-file-line"><span class="pl-c1">print</span>(forest_grid.best_params_, forest_grid.best_score_) </td>
+      </tr>
+      <tr>
+        <td id="file-topic3_snippet17-py-L15" class="blob-num js-line-number" data-line-number="15"></td>
+        <td id="file-topic3_snippet17-py-LC15" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">#</span> ({'max_depth': 9, 'max_features': 6}, 0.951)</span></td>
+      </tr>
+</tbody></table>
+
+
+  </div>
+
+  </div>
+</div>
+
+      </div>
+      <div class="gist-meta">
+        <a href="https://gist.github.com/Yorko/ed1dabc007eebc79b464db5028bb2684/raw/47a8d4dbfb6846807ab919b15fa699871b520154/topic3_snippet17.py" style="float:right">view raw</a>
+        <a href="https://gist.github.com/Yorko/ed1dabc007eebc79b464db5028bb2684#file-topic3_snippet17-py">topic3_snippet17.py</a>
+        hosted with ❤ by <a href="https://github.com/">GitHub</a>
+      </div>
+    </div>
+</div>
+<script>var height = -1; var delayMs = 200;function notifyResize(height) {height = height ? height : document.documentElement.offsetHeight; var resized = false; if (window.donkey && donkey.resize) {donkey.resize(height); resized = true;}if (parent && parent._resizeIframe) {var obj = {iframe: window.frameElement, height: height}; parent._resizeIframe(obj); resized = true;}if (window.location && window.location.hash === "#amp=1" && window.parent && window.parent.postMessage) {window.parent.postMessage({sentinel: "amp", type: "embed-size", height: height}, "*");}if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.resize) {window.webkit.messageHandlers.resize.postMessage(height); resized = true;}return resized;}function maybeResize() {if (document.documentElement.offsetHeight != height && notifyResize()) {height = document.documentElement.offsetHeight;}delayMs = Math.min(delayMs * 2, 1000000); setTimeout(maybeResize, delayMs);}maybeResize();</script></body></html>

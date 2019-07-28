@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<!-- saved from url=(0077)https://medium.com/media/0035cf36d15ddd9b6eb86f64343b18fb?postId=db7879568417 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>topic7_16.py – Medium</title><meta name="description" content="GitHub is where people build software. More than 27 million people use GitHub to discover, fork, and contribute to over 80 million projects."><meta name="twitter:widgets:csp" content="on"><meta name="robots" content="noindex"><!--<base target="_blank">--><base href="." target="_blank"><style>body {text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: "ff-tisa-web-pro", Georgia, Cambria, "Times New Roman", Times, serif; font-weight: 400; color: #333332; font-size: 18px; line-height: 1.4; margin: 0; background-color: white; overflow: hidden;}iframe {max-width: 100%;}</style></head><body><style>.gist .gist-file { margin-bottom: 0 !important; }.gist { text-rendering: auto; }</style><script src="./7e5dc343addec0ff20852030170ec681.js" charset="utf-8"></script><link rel="stylesheet" href="./gist-embed-6364c832764ba9bc85e4566bd747f0d1.css"><div id="gist88612684" class="gist">
+    <div class="gist-file">
+      <div class="gist-data">
+        <div class="js-gist-file-update-container js-task-list-container file-box">
+  <div id="file-topic7_16-py" class="file">
+    
+
+  <div itemprop="text" class="blob-wrapper data type-python">
+      <table class="highlight tab-size js-file-line-container" data-tab-size="8">
+      <tbody><tr>
+        <td id="file-topic7_16-py-L1" class="blob-num js-line-number" data-line-number="1"></td>
+        <td id="file-topic7_16-py-LC1" class="blob-code blob-code-inner js-file-line"><span class="pl-k">from</span> sklearn <span class="pl-k">import</span> metrics</td>
+      </tr>
+      <tr>
+        <td id="file-topic7_16-py-L2" class="blob-num js-line-number" data-line-number="2"></td>
+        <td id="file-topic7_16-py-LC2" class="blob-code blob-code-inner js-file-line"><span class="pl-k">from</span> sklearn <span class="pl-k">import</span> datasets</td>
+      </tr>
+      <tr>
+        <td id="file-topic7_16-py-L3" class="blob-num js-line-number" data-line-number="3"></td>
+        <td id="file-topic7_16-py-LC3" class="blob-code blob-code-inner js-file-line"><span class="pl-k">import</span> pandas <span class="pl-k">as</span> pd</td>
+      </tr>
+      <tr>
+        <td id="file-topic7_16-py-L4" class="blob-num js-line-number" data-line-number="4"></td>
+        <td id="file-topic7_16-py-LC4" class="blob-code blob-code-inner js-file-line"><span class="pl-k">from</span> sklearn.cluster <span class="pl-k">import</span> KMeans, AgglomerativeClustering, AffinityPropagation, SpectralClustering</td>
+      </tr>
+      <tr>
+        <td id="file-topic7_16-py-L5" class="blob-num js-line-number" data-line-number="5"></td>
+        <td id="file-topic7_16-py-LC5" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-topic7_16-py-L6" class="blob-num js-line-number" data-line-number="6"></td>
+        <td id="file-topic7_16-py-LC6" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-topic7_16-py-L7" class="blob-num js-line-number" data-line-number="7"></td>
+        <td id="file-topic7_16-py-LC7" class="blob-code blob-code-inner js-file-line">data <span class="pl-k">=</span> datasets.load_digits()</td>
+      </tr>
+      <tr>
+        <td id="file-topic7_16-py-L8" class="blob-num js-line-number" data-line-number="8"></td>
+        <td id="file-topic7_16-py-LC8" class="blob-code blob-code-inner js-file-line">X, y <span class="pl-k">=</span> data.data, data.target</td>
+      </tr>
+      <tr>
+        <td id="file-topic7_16-py-L9" class="blob-num js-line-number" data-line-number="9"></td>
+        <td id="file-topic7_16-py-LC9" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-topic7_16-py-L10" class="blob-num js-line-number" data-line-number="10"></td>
+        <td id="file-topic7_16-py-LC10" class="blob-code blob-code-inner js-file-line">algorithms <span class="pl-k">=</span> []</td>
+      </tr>
+      <tr>
+        <td id="file-topic7_16-py-L11" class="blob-num js-line-number" data-line-number="11"></td>
+        <td id="file-topic7_16-py-LC11" class="blob-code blob-code-inner js-file-line">algorithms.append(KMeans(<span class="pl-v">n_clusters</span><span class="pl-k">=</span><span class="pl-c1">10</span>, <span class="pl-v">random_state</span><span class="pl-k">=</span><span class="pl-c1">1</span>))</td>
+      </tr>
+      <tr>
+        <td id="file-topic7_16-py-L12" class="blob-num js-line-number" data-line-number="12"></td>
+        <td id="file-topic7_16-py-LC12" class="blob-code blob-code-inner js-file-line">algorithms.append(AffinityPropagation())</td>
+      </tr>
+      <tr>
+        <td id="file-topic7_16-py-L13" class="blob-num js-line-number" data-line-number="13"></td>
+        <td id="file-topic7_16-py-LC13" class="blob-code blob-code-inner js-file-line">algorithms.append(SpectralClustering(<span class="pl-v">n_clusters</span><span class="pl-k">=</span><span class="pl-c1">10</span>, <span class="pl-v">random_state</span><span class="pl-k">=</span><span class="pl-c1">1</span>,</td>
+      </tr>
+      <tr>
+        <td id="file-topic7_16-py-L14" class="blob-num js-line-number" data-line-number="14"></td>
+        <td id="file-topic7_16-py-LC14" class="blob-code blob-code-inner js-file-line">                                     <span class="pl-v">affinity</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">'</span>nearest_neighbors<span class="pl-pds">'</span></span>))</td>
+      </tr>
+      <tr>
+        <td id="file-topic7_16-py-L15" class="blob-num js-line-number" data-line-number="15"></td>
+        <td id="file-topic7_16-py-LC15" class="blob-code blob-code-inner js-file-line">algorithms.append(AgglomerativeClustering(<span class="pl-v">n_clusters</span><span class="pl-k">=</span><span class="pl-c1">10</span>))</td>
+      </tr>
+      <tr>
+        <td id="file-topic7_16-py-L16" class="blob-num js-line-number" data-line-number="16"></td>
+        <td id="file-topic7_16-py-LC16" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-topic7_16-py-L17" class="blob-num js-line-number" data-line-number="17"></td>
+        <td id="file-topic7_16-py-LC17" class="blob-code blob-code-inner js-file-line">data <span class="pl-k">=</span> []</td>
+      </tr>
+      <tr>
+        <td id="file-topic7_16-py-L18" class="blob-num js-line-number" data-line-number="18"></td>
+        <td id="file-topic7_16-py-LC18" class="blob-code blob-code-inner js-file-line"><span class="pl-k">for</span> algo <span class="pl-k">in</span> algorithms:</td>
+      </tr>
+      <tr>
+        <td id="file-topic7_16-py-L19" class="blob-num js-line-number" data-line-number="19"></td>
+        <td id="file-topic7_16-py-LC19" class="blob-code blob-code-inner js-file-line">    algo.fit(X)</td>
+      </tr>
+      <tr>
+        <td id="file-topic7_16-py-L20" class="blob-num js-line-number" data-line-number="20"></td>
+        <td id="file-topic7_16-py-LC20" class="blob-code blob-code-inner js-file-line">    data.append(({</td>
+      </tr>
+      <tr>
+        <td id="file-topic7_16-py-L21" class="blob-num js-line-number" data-line-number="21"></td>
+        <td id="file-topic7_16-py-LC21" class="blob-code blob-code-inner js-file-line">        <span class="pl-s"><span class="pl-pds">'</span>ARI<span class="pl-pds">'</span></span>: metrics.adjusted_rand_score(y, algo.labels_),</td>
+      </tr>
+      <tr>
+        <td id="file-topic7_16-py-L22" class="blob-num js-line-number" data-line-number="22"></td>
+        <td id="file-topic7_16-py-LC22" class="blob-code blob-code-inner js-file-line">        <span class="pl-s"><span class="pl-pds">'</span>AMI<span class="pl-pds">'</span></span>: metrics.adjusted_mutual_info_score(y, algo.labels_),</td>
+      </tr>
+      <tr>
+        <td id="file-topic7_16-py-L23" class="blob-num js-line-number" data-line-number="23"></td>
+        <td id="file-topic7_16-py-LC23" class="blob-code blob-code-inner js-file-line">        <span class="pl-s"><span class="pl-pds">'</span>Homogenity<span class="pl-pds">'</span></span>: metrics.homogeneity_score(y, algo.labels_),</td>
+      </tr>
+      <tr>
+        <td id="file-topic7_16-py-L24" class="blob-num js-line-number" data-line-number="24"></td>
+        <td id="file-topic7_16-py-LC24" class="blob-code blob-code-inner js-file-line">        <span class="pl-s"><span class="pl-pds">'</span>Completeness<span class="pl-pds">'</span></span>: metrics.completeness_score(y, algo.labels_),</td>
+      </tr>
+      <tr>
+        <td id="file-topic7_16-py-L25" class="blob-num js-line-number" data-line-number="25"></td>
+        <td id="file-topic7_16-py-LC25" class="blob-code blob-code-inner js-file-line">        <span class="pl-s"><span class="pl-pds">'</span>V-measure<span class="pl-pds">'</span></span>: metrics.v_measure_score(y, algo.labels_),</td>
+      </tr>
+      <tr>
+        <td id="file-topic7_16-py-L26" class="blob-num js-line-number" data-line-number="26"></td>
+        <td id="file-topic7_16-py-LC26" class="blob-code blob-code-inner js-file-line">        <span class="pl-s"><span class="pl-pds">'</span>Silhouette<span class="pl-pds">'</span></span>: metrics.silhouette_score(X, algo.labels_)}))</td>
+      </tr>
+      <tr>
+        <td id="file-topic7_16-py-L27" class="blob-num js-line-number" data-line-number="27"></td>
+        <td id="file-topic7_16-py-LC27" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-topic7_16-py-L28" class="blob-num js-line-number" data-line-number="28"></td>
+        <td id="file-topic7_16-py-LC28" class="blob-code blob-code-inner js-file-line">results <span class="pl-k">=</span> pd.DataFrame(<span class="pl-v">data</span><span class="pl-k">=</span>data, <span class="pl-v">columns</span><span class="pl-k">=</span>[<span class="pl-s"><span class="pl-pds">'</span>ARI<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>AMI<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>Homogenity<span class="pl-pds">'</span></span>,</td>
+      </tr>
+      <tr>
+        <td id="file-topic7_16-py-L29" class="blob-num js-line-number" data-line-number="29"></td>
+        <td id="file-topic7_16-py-LC29" class="blob-code blob-code-inner js-file-line">                                           <span class="pl-s"><span class="pl-pds">'</span>Completeness<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>V-measure<span class="pl-pds">'</span></span>, </td>
+      </tr>
+      <tr>
+        <td id="file-topic7_16-py-L30" class="blob-num js-line-number" data-line-number="30"></td>
+        <td id="file-topic7_16-py-LC30" class="blob-code blob-code-inner js-file-line">                                           <span class="pl-s"><span class="pl-pds">'</span>Silhouette<span class="pl-pds">'</span></span>],</td>
+      </tr>
+      <tr>
+        <td id="file-topic7_16-py-L31" class="blob-num js-line-number" data-line-number="31"></td>
+        <td id="file-topic7_16-py-LC31" class="blob-code blob-code-inner js-file-line">                       <span class="pl-v">index</span><span class="pl-k">=</span>[<span class="pl-s"><span class="pl-pds">'</span>K-means<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>Affinity<span class="pl-pds">'</span></span>, </td>
+      </tr>
+      <tr>
+        <td id="file-topic7_16-py-L32" class="blob-num js-line-number" data-line-number="32"></td>
+        <td id="file-topic7_16-py-LC32" class="blob-code blob-code-inner js-file-line">                              <span class="pl-s"><span class="pl-pds">'</span>Spectral<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>Agglomerative<span class="pl-pds">'</span></span>])</td>
+      </tr>
+      <tr>
+        <td id="file-topic7_16-py-L33" class="blob-num js-line-number" data-line-number="33"></td>
+        <td id="file-topic7_16-py-LC33" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-topic7_16-py-L34" class="blob-num js-line-number" data-line-number="34"></td>
+        <td id="file-topic7_16-py-LC34" class="blob-code blob-code-inner js-file-line">results</td>
+      </tr>
+</tbody></table>
+
+
+  </div>
+
+  </div>
+</div>
+
+      </div>
+      <div class="gist-meta">
+        <a href="https://gist.github.com/libfun/7e5dc343addec0ff20852030170ec681/raw/28bc7d98fef901ee5958bdb6fe1ed3e92864db01/topic7_16.py" style="float:right">view raw</a>
+        <a href="https://gist.github.com/libfun/7e5dc343addec0ff20852030170ec681#file-topic7_16-py">topic7_16.py</a>
+        hosted with ❤ by <a href="https://github.com/">GitHub</a>
+      </div>
+    </div>
+</div>
+<script>var height = -1; var delayMs = 200;function notifyResize(height) {height = height ? height : document.documentElement.offsetHeight; var resized = false; if (window.donkey && donkey.resize) {donkey.resize(height); resized = true;}if (parent && parent._resizeIframe) {var obj = {iframe: window.frameElement, height: height}; parent._resizeIframe(obj); resized = true;}if (window.location && window.location.hash === "#amp=1" && window.parent && window.parent.postMessage) {window.parent.postMessage({sentinel: "amp", type: "embed-size", height: height}, "*");}if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.resize) {window.webkit.messageHandlers.resize.postMessage(height); resized = true;}return resized;}function maybeResize() {if (document.documentElement.offsetHeight != height && notifyResize()) {height = document.documentElement.offsetHeight;}delayMs = Math.min(delayMs * 2, 1000000); setTimeout(maybeResize, delayMs);}maybeResize();</script></body></html>

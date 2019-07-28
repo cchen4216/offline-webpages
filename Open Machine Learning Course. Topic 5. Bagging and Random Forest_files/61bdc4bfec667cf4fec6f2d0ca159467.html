@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<!-- saved from url=(0077)https://medium.com/media/61bdc4bfec667cf4fec6f2d0ca159467?postId=8e05246cbba7 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>topic5_snippet1.py – Medium</title><meta name="description" content="GitHub is where people build software. More than 28 million people use GitHub to discover, fork, and contribute to over 80 million projects."><meta name="twitter:widgets:csp" content="on"><meta name="robots" content="noindex"><!--<base target="_blank">--><base href="." target="_blank"><style>body {text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: "ff-tisa-web-pro", Georgia, Cambria, "Times New Roman", Times, serif; font-weight: 400; color: #333332; font-size: 18px; line-height: 1.4; margin: 0; background-color: white; overflow: hidden;}iframe {max-width: 100%;}</style></head><body><style>.gist .gist-file { margin-bottom: 0 !important; }.gist { text-rendering: auto; }</style><script src="./9e57a01cb2b3f1247bac1ec8e46f3a37.js" charset="utf-8"></script><link rel="stylesheet" href="./gist-embed-6364c832764ba9bc85e4566bd747f0d1.css"><div id="gist87917074" class="gist">
+    <div class="gist-file">
+      <div class="gist-data">
+        <div class="js-gist-file-update-container js-task-list-container file-box">
+  <div id="file-topic5_snippet1-py" class="file">
+    
+
+  <div itemprop="text" class="blob-wrapper data type-python">
+      <table class="highlight tab-size js-file-line-container" data-tab-size="8">
+      <tbody><tr>
+        <td id="file-topic5_snippet1-py-L1" class="blob-num js-line-number" data-line-number="1"></td>
+        <td id="file-topic5_snippet1-py-LC1" class="blob-code blob-code-inner js-file-line"><span class="pl-k">import</span> pandas <span class="pl-k">as</span> pd</td>
+      </tr>
+      <tr>
+        <td id="file-topic5_snippet1-py-L2" class="blob-num js-line-number" data-line-number="2"></td>
+        <td id="file-topic5_snippet1-py-LC2" class="blob-code blob-code-inner js-file-line"><span class="pl-k">from</span> matplotlib <span class="pl-k">import</span> pyplot <span class="pl-k">as</span> plt</td>
+      </tr>
+      <tr>
+        <td id="file-topic5_snippet1-py-L3" class="blob-num js-line-number" data-line-number="3"></td>
+        <td id="file-topic5_snippet1-py-LC3" class="blob-code blob-code-inner js-file-line">plt.style.use(<span class="pl-s"><span class="pl-pds">'</span>ggplot<span class="pl-pds">'</span></span>)</td>
+      </tr>
+      <tr>
+        <td id="file-topic5_snippet1-py-L4" class="blob-num js-line-number" data-line-number="4"></td>
+        <td id="file-topic5_snippet1-py-LC4" class="blob-code blob-code-inner js-file-line">plt.rcParams[<span class="pl-s"><span class="pl-pds">'</span>figure.figsize<span class="pl-pds">'</span></span>] <span class="pl-k">=</span> <span class="pl-c1">10</span>, <span class="pl-c1">6</span></td>
+      </tr>
+      <tr>
+        <td id="file-topic5_snippet1-py-L5" class="blob-num js-line-number" data-line-number="5"></td>
+        <td id="file-topic5_snippet1-py-LC5" class="blob-code blob-code-inner js-file-line"><span class="pl-k">import</span> seaborn <span class="pl-k">as</span> sns</td>
+      </tr>
+      <tr>
+        <td id="file-topic5_snippet1-py-L6" class="blob-num js-line-number" data-line-number="6"></td>
+        <td id="file-topic5_snippet1-py-LC6" class="blob-code blob-code-inner js-file-line"><span class="pl-k">%</span>matplotlib inline</td>
+      </tr>
+      <tr>
+        <td id="file-topic5_snippet1-py-L7" class="blob-num js-line-number" data-line-number="7"></td>
+        <td id="file-topic5_snippet1-py-LC7" class="blob-code blob-code-inner js-file-line">telecom_data <span class="pl-k">=</span> pd.read_csv(<span class="pl-s"><span class="pl-pds">'</span>../../data/telecom_churn.csv<span class="pl-pds">'</span></span>)</td>
+      </tr>
+      <tr>
+        <td id="file-topic5_snippet1-py-L8" class="blob-num js-line-number" data-line-number="8"></td>
+        <td id="file-topic5_snippet1-py-LC8" class="blob-code blob-code-inner js-file-line">fig <span class="pl-k">=</span> sns.kdeplot(telecom_data[telecom_data[<span class="pl-s"><span class="pl-pds">'</span>Churn<span class="pl-pds">'</span></span>] <span class="pl-k">==</span> <span class="pl-c1">False</span>][<span class="pl-s"><span class="pl-pds">'</span>Customer service calls<span class="pl-pds">'</span></span>], </td>
+      </tr>
+      <tr>
+        <td id="file-topic5_snippet1-py-L9" class="blob-num js-line-number" data-line-number="9"></td>
+        <td id="file-topic5_snippet1-py-LC9" class="blob-code blob-code-inner js-file-line">                  <span class="pl-v">label</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>Loyal<span class="pl-pds">'</span></span>)</td>
+      </tr>
+      <tr>
+        <td id="file-topic5_snippet1-py-L10" class="blob-num js-line-number" data-line-number="10"></td>
+        <td id="file-topic5_snippet1-py-LC10" class="blob-code blob-code-inner js-file-line">fig <span class="pl-k">=</span> sns.kdeplot(telecom_data[telecom_data[<span class="pl-s"><span class="pl-pds">'</span>Churn<span class="pl-pds">'</span></span>] <span class="pl-k">==</span> <span class="pl-c1">True</span>][<span class="pl-s"><span class="pl-pds">'</span>Customer service calls<span class="pl-pds">'</span></span>], </td>
+      </tr>
+      <tr>
+        <td id="file-topic5_snippet1-py-L11" class="blob-num js-line-number" data-line-number="11"></td>
+        <td id="file-topic5_snippet1-py-LC11" class="blob-code blob-code-inner js-file-line">                  <span class="pl-v">label</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>Churn<span class="pl-pds">'</span></span>)        </td>
+      </tr>
+      <tr>
+        <td id="file-topic5_snippet1-py-L12" class="blob-num js-line-number" data-line-number="12"></td>
+        <td id="file-topic5_snippet1-py-LC12" class="blob-code blob-code-inner js-file-line">fig.set(<span class="pl-v">xlabel</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">'</span>Number of calls<span class="pl-pds">'</span></span>, <span class="pl-v">ylabel</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">'</span>Density<span class="pl-pds">'</span></span>)    </td>
+      </tr>
+      <tr>
+        <td id="file-topic5_snippet1-py-L13" class="blob-num js-line-number" data-line-number="13"></td>
+        <td id="file-topic5_snippet1-py-LC13" class="blob-code blob-code-inner js-file-line">plt.show()</td>
+      </tr>
+</tbody></table>
+
+
+  </div>
+
+  </div>
+</div>
+
+      </div>
+      <div class="gist-meta">
+        <a href="https://gist.github.com/Yorko/9e57a01cb2b3f1247bac1ec8e46f3a37/raw/5bf97e56ab9d259e3d163c24fbf262841a0a5a72/topic5_snippet1.py" style="float:right">view raw</a>
+        <a href="https://gist.github.com/Yorko/9e57a01cb2b3f1247bac1ec8e46f3a37#file-topic5_snippet1-py">topic5_snippet1.py</a>
+        hosted with ❤ by <a href="https://github.com/">GitHub</a>
+      </div>
+    </div>
+</div>
+<script>var height = -1; var delayMs = 200;function notifyResize(height) {height = height ? height : document.documentElement.offsetHeight; var resized = false; if (window.donkey && donkey.resize) {donkey.resize(height); resized = true;}if (parent && parent._resizeIframe) {var obj = {iframe: window.frameElement, height: height}; parent._resizeIframe(obj); resized = true;}if (window.location && window.location.hash === "#amp=1" && window.parent && window.parent.postMessage) {window.parent.postMessage({sentinel: "amp", type: "embed-size", height: height}, "*");}if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.resize) {window.webkit.messageHandlers.resize.postMessage(height); resized = true;}return resized;}function maybeResize() {if (document.documentElement.offsetHeight != height && notifyResize()) {height = document.documentElement.offsetHeight;}delayMs = Math.min(delayMs * 2, 1000000); setTimeout(maybeResize, delayMs);}maybeResize();</script></body></html>

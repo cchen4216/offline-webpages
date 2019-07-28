@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<!-- saved from url=(0077)https://medium.com/media/eb61c66d2367a4a7732b668abfce8ca7?postId=8613c6b6d2cd -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>topic3_snippet18.py – Medium</title><meta name="description" content="GitHub is where people build software. More than 27 million people use GitHub to discover, fork, and contribute to over 80 million projects."><meta name="twitter:widgets:csp" content="on"><meta name="robots" content="noindex"><!--<base target="_blank">--><base href="." target="_blank"><style>body {text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: "ff-tisa-web-pro", Georgia, Cambria, "Times New Roman", Times, serif; font-weight: 400; color: #333332; font-size: 18px; line-height: 1.4; margin: 0; background-color: white; overflow: hidden;}iframe {max-width: 100%;}</style></head><body><style>.gist .gist-file { margin-bottom: 0 !important; }.gist { text-rendering: auto; }</style><script src="./88eb25d79a02a7e8b1618e96c91191d0.js" charset="utf-8"></script><link rel="stylesheet" href="./gist-embed-6364c832764ba9bc85e4566bd747f0d1.css"><div id="gist88887678" class="gist">
+    <div class="gist-file">
+      <div class="gist-data">
+        <div class="js-gist-file-update-container js-task-list-container file-box">
+  <div id="file-topic3_snippet18-py" class="file">
+    
+
+  <div itemprop="text" class="blob-wrapper data type-python">
+      <table class="highlight tab-size js-file-line-container" data-tab-size="8">
+      <tbody><tr>
+        <td id="file-topic3_snippet18-py-L1" class="blob-num js-line-number" data-line-number="1"></td>
+        <td id="file-topic3_snippet18-py-LC1" class="blob-code blob-code-inner js-file-line"><span class="pl-k">def</span> <span class="pl-en">form_linearly_separable_data</span>(<span class="pl-smi">n</span><span class="pl-k">=</span><span class="pl-c1">500</span>, <span class="pl-smi">x1_min</span><span class="pl-k">=</span><span class="pl-c1">0</span>, <span class="pl-smi">x1_max</span><span class="pl-k">=</span><span class="pl-c1">30</span>, </td>
+      </tr>
+      <tr>
+        <td id="file-topic3_snippet18-py-L2" class="blob-num js-line-number" data-line-number="2"></td>
+        <td id="file-topic3_snippet18-py-LC2" class="blob-code blob-code-inner js-file-line">                                 <span class="pl-smi">x2_min</span><span class="pl-k">=</span><span class="pl-c1">0</span>, <span class="pl-smi">x2_max</span><span class="pl-k">=</span><span class="pl-c1">30</span>):</td>
+      </tr>
+      <tr>
+        <td id="file-topic3_snippet18-py-L3" class="blob-num js-line-number" data-line-number="3"></td>
+        <td id="file-topic3_snippet18-py-LC3" class="blob-code blob-code-inner js-file-line">    data, target <span class="pl-k">=</span> [], []</td>
+      </tr>
+      <tr>
+        <td id="file-topic3_snippet18-py-L4" class="blob-num js-line-number" data-line-number="4"></td>
+        <td id="file-topic3_snippet18-py-LC4" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">for</span> i <span class="pl-k">in</span> <span class="pl-c1">range</span>(n):</td>
+      </tr>
+      <tr>
+        <td id="file-topic3_snippet18-py-L5" class="blob-num js-line-number" data-line-number="5"></td>
+        <td id="file-topic3_snippet18-py-LC5" class="blob-code blob-code-inner js-file-line">        x1 <span class="pl-k">=</span> np.random.randint(x1_min, x1_max)</td>
+      </tr>
+      <tr>
+        <td id="file-topic3_snippet18-py-L6" class="blob-num js-line-number" data-line-number="6"></td>
+        <td id="file-topic3_snippet18-py-LC6" class="blob-code blob-code-inner js-file-line">        x2 <span class="pl-k">=</span> np.random.randint(x2_min, x2_max)</td>
+      </tr>
+      <tr>
+        <td id="file-topic3_snippet18-py-L7" class="blob-num js-line-number" data-line-number="7"></td>
+        <td id="file-topic3_snippet18-py-LC7" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">if</span> np.abs(x1 <span class="pl-k">-</span> x2) <span class="pl-k">&gt;</span> <span class="pl-c1">0.5</span>:</td>
+      </tr>
+      <tr>
+        <td id="file-topic3_snippet18-py-L8" class="blob-num js-line-number" data-line-number="8"></td>
+        <td id="file-topic3_snippet18-py-LC8" class="blob-code blob-code-inner js-file-line">            data.append([x1, x2])</td>
+      </tr>
+      <tr>
+        <td id="file-topic3_snippet18-py-L9" class="blob-num js-line-number" data-line-number="9"></td>
+        <td id="file-topic3_snippet18-py-LC9" class="blob-code blob-code-inner js-file-line">            target.append(np.sign(x1 <span class="pl-k">-</span> x2))</td>
+      </tr>
+      <tr>
+        <td id="file-topic3_snippet18-py-L10" class="blob-num js-line-number" data-line-number="10"></td>
+        <td id="file-topic3_snippet18-py-LC10" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">return</span> np.array(data), np.array(target)</td>
+      </tr>
+      <tr>
+        <td id="file-topic3_snippet18-py-L11" class="blob-num js-line-number" data-line-number="11"></td>
+        <td id="file-topic3_snippet18-py-LC11" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-topic3_snippet18-py-L12" class="blob-num js-line-number" data-line-number="12"></td>
+        <td id="file-topic3_snippet18-py-LC12" class="blob-code blob-code-inner js-file-line">X, y <span class="pl-k">=</span> form_linearly_separable_data()</td>
+      </tr>
+      <tr>
+        <td id="file-topic3_snippet18-py-L13" class="blob-num js-line-number" data-line-number="13"></td>
+        <td id="file-topic3_snippet18-py-LC13" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-topic3_snippet18-py-L14" class="blob-num js-line-number" data-line-number="14"></td>
+        <td id="file-topic3_snippet18-py-LC14" class="blob-code blob-code-inner js-file-line">plt.scatter(X[:, <span class="pl-c1">0</span>], X[:, <span class="pl-c1">1</span>], <span class="pl-v">c</span><span class="pl-k">=</span>y, <span class="pl-v">cmap</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">'</span>autumn<span class="pl-pds">'</span></span>, <span class="pl-v">edgecolors</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">'</span>black<span class="pl-pds">'</span></span>)<span class="pl-bu">;</span></td>
+      </tr>
+</tbody></table>
+
+
+  </div>
+
+  </div>
+</div>
+
+      </div>
+      <div class="gist-meta">
+        <a href="https://gist.github.com/Yorko/88eb25d79a02a7e8b1618e96c91191d0/raw/f8b52fb975c65c98d692db0679422a433e847815/topic3_snippet18.py" style="float:right">view raw</a>
+        <a href="https://gist.github.com/Yorko/88eb25d79a02a7e8b1618e96c91191d0#file-topic3_snippet18-py">topic3_snippet18.py</a>
+        hosted with ❤ by <a href="https://github.com/">GitHub</a>
+      </div>
+    </div>
+</div>
+<script>var height = -1; var delayMs = 200;function notifyResize(height) {height = height ? height : document.documentElement.offsetHeight; var resized = false; if (window.donkey && donkey.resize) {donkey.resize(height); resized = true;}if (parent && parent._resizeIframe) {var obj = {iframe: window.frameElement, height: height}; parent._resizeIframe(obj); resized = true;}if (window.location && window.location.hash === "#amp=1" && window.parent && window.parent.postMessage) {window.parent.postMessage({sentinel: "amp", type: "embed-size", height: height}, "*");}if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.resize) {window.webkit.messageHandlers.resize.postMessage(height); resized = true;}return resized;}function maybeResize() {if (document.documentElement.offsetHeight != height && notifyResize()) {height = document.documentElement.offsetHeight;}delayMs = Math.min(delayMs * 2, 1000000); setTimeout(maybeResize, delayMs);}maybeResize();</script></body></html>
